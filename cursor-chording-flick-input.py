@@ -235,7 +235,10 @@ for prefix in rows:
         romaji = prefix + suffix
         romaji = exceptions.get(romaji, romaji)  # apply exception
         if not romaji:
-            continue  # skip the historical entries "yi" and "ye" etc
+            # skip the historical entries yi/ye and small versions etc
+            # Might be better to map this to a no-op, otherwise macOS
+            # sees y and left, or y and right, x and left, x and right
+            continue
         rules.append(romaji_simple_mapping(prefix, modifier, romaji))
 
 with open(output_name, "w") as handle:
