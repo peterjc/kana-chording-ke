@@ -48,6 +48,9 @@
 
 """
 
+import sys
+
+output_name = "cursor-chording-flick-input-romaji-mode.json"
 rows = [
     "x",  # small vowels - could use prefix l instead.
     "k",
@@ -112,7 +115,6 @@ def romaji_simple_mapping(
     return (
         f"""\
 {{"description": "Romanji mode: {key}+{modifier} sends {out_keys}",
-    "enabled": false,
     "manipulators": [
         {{"conditions": [
                 {{"input_sources": [{{"language": "^ja$" }}],
@@ -136,7 +138,6 @@ def romaji_simple_mapping(
         if modifier
         else f"""\
 {{"description": "Romanji mode: {key} alone sends {out_keys}",
-    "enabled": false,
     "manipulators": [
         {{"conditions": [
                 {{"input_sources": [{{"language": "^ja$" }}],
@@ -145,8 +146,8 @@ def romaji_simple_mapping(
             ],
             "from": {{"modifiers": {{"optional": ["any"] }},
                 "simultaneous": [
-                    {{"key_code": "{key}" }},
-                ],
+                    {{"key_code": "{key}" }}
+                ]
             }},
             "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
             "to": [ {out_list} ],
@@ -158,14 +159,44 @@ def romaji_simple_mapping(
     )
 
 
+rules = []
 # a -> あ, a+left -> い, etc
 for modifier, vowel in zip(modifiers, vowels):
-    print(romaji_simple_mapping("a", modifier, vowel))
+    rules.append(romaji_simple_mapping("a", modifier, vowel))
 
 for prefix in rows:
+    if len(prefix) > 1:
+        # Only trying to map single keys (for now)
+        continue
     for modifier, suffix in zip(modifiers, vowels):
         romaji = prefix + suffix
         romaji = exceptions.get(romaji, romaji)  # apply exception
         if not romaji:
             continue  # skip the historical entries "yi" and "ye"
-        print(romaji_simple_mapping(prefix, modifier, romaji))
+        rules.append(romaji_simple_mapping(prefix, modifier, romaji))
+
+with open(output_name, "w") as handle:
+    # This does not nicely indent.
+    # Should the keyboard stay as ISO?
+    handle.write(
+        """\
+{
+  "title": "Kana chording with cursor keys (Romaji Mode)",
+  "maintainers": [
+    "peterjc"
+  ],
+  "author": "Peter J. A. Cock",
+  "homepage": "https://github.com/peterjc/kana-chording-ke",
+  "repo": "https://github.com/peterjc/kana-chording-ke",
+  "rules": [
+"""
+        + ",\n".join(_.strip() for _ in rules)
+        + """\
+    ]
+}"""
+    )
+
+sys.stderr.write(f"Generated {len(rules)} rules in {output_name}\n")
+sys.stderr.write(
+    "Try moving that under ~/.config/karabiner/assets/complex_modifications/"
+)
