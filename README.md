@@ -17,7 +17,7 @@ This is a software based project inspired by:
   building a physical 30 key chording kana keyboard with internal software.
   This was a split keyboard where the left hand had 2 rows of 6 keys containing
   maru (`ﾟ`, handakuten), ten-ten (`ﾞ`, dakuten), and a small key (labelled `大`),
-  making 3 modifiers, and the main constants (9 keys). On the right were 3 rows
+  making 3 modifiers, and the main consonants (9 keys). On the right were 3 rows
   of 6 keys, containing the vowels (5 keys), `ん`, space, assorted punctuation,
   and a hiragana/katakana toggle. The core idea is the (almost) 50 main kana
   are typed by pressing the appropriate two keys together.
@@ -198,6 +198,12 @@ context dependant for toggling the modifiers (redundant?) or size:
 I don't see how this might be used with macOS "Japanese - Kana" mode, unless
 when a consonant is pressed we wait for the vowel before sending anything to
 the keyboard? However, it seems a natural fit to the "Japanese - Romaji" mode.
+
+In this layout, for typing Japanese the only flick actions (here chording of some
+sort) would be for the ten-ten and maru modifiers - leaving the second hand mostly
+idle, perhaps mainly handling the kanji selection? Rather it seems logical to split
+the layout as per the intended thumb split - one hand gets the five vowels, and
+the other the nine consonants - taking us back to the KanaChord keyboard approach.
 
 ## License
 
