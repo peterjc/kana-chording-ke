@@ -22,29 +22,51 @@
 # SOFTWARE.
 """Generate Karabina Elements JSON for flick-input like kana chording.
 
-```
-あいうえお　アイウエオ	aiueo
-ぁぃぅぇぉ　ァィゥェォ　x+ or l+ for small vowels
-かきくけこ　カキクケコ	k+
-がぎぐげご　ガギグゲゴ	g+
-さしすせそ　サシスセソ	s+ - can use si or shi for し
-ざじずぜじ　ザジズゼゾ　z+ - can use zi or ji  for じ
-たちつてと　タチツテト　t+ - can use ti or chi for ち
-・・っ・・　・・ッ・・　did this with xtsu, xtu, xtsu or ltu
-だぢづでど　ダヂヅデド　d+
-なにぬねの　ナニヌネノ　n+
-はひふへほ　ハヒフヘホ　h+ - can use hu for fu for ふ
-ばびぶべぼ　バビブベボ　b+
-ぱぴぷぺぽ　パピプペポ　p+
-まみむめも　マミムメモ　m+
-や・ゆ・よ　ヤ・ユ・ヨ　y+
-ゃ・ゅ・ょ　ャ・ュ・ュ　xy+ or ly+ for small ya/yu/yo
-らりるれろ　ラリルレロ　r+
-わゐ・ゑを　ワヰ・ヱヲ　w+ - with wa/wyi/(vu)/wye/wo for the obsolete ones
-・・ゔ・・　・・ヴ・・　v+
-・・ん・・　・・ン・・　nn
-・・ー・・　・・ー・・　used minus - so no need to map this
-```
+The general pattern is we bind each row of the 5-column extended gojūon to a
+single letter, generally the first letter of the standard romaji. We include
+binding for maru and ten-ten modified characters. Thus in addition to binding
+h to the ha-row (はひふへほ) we bind p for the pa-row (ぱぴぷぺぽ), and b for the
+ba-row (ばびぶべぼ).
+
+For example, k is mapped to the ka-row (かきくけこ):
+
+* k alone → ka for か,
+* k+left → ki for き,
+* k+up → ku for く,
+* k+right → ke for け,
+* k+down → ko for こ.
+
+This is the standard Japanese vowel order a/i/u/e/o clockwise, matching the
+iOS flick-input. You can use the Japanese mode kanji support to select words
+in katakana, or enable shift for katakana. In that mode, K alone → KA giving
+カ, and so on.
+
+On macOS both la/li/lu/le/lo and xa/xi/xu/xe/xo give the small vowels
+(ぁぃぅぇぉ), but here only l is bound to them, and x is instead used for
+small ya/yu/yo (ゃゅょ).
+
+Currently there is no binding for small tsu っ, available in macOS romaji
+as xtsu, xsu, ltsu and lsu. This is normally done by a double consanant,
+thus kka or xtsu ka would both give っか.
+
+Following iOS flick-input, the W key mappings includes ん rather than the
+unused wu. However, our mapping sticks to gojūo layout and rather than
+mapping w+right to the long sound character (ー) we have the legacy wye and wyi
+romaji (ゑゐ) used in some names:
+
+* w alone → wa for わ,
+* w+left → wyi for ゐ,
+* w+up → nn for ん,
+* w+right → wye for ゑ,
+* w+down → wo for を.
+
+In comparison, iOS flick-input uses:
+
+* w alone → wa for わ,
+* w+left → wo for を (rather than with down),
+* w+up → nn for ん,
+* w+right → - for ー,
+* w+down unused (as on final row of their grid)
 
 """
 
