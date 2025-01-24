@@ -58,27 +58,34 @@ vowel_modifiers = {
     "o": "down_arrow",
     "a": None,  # last as a workaround (KE rule order ought not to matter)
 }
-rows = [
-    "",  #  a row:  あいうえお
-    "l",  # small:  ぁぃぅぇぉ (using l for little here, and x for small ya/yu/yo)
-    "k",  # ka row: かきくけこ
-    "g",  # ga row: がぎぐげご
-    "s",  # sa row: さしすせそ
-    "z",  # za row: ざじずぜぞ
-    "t",  # ta row: たちつてと
-    #  "xt" small:  ・・っ・・ (just small tsu っ aka xtsu aka xtu etc).
-    "d",  # da row: だぢづでど
-    "n",  # na row: なにぬねの
-    "h",  # ha row: はひふへほ
-    "b",  # ba row: ばびぶべぼ
-    "p",  # pa row: ぱぴぷぺぽ
-    "m",  # ma row: まみむめも
-    "y",  # ya row: や・ゆ・よ
-    "xy",  # small: ゃ・ゅ・ょ (using x here, and l for small a/i/u/e/o)
-    "r",  # ra row: らりるれろ
-    "w",  # wa row: わ・ん・を (including ん in place of wu)
-    "v",  # va row: ・・ゔ・・ (only mapping vu, others don't give single kana)
-]
+rows = {
+    "": "あいうえお",
+    # Using l for little here (small vowels), and x for small ya/yu/yo:
+    "l": "ぁぃぅぇぉ",
+    "k": "かきくけこ",
+    "g": "がぎぐげご",
+    "s": "さしすせそ",
+    "z": "ざじずぜぞ",
+    "t": "たちつてと",
+    # TODO: "・・っ・・" for small っ via xtsu/xtu or ltsu/lsu
+    "d": "だぢづでど",
+    "n": "なにぬねの",
+    "h": "はひふへほ",
+    "b": "ばびぶべぼ",
+    "p": "ぱぴぷぺぽ",
+    "m": "まみむめも",
+    "y": "や・ゆ・よ",
+    # Using x here for small ya/yu/yo as next to y in alphabet,
+    # and binding the small a/i/u/e/o to l for little:
+    "xy": "ゃ・ゅ・ょ",
+    "r": "らりるれろ",
+    # Follow iOS flick-input and typical charts with ん in place of wu,
+    # Note wi/we must be entered as wyi/wye:
+    "w": "わゐんゑを",
+    # Currently only mapping vu, others don't give single kana:
+    "v": "・・ゔ・・",
+}
+# Could infer the blank exceptions from "・" entries in above dict?
 exceptions = {
     "si": "shi",  # use typical romaji for kana し although "si" works anyway
     "zi": "ji",  # use typical romaji for kana じ although "zi" works anyway
@@ -104,7 +111,7 @@ exceptions = {
 
 
 def romaji_simple_mapping(
-    key: str, modifier: str, out_keys: str, threshold: int = 100
+    prefix: str, modifier: str, out_keys: str, threshold: int = 100
 ) -> str:
     """Generate Karabina Elements JSON to map key+modifier to given romaji key sequence.
 
@@ -116,10 +123,14 @@ def romaji_simple_mapping(
     * `へ` from `h` + `right_arrow` to `he`
     * `ほ` from `h` + `down_arrow` to `ho`
     """
+    # binding the first letter only (small ya/yu/yo special case)
+    key = prefix[:1] if prefix else "a"  # handle a/i/u/e/o
     out_list = ", ".join(('{"key_code": "' + _ + '"}') for _ in out_keys)
+    vowel = next(k for (k, v) in vowel_modifiers.items() if v == modifier)
+    kana = rows["" if prefix == "a" else prefix]["aiueo".index(vowel)]
     return (
         f"""\
-{{"description": "Romanji mode: {key}+{modifier} sends {out_keys}",
+{{"description": "Romanji mode {kana}: {key}+{modifier} sends {out_keys}",
     "manipulators": [
         {{"conditions": [
                 {{"input_sources": [{{"language": "^ja$" }}],
@@ -142,7 +153,7 @@ def romaji_simple_mapping(
 """
         if modifier
         else f"""\
-{{"description": "Romanji mode: {key} alone sends {out_keys}",
+{{"description": "Romanji mode {kana}: {key} alone sends {out_keys}",
     "manipulators": [
         {{"conditions": [
                 {{"input_sources": [{{"language": "^ja$" }}],
@@ -165,10 +176,6 @@ def romaji_simple_mapping(
 
 
 rules = []
-# a -> あ, a+left -> い, etc
-for vowel, modifier in vowel_modifiers.items():
-    rules.append(romaji_simple_mapping("a", modifier, vowel))
-
 for prefix in rows:
     for suffix, modifier in vowel_modifiers.items():
         romaji = prefix + suffix
@@ -176,7 +183,7 @@ for prefix in rows:
         if not romaji:
             continue  # skip the historical entries "yi" and "ye" etc
         # binding the first letter only (small ya/yu/yo special case)
-        rules.append(romaji_simple_mapping(prefix[:1], modifier, romaji))
+        rules.append(romaji_simple_mapping(prefix, modifier, romaji))
 
 with open(output_name, "w") as handle:
     # This does not nicely indent.
