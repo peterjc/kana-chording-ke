@@ -92,6 +92,17 @@ ke (`け`), etc. This can be used with the QWERTY layout on a Japanese keyboard,
 or anything similar with "Roman" letter like any English layout, or the French
 AZERTY for example.
 
+For example, `n+left` (→`に`), `h+down` (→`ほ`), `n` (→`ん`), `g+down` (→`ご`)
+would type `にほんご` which should offer the kanji `日本語` (meaning Japanese
+language). That is four chords (three and a single character if you prefer),
+compared to at least seven keys in Romaji mode (either `nihongo` or `nihonngo`
+works).
+
+For a katakana example, `コーヒー` (meaning coffee) in romaji mode using shift to
+indicate katakana explicitly, would be `shift+h+down` (→`コ`), `-` (→`ー`),
+`shift+h+left` (→`ヒ`), `-` (→`ー`). That is four chords (two and two single
+keys if you prefer), compared to six keys with shift in Romaji mode (`KO-HI-`).
+
 This may prove popular with Japanese learners, as no new key locations need be
 learnt, only a couple of corner cases like `up+w`→`ん` to match the iOS flick
 layout. However, with the right hand on the cursors to mimic the flick action,
@@ -124,16 +135,16 @@ simplest), while for the punctuation button the English comma makes sense:
 | `m` | `y` | `r` |
 | `?` | `w` | `,` |
 
-For example, `n+left` (→`に`), `h+down` (→`ほ`), `n` (→`ん`), `g+down` (→`ご`)
-would type `にほんご` which should offer the kanji `日本語` (meaning Japanese
-language). That is four chords (three and a single character if you prefer),
-compared to at least seven keys in Romaji mode (either `nihongo` or `nihonngo`
-works).
+The earlier example using core hiragana remains the same:  `n+left` (→`に`),
+`h+down` (→`ほ`), `n` (→`ん`), `g+down` (→`ご`) would type `にほんご` which
+should offer the kanji `日本語` (meaning Japanese language).
 
-For a katakana example, `コーヒー` (meaning coffee) in romaji mode using shift to
-indicate katakana explicitly, would be `shift+h+down` (→`コ`), `shift+h+left`
-(→`ヒ`), `-` (→`ー`). That is four chords (two and two single keys if you
-prefer), compared to six keys with shift in Romaji mode (`KO-HI-`).
+For a katakana example, `コーヒー` (meaning coffee) assuming we don't have
+access to the hypen key `-`, we can use an iOS flick-input inspired chord 
+`comma+down` (→`ー`). Thus four chords `shift+h+down` (→`コ`), `comma+down`
+(→`ー`),　`shift+h+left` (→`ヒ`), `comma+down` (→`ー`) for four characters.
+(Perhaps we should make both `comma+down` and `shift+comma+down` → `ー`
+since this will often be used with romaji-shift mode?)
 
 Additional keys would be needed for kanji selection, proably at least escape to
 cancel, space to cycle the suggestions, and enter to accept. Perhaps for the
