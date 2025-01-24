@@ -51,6 +51,13 @@
 import sys
 
 output_name = "cursor-chording-flick-input-romaji-mode.json"
+vowel_modifiers = {
+    "i": "left_arrow",
+    "u": "up_arrow",
+    "e": "right_arrow",
+    "o": "down_arrow",
+    "a": None,  # last as a workaround (KE rule order ought not to matter)
+}
 rows = [
     "",  #  a row:  あいうえお
     "l",  # small:  ぁぃぅぇぉ (using l for little here, and x for small ya/yu/yo)
@@ -72,10 +79,6 @@ rows = [
     "w",  # wa row: わ・ん・を (including ん in place of wu)
     "v",  # va row: ・・ゔ・・ (only mapping vu, others don't give single kana)
 ]
-
-vowels = "iueoa"  # used as suffix for default romaji mapping; a last!
-modifiers = ["left_arrow", "up_arrow", "right_arrow", "down_arrow", None]
-assert len(vowels) == len(modifiers)
 exceptions = {
     "si": "shi",  # use typical romaji for kana し although "si" works anyway
     "zi": "ji",  # use typical romaji for kana じ although "zi" works anyway
@@ -163,11 +166,11 @@ def romaji_simple_mapping(
 
 rules = []
 # a -> あ, a+left -> い, etc
-for modifier, vowel in zip(modifiers, vowels):
+for vowel, modifier in vowel_modifiers.items():
     rules.append(romaji_simple_mapping("a", modifier, vowel))
 
 for prefix in rows:
-    for modifier, suffix in zip(modifiers, vowels):
+    for suffix, modifier in vowel_modifiers.items():
         romaji = prefix + suffix
         romaji = exceptions.get(romaji, romaji)  # apply exception
         if not romaji:
