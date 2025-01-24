@@ -80,7 +80,8 @@ follow the base kana with the maru key `[`). In this mode the shift key
 gives the small form of the vowels `a`/`i`/`u`/`e`/`o`, `tsu` or
 `ya`/`yu`/`yo`, and toggles the `わ` key to `を` (key zero). For katakana,
 in this mode to enter coffee we would want to simulate pressing `b` `¥`
-`v` `¥` giving `コーヒー` via the language support.
+`v` `¥` giving `コーヒー` via the language support. There are explict keys
+for `◌゙` (adding ten-ten or dakuten) and `◌゚ ` (adding maru or handakuten).
 
 ## Physical Keyboards
 
@@ -172,25 +173,27 @@ upper case Roman letters (with additional controls either side not shown):
 | `I` | `S` | `M` |
 | `U` | `T` | `Y` |
 | `E` | `N` | `R` |
-| `O` | `?` | `W` |
+| `O` | `小` | `W` |
 
 Again the `?` here is a placeholder for a context dependent modifier.
 
 My understanding is to type `日本語` would need seven keys, just like Romaji
 mode: `N` `I` (→`に`) `H` `O` (→`ほ`) `N` (→`ん`) `G` `O` (→`ご`).
 
-In this approach the flick actions left used for ten-ten, right for maru, down
-for the numbers, up for corner cases. This is also used in ABC mode to access
-the rest of the alphabet, meaning in principle this might replace a physical
-QWERTY keyboard rather than just supplementing one - although you'd still need
-cursor controls, escape, enter, etc.
+In this approach the flick actions left used for ten-ten (like `H` to `B`),
+right for maru (`H` to `P`), down for the numbers (telephone keypad layout),
+and up for corner cases. This is also used in ABC mode to access the rest
+of the alphabet, meaning in principle this might replace a physical QWERTY
+keyboard rather than just supplementing one - although you'd still need
+cursor controls, escape, enter, etc. The middle key in the final row is
+context dependant for toggling the modifiers (redundant?) or size:
 
 | ・<br>・ `A` ・<br>`1` | `Q`<br>・ `K` `G`<br>`2` | `F`<br>`P` `H` `B`<br>`3`   |
 |:---------------------:|:------------------------:|:---------------------------:|
 | ・<br>・ `I` ・<br>`4` | `J`<br>・ `S` `Z`<br>`5` | `L`<br>・ `M` `ー`<br>`6`    |
 | ・<br>・ `U` ・<br>`7` | `C`<br>・ `T` `D`<br>`8` | `X`<br>・ `Y` ・<br>`9`      |
 | ・<br>・ `E` ・<br>・  | ・<br>・ `N` ・<br>`0`    | `？`<br>`.` `R` `！`<br>`、` |
-| ・<br>・ `O` ・<br>・  | ・<br>・ `大` ・<br>・     | `V`<br>・ `W` ・<br>・       |
+| ・<br>・ `O` ・<br>・  | ◌゙` &nbsp; ◌゚ <br>大 ⇔ 小  | `V`<br>・ `W` ・<br>・       |
 
 I don't see how this might be used with macOS "Japanese - Kana" mode, unless
 when a consonant is pressed we wait for the vowel before sending anything to
