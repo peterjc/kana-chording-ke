@@ -68,7 +68,20 @@ In comparison, iOS flick-input uses:
 * w+right → - for ー,
 * w+down unused (as on final row of their grid)
 
+We do copy their punction mapping bound to comma, but move long sound
+character (ー) here to the down modifier:
+
+* `,` alone → `,` for `、` (Japanese comma),
+* `,`+`left` → `.` for `。`  (Japanese full stop),
+* `,`+`up` → `!` for `！` (Japanese exclamation mark),
+* `,`+`right` → `?` for `？` (Japanese question mark),
+* `,`+`down` → `-` for `ー` (unused on iOS as on final row of their grid)
+
 """
+
+# Testing あいうえお　かきくけこ　わゐんゑを　らりるれろ　たちつてと　やゆよ　ぱぴぷぺぽ
+# さしそせそ　だぢづでど　がぎぐげご　はひふへほ　かきくけこ　ぁぃぅぇぉ　ざじずぜぞ
+# ゃゅょ　ゔ　ばびぶべぼ　なにぬねの　まみむめま ,,
 
 import sys
 
@@ -106,6 +119,8 @@ rows = {
     "w": "わゐんゑを",
     # Currently only mapping vu, others don't give single kana:
     "v": "・・ゔ・・",
+    # Punctuation
+    ",": "、。！？ー",
 }
 # Could infer the blank exceptions from "・" entries in above dict?
 exceptions = {
@@ -129,11 +144,17 @@ exceptions = {
     "vi": None,  # not used as double kana, just vu for ゔ/ヴ
     "ve": None,  # not used as double kana, just vu for ゔ/ヴ
     "vo": None,  # not used as double kana, just vu for ゔ/ヴ
+    # punctuation
+    ",a": ["comma"],
+    ",i": ["period"],
+    ",u": None,  # need shift and one
+    ",e": None,  # need shift and /
+    ",o": ["hyphen"],
 }
 
 
 def romaji_simple_mapping(
-    prefix: str, modifier: str, out_keys: str, threshold: int = 100
+    prefix: str, modifier: str, out_keys: str | list[str], threshold: int = 100
 ) -> str:
     """Generate Karabina Elements JSON to map key+modifier to given romaji key sequence.
 
@@ -145,8 +166,16 @@ def romaji_simple_mapping(
     * `へ` from `h` + `right_arrow` to `he`
     * `ほ` from `h` + `down_arrow` to `ho`
     """
-    # binding the first letter only (small ya/yu/yo special case)
-    key = prefix[:1] if prefix else "a"  # handle a/i/u/e/o
+    if not prefix:
+        # binding a/i/u/e/o to a
+        key = "a"
+    elif prefix == ",":
+        # needs a name as the key code
+        key = "comma"
+    else:
+        # binding the first letter only (small ya/yu/yo special case)
+        key = prefix[:1]
+
     out_list = ", ".join(('{"key_code": "' + _ + '"}') for _ in out_keys)
     vowel = next(k for (k, v) in vowel_modifiers.items() if v == modifier)
     kana = rows["" if prefix == "a" else prefix]["aiueo".index(vowel)]
@@ -198,13 +227,15 @@ def romaji_simple_mapping(
 
 
 rules = []
+
+# Mappings for extended gojūon table including ba and pa as well as ha,
+# plus comma bindings based on iOS flick-input
 for prefix in rows:
     for suffix, modifier in vowel_modifiers.items():
         romaji = prefix + suffix
         romaji = exceptions.get(romaji, romaji)  # apply exception
         if not romaji:
             continue  # skip the historical entries "yi" and "ye" etc
-        # binding the first letter only (small ya/yu/yo special case)
         rules.append(romaji_simple_mapping(prefix, modifier, romaji))
 
 with open(output_name, "w") as handle:
