@@ -198,5 +198,5 @@ with open(output_name, "w") as handle:
 
 sys.stderr.write(f"Generated {len(rules)} rules in {output_name}\n")
 sys.stderr.write(
-    "Try moving that under ~/.config/karabiner/assets/complex_modifications/"
+    "Try moving that under ~/.config/karabiner/assets/complex_modifications/\n"
 )
