@@ -38,7 +38,7 @@
 ぱぴぷぺぽ　パピプペポ　p+
 まみむめも　マミムメモ　m+
 や・ゆ・よ　ヤ・ユ・ヨ　y+
-ゃ・ゅ・ょ　ャ・ュ・ュ　xy+
+ゃ・ゅ・ょ　ャ・ュ・ュ　xy+ or ly+ for small ya/yu/yo
 らりるれろ　ラリルレロ　r+
 わゐ・ゑを　ワヰ・ヱヲ　w+ - with wa/wyi/(vu)/wye/wo for the obsolete ones
 ・・ゔ・・　・・ヴ・・　v+
@@ -52,25 +52,27 @@ import sys
 
 output_name = "cursor-chording-flick-input-romaji-mode.json"
 rows = [
-    "x",  # small vowels - could use prefix l instead.
-    "k",
-    "g",
-    "s",
-    "z",
-    "t",
-    "xt",  # just for small tsu aka xtsu aka xtu etc.
-    "d",
-    "n",
-    "h",
-    "b",
-    "p",
-    "m",
-    "y",
-    "xy",  # small ya, yu, yo
-    "r",
-    "w",  # including ん in place of wu
-    "v",
+    "",  #  a row:  あいうえお
+    "l",  # small:  ぁぃぅぇぉ (using l for little here, and x for small ya/yu/yo)
+    "k",  # ka row: かきくけこ
+    "g",  # ga row: がぎぐげご
+    "s",  # sa row: さしすせそ
+    "z",  # za row: ざじずぜぞ
+    "t",  # ta row: たちつてと
+    #  "xt" small:  ・・っ・・ (just small tsu っ aka xtsu aka xtu etc).
+    "d",  # da row: だぢづでど
+    "n",  # na row: なにぬねの
+    "h",  # ha row: はひふへほ
+    "b",  # ba row: ばびぶべぼ
+    "p",  # pa row: ぱぴぷぺぽ
+    "m",  # ma row: まみむめも
+    "y",  # ya row: や・ゆ・よ
+    "xy",  # small: ゃ・ゅ・ょ (using x here, and l for small a/i/u/e/o)
+    "r",  # ra row: らりるれろ
+    "w",  # wa row: わ・ん・を (including ん in place of wu)
+    "v",  # va row: ・・ゔ・・ (only mapping vu, others don't give single kana)
 ]
+
 vowels = "iueoa"  # used as suffix for default romaji mapping; a last!
 modifiers = [None, "left_arrow", "up_arrow", "right_arrow", "down_arrow"]
 assert len(vowels) == len(modifiers)
@@ -91,10 +93,10 @@ exceptions = {
     "wi": "wyi",  # historical, only used in names now
     "wu": "nn",  # "wu" is historical and not used, instead w+up mapped to "ん"
     "we": "wye",  # historical, only used in names now
-    "va": None,  # not used as a single kana, just vu for ゔ/ヴ
-    "vi": None,  # not used as a single kana, just vu for ゔ/ヴ
-    "ve": None,  # not used as a single kana, just vu for ゔ/ヴ
-    "vo": None,  # not used as a single kana, just vu for ゔ/ヴ
+    "va": None,  # not used as double kana, just vu for ゔ/ヴ
+    "vi": None,  # not used as double kana, just vu for ゔ/ヴ
+    "ve": None,  # not used as double kana, just vu for ゔ/ヴ
+    "vo": None,  # not used as double kana, just vu for ゔ/ヴ
 }
 
 
@@ -165,15 +167,13 @@ for modifier, vowel in zip(modifiers, vowels):
     rules.append(romaji_simple_mapping("a", modifier, vowel))
 
 for prefix in rows:
-    if len(prefix) > 1:
-        # Only trying to map single keys (for now)
-        continue
     for modifier, suffix in zip(modifiers, vowels):
         romaji = prefix + suffix
         romaji = exceptions.get(romaji, romaji)  # apply exception
         if not romaji:
-            continue  # skip the historical entries "yi" and "ye"
-        rules.append(romaji_simple_mapping(prefix, modifier, romaji))
+            continue  # skip the historical entries "yi" and "ye" etc
+        # binding the first letter only (small ya/yu/yo special case)
+        rules.append(romaji_simple_mapping(prefix[:1], modifier, romaji))
 
 with open(output_name, "w") as handle:
     # This does not nicely indent.
