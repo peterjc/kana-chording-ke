@@ -1,37 +1,37 @@
-# Kana-Chording-KE : Flick-input like Japanese chording keyboard
+# Kana-Chording-KE : Flick-input like Japanese keyboard chording
 
 ## Concept
 
-By a chording keyboard we mean pressing multiple keys at once to generate
+By keyboard chording we mean pressing multiple keys at once to generate
 characters. This idea has been applied to Japanese kana which are laided out
 on a 5×10 grid (the gojūon, 五十音, "Fifty Sounds"), starting with the five
-vowels (`a`, `i`, `u`, `e`, `o`), followed by the ka-row (`ka`, `ki`, `ku`,
-`ke`, `ko`), then the sa-row, etc. We can address any of the matrix positions
-with a consonant row (`a`, `ka`, `sa`, `ta`, `na`, `ma`, `ya`, `ra`, `wa`) and
-vowel column (`a`, `i`, `u`, `e`, `o`). Thus combining `ha` and `i` gives `hi`,
-`は`＋`い`→`ひ`).
+vowels (`a`, `i`, `u`, `e`, `o`, or `あ`, `い`, `う`, `え`, `お`), followed by
+the `ka`-row (`ka`, `ki`, `ku`, `ke`, `ko`, or `か`, `き`, `く`, `け`, `こ`),
+then the `sa`-row, etc. We can address any of the matrix positions with a
+consonant row (`a`, `ka`, `sa`, `ta`, `na`, `ma`, `ya`, `ra`, `wa`) and
+vowel column. Thus combining `ha` and `i` gives `hi`, `は`＋`い`→`ひ`).
 
 This is a software based project inspired by:
 
 * [KanaCord](https://github.com/maccody/KanaChord) which was a hardware project
   building a physical 30 key chording kana keyboard with internal software.
   This was a split keyboard where the left hand had 2 rows of 6 keys containing
-  maru (ﾟ, handakuten), ten-ten (ﾞ, dakuten), and a small key (labelled 大),
+  maru (`ﾟ`, handakuten), ten-ten (`ﾞ`, dakuten), and a small key (labelled `大`),
   making 3 modifiers, and the main constants (9 keys). On the right were 3 rows
-  of 6 keys, containing the vowels (5 keys), ん, space, assorted punctuation,
+  of 6 keys, containing the vowels (5 keys), `ん`, space, assorted punctuation,
   and a hiragana/katakana toggle. The core idea is the (almost) 50 main kana
   are typed by pressing the appropriate two keys together.
 
 * The 12-key iOS Japanese flick keyboard for touch screens, which lays out 10
-  keys for each row (a, ka, ..., wa) plus context dependent size toggle, maru,
-  or ten-ten modified, and a core punctuation key. Here each key can be tapped
-  giving the labelled character from the a-column, flicked left (i-column), up
-  (u-column), right (e-column), or down (o-column).
+  keys for each row (`a`, `ka`, ..., `wa`) plus context dependent size toggle,
+  maru, or ten-ten modified, and a core punctuation key. Here each key can be
+  tapped giving the labelled character from the `a`-column, flicked left
+  (`i`-column), up (`u`-column), right (`e`-column), or down (`o`-column).
 
 This project combines these ideas whereby any of the ASCII keys representing
-a row (like `k` for ka, ki, ku, ke, ko) can be pressed alone or in combination
-with one of four modifier keys (initially the four cursor keys) giving the
-five different vowel combinations.
+a row (like `k` for `ka`, `ki`, `ku`, `ke`, `ko`) can be pressed alone or in
+combination with one of four modifier keys (initially the four cursor keys)
+giving the five different vowel combinations.
 
 ## Implementation
 
