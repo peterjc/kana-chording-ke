@@ -74,7 +74,7 @@ rows = [
 ]
 
 vowels = "iueoa"  # used as suffix for default romaji mapping; a last!
-modifiers = [None, "left_arrow", "up_arrow", "right_arrow", "down_arrow"]
+modifiers = ["left_arrow", "up_arrow", "right_arrow", "down_arrow", None]
 assert len(vowels) == len(modifiers)
 exceptions = {
     "si": "shi",  # use typical romaji for kana し although "si" works anyway
