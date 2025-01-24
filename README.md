@@ -24,7 +24,7 @@ This is a software based project inspired by:
 
 * The 12-key iOS Japanese flick keyboard for touch screens, which lays out 10
   keys for each row (`a`, `ka`, ..., `wa`) plus context dependent size toggle,
-  maru, or ten-ten modified, and a core punctuation key. Here each key can be
+  maru, or ten-ten modifier, and a core punctuation key. Here each key can be
   tapped giving the labelled character from the `a`-column, flicked left
   (`i`-column), up (`u`-column), right (`e`-column), or down (`o`-column).
 
