@@ -64,7 +64,10 @@ and let the OS turn this into the kana or kanji as more is typed. We can
 also support `shift+right+k` sending upper case `K` then `E` which can be
 configured in the macOS Japanese settings to be treated automatically as
 the katakana `ケ`. In this mode to enter coffee we would want to simulate
-pressing `K` `O` `-` `H` `I` `-` giving `コーヒー` as you typed.
+pressing `K` `O` `-` `H` `I` `-` giving `コーヒー` as you typed. Here is
+a great [introduction to typing in romaji
+mode](https://www.tofugu.com/japanese/how-to-type-in-japanese/) which
+covers this and more.
 
 Alternatively, in "*Japanese - Kana*" mode, we must map the desired kana to
 the physical key on the macOS Japanese keyboard, and send that keycode. In
