@@ -53,7 +53,9 @@ For macOS, once in "*Unicode Hex Input*" mode, press-and-hold the option key
 number row or the number pad can be used. This will insert unicode hex character
 3051, け (ke). The same trick works for emoji too, usually eight digits, and
 can be done from KE. Unfortunately, using "Unicode Hex Input" mode has the
-significant drawback that you won't get access to the OS' kanji support.
+significant drawback that you won't get access to the OS' kanji support. In
+this mode hiragana and katanana would both work by directly sending the
+unicode hex for each character.
 
 If instead we use "*Japanese - Romaji*" mode, we must map the desired kana to
 any of the supported romaji aliases, and send that key sequence. Thus if
@@ -61,7 +63,8 @@ the user presses `right+k` wanting `け` we map this to sending `k` then `e`,
 and let the OS turn this into the kana or kanji as more is typed. We can
 also support `shift+right+k` sending upper case `K` then `E` which can be
 configured in the macOS Japanese settings to be treated automatically as
-the katakana `ケ`.
+the katakana `ケ`. In this mode to enter coffee we would want to simulate
+pressing `K` `O` `H` `I` `-` giving `コヒー` as you typed.
 
 Alternatively, in "*Japanese - Kana*" mode, we must map the desired kana to
 the physical key on the macOS Japanese keyboard, and send that keycode. In
@@ -72,7 +75,9 @@ semi-colon key `:` so we send that. When `right+g` is pressed for `げ`,
 we must also send the ten-ten key `@` (and likewise for maru modifications
 follow the base kana with the maru key `[`). In this mode the shift key
 gives the small form of the vowels `a`/`i`/`u`/`e`/`o`, `tsu` or
-`ya`/`yu`/`yo`, and toggles the `わ` key to `を` (key zero).
+`ya`/`yu`/`yo`, and toggles the `わ` key to `を` (key zero). For katakana,
+in this mode to enter coffee we would want to simulate pressing `b` `v` `¥`
+giving `コヒー` via the language support.
 
 ## Physical Keyboards
 
@@ -87,10 +92,12 @@ AZERTY for example.
 This may prove popular with Japanese learners, as no new key locations need be
 learnt, only a couple of corner cases like `up+w`→`ん` to match the iOS flick
 layout. However, with the right hand on the cursors to mimic the flick action,
-the left hand must cover the 10 keys `a`, `k`, `s`, `t`, `n`, `m`, `y`, `r`, and
-`w` which on QWERTY layouts are split between the left and right halves of the
-keyboard making it impractical. An alternative mapping taking all 10 keys from
-the left hand side would be easier physically, but harder to memorise.
+the left hand must cover at least the 10 keys `a`, `k`, `s`, `t`, `n`, `m`,
+`y`, `r`, and `w` (plus optionally the 5 ten-ten and maru modified forms using
+`g`, `z`, `d`, `b` and `p`, and 2 small forms using `l` and `x`) which on
+QWERTY layouts are split between the left and right halves of the keyboard
+making it impractical. An alternative mapping taking only keys from the left
+hand side would be easier physically, but harder to memorise.
 
 ### 12 key grid
 
@@ -104,9 +111,9 @@ its core four rows of three (additional controls either side not shown):
 | ま | や | ら |
 | 大 | わ | 、 |
 
-How to handle the context dependent ten-ten, maru, or small/large kana modifier
-(shown here as `大`) remains to be decided, while for the punctuation button the
-English comma makes sense:
+How to handle the context dependent ten-ten, maru, or small form kana modifier
+(shown here as `大`) remains to be decided (three modifier keys woud be
+simplest), while for the punctuation button the English comma makes sense:
 
 | `a` | `k` | `s` |
 |-----|-----|-----|
@@ -118,6 +125,9 @@ For example, `n+left` (→`に`) `h+down` (→`ほ`) `n` (→`ん`) `g+down` (�
 type `にほんご` which should offer the kanji `日本語` (meaning Japanese-language).
 That is four chords (three and a single character if you prefer), compared to
 at least seven keys in Romaji mode (either `nihongo` or `nihonngo` works).
+Additional keys would be needed for kanji selection, proably at least escape to
+cancel, space to cycle the suggestions, and enter to accept. Perhaps for the
+right hand?
 
 ### 15 key grid
 
@@ -136,7 +146,7 @@ upper case Roman letters (with additional controls either side not shown):
 | `E` | `N` | `R` |
 | `O` | `?` | `W` |
 
-Again the `?` here is a placeholder of a context dependent modifier.
+Again the `?` here is a placeholder for a context dependent modifier.
 
 My understanding is to type `日本語` would need seven keys, just like Romaji
 mode: `N` `I` (→`に`) `H` `O` (→`ほ`) `N` (→`ん`) `G` `O` (→`ご`).
@@ -144,8 +154,8 @@ mode: `N` `I` (→`に`) `H` `O` (→`ほ`) `N` (→`ん`) `G` `O` (→`ご`).
 In this approach the flick actions left used for ten-ten, right for maru, down
 for the numbers, up for corner cases. This is also used in ABC mode to access
 the rest of the alphabet, meaning in principle this might replace a physical
-QWERTY keyboard rather than just supplementing one - although you'd need cursor
-controls still.
+QWERTY keyboard rather than just supplementing one - although you'd still need
+cursor controls, escape, enter, etc.
 
 ## License
 
