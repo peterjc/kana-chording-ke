@@ -185,12 +185,12 @@ the rest of the alphabet, meaning in principle this might replace a physical
 QWERTY keyboard rather than just supplementing one - although you'd still need
 cursor controls, escape, enter, etc.
 
-| &nbsp;<br>`A`<br>1      | Q<br>&nbsp; `K` G<br>2            | F<br>P `H` B<br>3           |
-|:-----------------------:|:---------------------------------:|:---------------------------:|
-| &nbsp;<br>`I`<br>4      | J<br>&nbsp; `S` Z<br>5            | L<br>&nbsp; `M` -<br>6      |
-| &nbsp;<br>`U`<br>7      | C<br>&nbsp; `T` D<br>8            | X<br>&nbsp; `Y` &nbsp;<br>9 |
-| &nbsp;<br>`E`<br>&nbsp; | &nbsp;<br>&nbsp; `N` &nbsp;<br>0  | ?<br>. `R` !<br>、          |
-| &nbsp;<br>`O`<br>&nbsp; | &nbsp;<br>`大`<br>&nbsp;          | V<br>&nbsp; `W` &nbsp;<br>  |
+| ・<br>・ `A` ・<br>`1` | `Q`<br>・ `K` `G`<br>`2` | `F`<br>`P` `H` `B`<br>`3`   |
+|:---------------------:|:------------------------:|:---------------------------:|
+| ・<br>・ `I` ・<br>`4` | `J`<br>・ `S` `Z`<br>`5` | `L`<br>・ `M` `ー`<br>`6`    |
+| ・<br>・ `U` ・<br>`7` | `C`<br>・ `T` `D`<br>`8` | `X`<br>・ `Y` ・<br>`9`      |
+| ・<br>・ `E` ・<br>・  | ・<br>・ `N` ・<br>`0`    | `？`<br>`.` `R` `！`<br>`、` |
+| ・<br>・ `O` ・<br>・  | ・<br>・ `大` ・<br>・     | `V`<br>・ `W` ・<br>・       |
 
 I don't see how this might be used with macOS "Japanese - Kana" mode, unless
 when a consonant is pressed we wait for the vowel before sending anything to
