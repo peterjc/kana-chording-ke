@@ -96,23 +96,24 @@ vowel_modifiers = {
 rows = {
     "": "あいうえお",
     # Using l for little here (small vowels), and x for small ya/yu/yo:
-    "l": "ぁぃぅぇぉ",
+    "l": "ぁぃぅぇぉ",  # chiisai a -> la
     "k": "かきくけこ",
-    "g": "がぎぐげご",
+    "g": "がぎぐげご",  # ten-ten ka -> ga
     "s": "さしすせそ",
-    "z": "ざじずぜぞ",
+    "z": "ざじずぜぞ",  # ten-ten sa -> za
     "t": "たちつてと",
     # TODO: "・・っ・・" for small っ via xtsu/xtu or ltsu/lsu
-    "d": "だぢづでど",
+    "d": "だぢづでど",  # ten-ten ta -> da
     "n": "なにぬねの",
     "h": "はひふへほ",
-    "b": "ばびぶべぼ",
-    "p": "ぱぴぷぺぽ",
+    "b": "ばびぶべぼ",  # ten-ten ha -> ba
+    "p": "ぱぴぷぺぽ",  # maru ha -> pa
     "m": "まみむめも",
-    "y": "や・ゆ・よ",
+    # Follow iOS flick input placement of Japanese open/close quotes
+    "y": "や「ゆ」よ",
     # Using x here for small ya/yu/yo as next to y in alphabet,
     # and binding the small a/i/u/e/o to l for little:
-    "xy": "ゃ・ゅ・ょ",
+    "xy": "ゃ・ゅ・ょ",  # chiisai ya -> xya
     "r": "らりるれろ",
     # Follow iOS flick-input and typical charts with ん in place of wu,
     # Note wi/we must be entered as wyi/wye:
@@ -133,8 +134,8 @@ exceptions = {
     "xte": None,  # there is no small て
     "xto": None,  # there is no small と
     "hu": "fu",  # use typical romaji for kana ふ although "hu" works anyway
-    "yi": None,  # historical, not used (large)
-    "ye": None,  # historical, not used (large)
+    "yi": ["open_bracket"],  # historical, not used (large), using for open quote
+    "ye": ["close_bracket"],  # historical, not used (large), using for close quote
     "xyi": None,  # historical, not used (small)
     "xye": None,  # historical, not used (small)
     "wi": "wyi",  # historical, only used in names now
@@ -158,7 +159,7 @@ def romaji_simple_mapping(
 ) -> str:
     """Generate Karabina Elements JSON to map key+modifier to given romaji key sequence.
 
-    Using the following mappings for macOS Japanese - Romaji mode:
+    Using the following mappings for macOS 「Japanese - Romaji」 mode:
 
     * `は` from `h` alone to `ha`
     * `ひ` from `h` + `left_arrow` to `hi`
