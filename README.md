@@ -64,7 +64,7 @@ and let the OS turn this into the kana or kanji as more is typed. We can
 also support `shift+right+k` sending upper case `K` then `E` which can be
 configured in the macOS Japanese settings to be treated automatically as
 the katakana `ケ`. In this mode to enter coffee we would want to simulate
-pressing `K` `O` `H` `I` `-` giving `コヒー` as you typed.
+pressing `K` `O` `-` `H` `I` `-` giving `コーヒー` as you typed.
 
 Alternatively, in "*Japanese - Kana*" mode, we must map the desired kana to
 the physical key on the macOS Japanese keyboard, and send that keycode. In
@@ -76,8 +76,8 @@ we must also send the ten-ten key `@` (and likewise for maru modifications
 follow the base kana with the maru key `[`). In this mode the shift key
 gives the small form of the vowels `a`/`i`/`u`/`e`/`o`, `tsu` or
 `ya`/`yu`/`yo`, and toggles the `わ` key to `を` (key zero). For katakana,
-in this mode to enter coffee we would want to simulate pressing `b` `v` `¥`
-giving `コヒー` via the language support.
+in this mode to enter coffee we would want to simulate pressing `b` `¥`
+`v` `¥` giving `コーヒー` via the language support.
 
 ## Physical Keyboards
 
@@ -121,10 +121,17 @@ simplest), while for the punctuation button the English comma makes sense:
 | `m` | `y` | `r` |
 | `?` | `w` | `,` |
 
-For example, `n+left` (→`に`) `h+down` (→`ほ`) `n` (→`ん`) `g+down` (→`ご`) would
-type `にほんご` which should offer the kanji `日本語` (meaning Japanese-language).
-That is four chords (three and a single character if you prefer), compared to
-at least seven keys in Romaji mode (either `nihongo` or `nihonngo` works).
+For example, `n+left` (→`に`), `h+down` (→`ほ`), `n` (→`ん`), `g+down` (→`ご`)
+would type `にほんご` which should offer the kanji `日本語` (meaning Japanese
+language). That is four chords (three and a single character if you prefer),
+compared to at least seven keys in Romaji mode (either `nihongo` or `nihonngo`
+works).
+
+For a katakana example, `コーヒー` (meaning coffee) in romaji mode using shift to
+indicate katakana explicitly, would be `shift+h+down` (→`コ`), `shift+h+left`
+(→`ヒ`), `-` (→`ー`). That is four chords (two and two single keys if you
+prefer), compared to six keys with shift in Romaji mode (`KO-HI-`).
+
 Additional keys would be needed for kanji selection, proably at least escape to
 cancel, space to cycle the suggestions, and enter to accept. Perhaps for the
 right hand?
