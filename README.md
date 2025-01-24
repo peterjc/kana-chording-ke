@@ -92,11 +92,15 @@ ke (`け`), etc. This can be used with the QWERTY layout on a Japanese keyboard,
 or anything similar with "Roman" letter like any English layout, or the French
 AZERTY for example.
 
-For example, `n+left` (→`に`), `h+down` (→`ほ`), `n` (→`ん`), `g+down` (→`ご`)
+For example, `n+left` (→`に`), `h+down` (→`ほ`), `w+up` (→`ん`), `g+down` (→`ご`)
 would type `にほんご` which should offer the kanji `日本語` (meaning Japanese
 language). That is four chords (three and a single character if you prefer),
 compared to at least seven keys in Romaji mode (either `nihongo` or `nihonngo`
 works).
+
+For an example with ten-ten and maru modifiers, the Japanese word for grammar
+is `ぶんぽう` or `文法`. This can be entered as `b+up` (→`ぶ`), `w+up` (→`ん`),
+`p+down` (→`ぽ`), `a+up` (→`う`), four chords for four characters.
 
 For a katakana example, `コーヒー` (meaning coffee) in romaji mode using shift to
 indicate katakana explicitly, would be `shift+h+down` (→`コ`), `-` (→`ー`),
@@ -136,8 +140,11 @@ simplest), while for the punctuation button the English comma makes sense:
 | `?` | `w` | `,` |
 
 The earlier example using core hiragana remains the same:  `n+left` (→`に`),
-`h+down` (→`ほ`), `n` (→`ん`), `g+down` (→`ご`) would type `にほんご` which
+`h+down` (→`ほ`), `w+up` (→`ん`), `g+down` (→`ご`) would type `にほんご` which
 should offer the kanji `日本語` (meaning Japanese language).
+
+Words with ten-ten and maru modifiers like `ぶんぽう` (`文法`) would require
+some kind of shift/modifier. As would small characters.
 
 For a katakana example, `コーヒー` (meaning coffee) assuming we don't have
 access to the hypen key `-`, we can use an iOS flick-input inspired chord 
