@@ -73,6 +73,8 @@ to which can be configured for the katakana `ケ` rather than the hiragana.
 
 ## Physical Keyboards
 
+### Full querty
+
 The initial mapping is based on the flick-input on iOS using the cursor keys.
 Thus `k` alone gives ka (`か`), while `left+k` gives ki (`き`), `right+k` gives
 ke (`け`), etc. This can be used with the QWERTY layout on a Japanese keyboard,
@@ -86,6 +88,8 @@ the left hand must cover the 10 keys `a`, `k`, `s`, `t`, `n`, `m`, `y`, `r`, and
 `w` which on QWERTY layouts are split between the left and right halves of the
 keyboard making it impractical. An alternative mapping taking all 10 keys from
 the left hand side would be easier physically, but harder to memorise.
+
+### 12 key grid
 
 Instead my initial plan is to use a custom keyboard mapping on a supplementary
 small macro keyboard with at least 12 keys, mimicking the iOS flick-input with
@@ -112,6 +116,8 @@ type `にほんご` which should offer the kanji `日本語` (meaning Japanese-l
 That is four chords (three and a single character if you prefer), compared to
 at least seven keys in Romaji mode (either `nihongo` or `nihonngo` works).
 
+### 15 key grid
+
 A variation of this idea would be to use a custom layout on a macro keyboard of
 at least 15 keys to replicate the Gboard [Godan
 キーボード](https://support.google.com/ime/japanese/answer/2700298) flick-keyboard
@@ -135,7 +141,8 @@ mode: `N` `I` (→`に`) `H` `O` (→`ほ`) `N` (→`ん`) `G` `O` (→`ご`).
 In this approach the flick actions left used for ten-ten, right for maru, down
 for the numbers, up for corner cases. This is also used in ABC mode to access
 the rest of the alphabet, meaning in principle this might replace a physical
-QWERTY keyboard rather than just supplementing one.
+QWERTY keyboard rather than just supplementing one - although you'd need cursor
+controls still.
 
 ## License
 
