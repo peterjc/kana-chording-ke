@@ -185,6 +185,10 @@ the rest of the alphabet, meaning in principle this might replace a physical
 QWERTY keyboard rather than just supplementing one - although you'd still need
 cursor controls, escape, enter, etc.
 
+I don't see how this might be used with macOS "Japanese - Kana" mode, unless
+when a consonant is pressed we wait for the vowel before sending anything to
+the keyboard? However, it seems a natural fit to the "Japanese - Romaji" mode.
+
 ## License
 
 MIT License
