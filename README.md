@@ -68,9 +68,11 @@ the physical key on the macOS Japanese keyboard, and send that keycode. In
 KE these are labelled by the English letter or symbol on that key (these
 keyboards have a full QWERTY layout with USA like punctuation placement).
 Thus if the user presses `right+k` wanting `け` this corresponds to the
-semi-colon key `:` so we send that. Here the shift key normally gives the
-small form of the vowels `a`/`i`/`u`/`e`/`o`, `tsu` or `ya`/`yu`/`yo`, and
-toggles the `わ` key to `を` (key zero). 
+semi-colon key `:` so we send that. When `right+g` is pressed for `げ`,
+we must also send the ten-ten key `@` (and likewise for maru modifications
+follow the base kana with the maru key `[`). In this mode the shift key
+gives the small form of the vowels `a`/`i`/`u`/`e`/`o`, `tsu` or
+`ya`/`yu`/`yo`, and toggles the `わ` key to `を` (key zero).
 
 ## Physical Keyboards
 
