@@ -71,7 +71,7 @@ rows = [
     "w",  # including ん in place of wu
     "v",
 ]
-vowels = "aiueo"  # used as suffix for default romaji mapping
+vowels = "iueoa"  # used as suffix for default romaji mapping; a last!
 modifiers = [None, "left_arrow", "up_arrow", "right_arrow", "down_arrow"]
 assert len(vowels) == len(modifiers)
 exceptions = {
