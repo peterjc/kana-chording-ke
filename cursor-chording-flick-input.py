@@ -185,7 +185,12 @@ def romaji_simple_mapping(
 {{"description": "Romanji mode {kana}: {key}+{modifier} sends {out_keys}",
     "manipulators": [
         {{"conditions": [
-                {{"input_sources": [{{"language": "^ja$" }}],
+                {{"input_sources": [
+                        {{
+                            "input_source_id": "Romaji",
+                            "language": "ja"
+                        }}
+                    ],
                     "type": "input_source_if"
                 }}
             ],
