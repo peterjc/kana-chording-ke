@@ -125,15 +125,10 @@ rows = {
 }
 # Could infer the blank exceptions from "・" entries in above dict?
 exceptions = {
-    "si": "shi",  # use typical romaji for kana し although "si" works anyway
-    "zi": "ji",  # use typical romaji for kana じ although "zi" works anyway
-    "ti": "chi",  # use typical romaji for kana ち although "ti" works anyway
     "xta": None,  # there is no small た
     "xti": None,  # there is no small ち
-    "xtu": "xtsu",  # use more logical code for small っ
     "xte": None,  # there is no small て
     "xto": None,  # there is no small と
-    "hu": "fu",  # use typical romaji for kana ふ although "hu" works anyway
     "yi": ["open_bracket"],  # historical, not used (large), using for open quote
     "ye": ["close_bracket"],  # historical, not used (large), using for close quote
     "xyi": None,  # historical, not used (small)
