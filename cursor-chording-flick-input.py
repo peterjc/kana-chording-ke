@@ -118,8 +118,8 @@ rows = {
     # Follow iOS flick-input and typical charts with ん in place of wu,
     # Note wi/we must be entered as wyi/wye:
     "w": "わゐんゑを",
-    # Currently only mapping vu, others don't give single kana:
-    "v": "・・ゔ・・",
+    # Not only vu gives a single kana (thus using a list)
+    "v": ["ゔぁ", "ゔぃ", "ゔ", "ゔぇ", "ゔぉ"],
     # Punctuation
     ",": "、。！？ー",
 }
@@ -141,10 +141,6 @@ exceptions = {
     "wi": "wyi",  # historical, only used in names now
     "wu": "nn",  # "wu" is historical and not used, instead w+up mapped to "ん"
     "we": "wye",  # historical, only used in names now
-    "va": None,  # not used as double kana, just vu for ゔ/ヴ
-    "vi": None,  # not used as double kana, just vu for ゔ/ヴ
-    "ve": None,  # not used as double kana, just vu for ゔ/ヴ
-    "vo": None,  # not used as double kana, just vu for ゔ/ヴ
     # punctuation
     ",a": ["comma"],
     ",i": ["period"],
