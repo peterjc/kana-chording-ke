@@ -20,7 +20,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-"""Generate Karabina Elements JSON for flick-input like kana chording.
+"""Generate Karabiner Elements JSON for flick-input like kana chording.
 
 The general pattern is we bind each row of the 5-column extended gojūon to a
 single letter, generally the first letter of the standard romaji. We include
@@ -78,10 +78,6 @@ character (ー) here to the down modifier:
 * `,`+`down` → `-` for `ー` (unused on iOS as on final row of their grid)
 
 """
-
-# Testing あいうえお　かきくけこ　わゐんゑを　らりるれろ　たちつてと　やゆよ　ぱぴぷぺぽ
-# さしそせそ　だぢづでど　がぎぐげご　はひふへほ　かきくけこ　ぁぃぅぇぉ　ざじずぜぞ
-# ゃゅょ　ゔ　ばびぶべぼ　なにぬねの　まみむめま ,,
 
 import sys
 
