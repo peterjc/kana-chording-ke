@@ -86,6 +86,10 @@ character (ー) here to the down modifier:
 import sys
 
 output_name = "cursor-chording-flick-input-romaji-mode.json"
+title = "Kana chording with cursor keys (Romaji Mode)"
+romaji_description = (
+    "Romanji mode chording: row key like r plus cursors sends ra/ri/ru/er/ro"
+)
 vowel_modifiers = {
     "i": "left_arrow",
     "u": "up_arrow",
@@ -169,56 +173,55 @@ def romaji_simple_mapping(
         key = prefix[:1]
 
     out_list = ", ".join(('{"key_code": "' + _ + '"}') for _ in out_keys)
-    vowel = next(k for (k, v) in vowel_modifiers.items() if v == modifier)
-    kana = rows["" if prefix == "a" else prefix]["aiueo".index(vowel)]
+    # Used these in per mapping descriptions:
+    # vowel = next(k for (k, v) in vowel_modifiers.items() if v == modifier)
+    # kana = rows["" if prefix == "a" else prefix]["aiueo".index(vowel)]
     return (
         f"""\
-{{"description": "Romanji mode {kana}: {key}+{modifier} sends {out_keys}",
-    "manipulators": [
-        {{"conditions": [
-                {{"input_sources": [
+                {{
+                    "type": "basic",
+                    "conditions": [
                         {{
-                            "input_source_id": "Romaji",
-                            "language": "ja"
+                            "input_sources": [
+                                {{
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }}
+                            ],
+                            "type": "input_source_if"
                         }}
                     ],
-                    "type": "input_source_if"
+                    "from": {{
+                        "modifiers": {{"optional": ["any"] }},
+                        "simultaneous": [
+                            {{"key_code": "{key}" }},
+                            {{"key_code": "{modifier}" }}
+                        ],
+                        "simultaneous_options": {{"key_down_order": "insensitive" }}
+                    }},
+                    "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
+                    "to": [ {out_list} ]
                 }}
-            ],
-            "from": {{"modifiers": {{"optional": ["any"] }},
-                "simultaneous": [
-                    {{"key_code": "{key}" }},
-                    {{"key_code": "{modifier}" }}
-                ],
-                "simultaneous_options": {{"key_down_order": "insensitive" }}
-            }},
-            "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
-            "to": [ {out_list} ],
-            "type": "basic"
-        }}
-    ]
-}}
 """
         if modifier
         else f"""\
-{{"description": "Romanji mode {kana}: {key} alone sends {out_keys}",
-    "manipulators": [
-        {{"conditions": [
-                {{"input_sources": [{{"language": "^ja$" }}],
-                    "type": "input_source_if"
+                {{
+                    "type": "basic",
+                    "conditions": [
+                        {{
+                            "input_sources": [{{"language": "^ja$" }}],
+                            "type": "input_source_if"
+                        }}
+                    ],
+                    "from": {{
+                        "modifiers": {{"optional": ["any"] }},
+                        "simultaneous": [
+                            {{"key_code": "{key}" }}
+                        ]
+                    }},
+                    "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
+                    "to": [ {out_list} ]
                 }}
-            ],
-            "from": {{"modifiers": {{"optional": ["any"] }},
-                "simultaneous": [
-                    {{"key_code": "{key}" }}
-                ]
-            }},
-            "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
-            "to": [ {out_list} ],
-            "type": "basic"
-        }}
-    ]
-}}
 """
     )
 
@@ -242,25 +245,36 @@ with open(output_name, "w") as handle:
     # This does not nicely indent.
     # Should the keyboard stay as ISO?
     handle.write(
-        """\
-{
-  "title": "Kana chording with cursor keys (Romaji Mode)",
-  "maintainers": [
-    "peterjc"
-  ],
-  "author": "Peter J. A. Cock",
-  "homepage": "https://github.com/peterjc/kana-chording-ke",
-  "repo": "https://github.com/peterjc/kana-chording-ke",
-  "rules": [
+        f"""\
+{{
+    "title": "{title}",
+    "maintainers": [
+        "peterjc"
+    ],
+    "author": "Peter J. A. Cock",
+    "homepage": "https://github.com/peterjc/kana-chording-ke",
+    "repo": "https://github.com/peterjc/kana-chording-ke",
+    "rules": [
+        {{
+            "description": "{romaji_description}",
+            "manipulators": [
 """
-        + ",\n".join(_.strip() for _ in rules)
-        + """\
+        + ",\n".join(_.rstrip() for _ in rules)
+        + """\n
+            ]
+        }
     ]
-}"""
+}
+"""
     )
 
 sys.stderr.write(f"Generated {len(rules)} rules in {output_name}\n")
-sys.stderr.write("Try running this to add to Karabiner Elements:\n")
+sys.stderr.write("Try running this to add to Karabiner Elements:\n\n")
 sys.stderr.write(
-    f"cp {output_name} ~/.config/karabiner/assets/complex_modifications/\n"
+    f"cp {output_name} ~/.config/karabiner/assets/complex_modifications/\n\n"
 )
+sys.stderr.write("Then open 'Karabiner Elements', select 'Complex Modifications',\n")
+sys.stderr.write("click 'Add predefined rule', scroll down to find the new\n")
+sys.stderr.write(f"'{title}' block with\n")
+sys.stderr.write(f"'{romaji_description}' entry.\n")
+sys.stderr.write("Click enable (or enable all).")
