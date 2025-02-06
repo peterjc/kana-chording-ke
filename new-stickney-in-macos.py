@@ -161,13 +161,15 @@ new_stickney_shift = (
 assert len(new_stickney_normal) == len(new_stickney_shift)
 assert len(new_stickney_normal) == len(new_stickney_shift) == len(jis_qwerty)
 
+# no_op_to_action = '{"halt": true}'  # not valid
+no_op_to_action = '{"set_variable": { "name": "kogaki", "value": ""}}'
 no_jis = {
-    "ゐ": "{}",  # Obsolete (wyi in romaji)
-    "ゑ": "{}",  # Obsolete (wye in romaji)
-    "　": '{"key_code": "space"}',  # Use plain space to get wide space
-    "…": "{}",  # How to enter in macOS kana mode?
-    "『": "{}",  # How to enter in macOS kana mode?
-    "』": "{}",  # How to enter in macOS kana mode?
+    "ゐ": no_op_to_action,  # Obsolete (wyi in romaji)
+    "ゑ": no_op_to_action,  # Obsolete (wye in romaji)
+    "　": '{"key_code": "spacebar"}',  # Use plain space to get wide space
+    "…": no_op_to_action,  # How to enter in macOS kana mode?
+    "『": no_op_to_action,  # How to enter in macOS kana mode?
+    "』": no_op_to_action,  # How to enter in macOS kana mode?
 }
 
 
@@ -177,73 +179,100 @@ kana_rules_description = "New Stickney to JIS layout in Japanese Kana input mode
 romaji_rules_description = "New Stickney to JIS layout in Japanese Romaji input mode"
 
 
+# JIS so rather different from USA ASCI layout:
+ke_key_names = {
+    "-": "hyphen",
+    "^": "equal_sign",
+    "¥": "international3",
+    "@": "open_bracket",
+    "[": "close_bracket",  # really!
+    ";": "semicolon",
+    ":": "quote",
+    "]": "backslash",
+    ",": "comma",
+    ".": "period",
+    "/": "slash",
+    "_": "international1",
+    " ": "spacebar",
+}
+
+
+def ke_key_name(character: str) -> str:
+    return ke_key_names.get(character, character)
+
+
 def from_key_using_ns_layout(kana: str) -> str:
     """Build KE from_key rule for a New Stickney character."""
     # Is this an un-shifted key on the NS layout:
     index = new_stickney_normal.find(kana)
     if index >= 0:
-        return f'{{"key_code": "{jis_qwerty[index]}"}}'
+        return f'{{"key_code": "{ke_key_name(jis_qwerty[index])}"}}'
     # Should be a shifted-key on the NS layout:
     index = new_stickney_shift.find(kana)
     if index >= 0:
-        return f'{{"key_code": "{jis_qwerty[index]}", "modifiers": ["shift"]}}'
+        return f'{{"key_code": "{ke_key_name(jis_qwerty[index])}", "modifiers": ["shift"]}}'
 
 
 def to_key_using_jis_kana_mode(kana: str) -> str:
     """Build KE to-event keycode string to type given character in JIS kana mode."""
     if kana == unused:
-        return "{}"
+        return no_op_to_action
     # No mods needed in JIS jana:
     index = jis_japanese_normal.find(kana)
     if index >= 0:
-        return f'{{"key_code": "{jis_qwerty[index]}"}}'
+        return f'{{"key_code": "{ke_key_name(jis_qwerty[index])}"}}'
     # Shift needed in JIS kana
     index = jis_japanese_shift.find(kana)
     if index >= 0:
-        return f'{{"key_code": "{jis_qwerty[index]}", "modifiers": ["shift"]}}'
-    # Shift+option in JIS kana (punctuation)
-    index = jis_japanese_shift_option.find(kana)
-    if index >= 0:
-        return (
-            f'{{"key_code": "{jis_qwerty[index]}", "modifiers": ["shift", "option"]}}'
-        )
+        return f'{{"key_code": "{ke_key_name(jis_qwerty[index])}", "modifiers": ["shift"]}}'
     # fn+option in JIS kana (wide numbers)
     index = jis_japanese_fn_option.find(kana)
     if index >= 0:
-        return f'{{"key_code": "{jis_qwerty[index]}", "modifiers": ["fn", "option"]}}'
+        return f'{{"key_code": "{ke_key_name(jis_qwerty[index])}", "modifiers": ["fn", "option"]}}'
+    # Shift+option in JIS kana (punctuation)
+    index = jis_japanese_shift_option.find(kana)
+    if index >= 0:
+        return f'{{"key_code": "{ke_key_name(jis_qwerty[index])}", "modifiers": ["shift", "option"]}}'
     # Fall back of last resort - used to disable wyi, wye
     return no_jis[kana]
 
 
+assert (
+    to_key_using_jis_kana_mode("０")
+    == '{"key_code": "0", "modifiers": ["fn", "option"]}'
+)
+
+
 def build_stickney_to_jis_kana_map():
     for from_index, from_qwerty in enumerate(jis_qwerty):
+        from_qwerty = ke_key_name(from_qwerty)
         for from_shift, kana, from_rule, qwerty_name in (
             (
                 False,
                 new_stickney_normal[from_index],
-                f'{{"key_code": "{jis_qwerty[from_index]}"}}',
+                f'{{"key_code": "{from_qwerty}"}}',
                 from_qwerty,
             ),
             (
                 True,
                 new_stickney_shift[from_index],
-                f'{{"key_code": "{jis_qwerty[from_index]}", "modifiers": ["shift"]}}',
+                f'{{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }}',
                 "shift-" + from_qwerty,
             ),
         ):
             to_rule = to_key_using_jis_kana_mode(kana)
             if kana == unused:
-                assert to_rule == "{}", f"{kana=} {from_rule=} {to_rule=}"
+                assert to_rule == no_op_to_action, f"{kana=} {from_rule=} {to_rule=}"
 
             # use jis_qwerty_shifted not from_qwerty.upper()
             # print(f"Kana '{kana}' : New Stickney {from_rule} -> {to_rule}")
             yield f"""\
-{{
-    "type": "basic",
-    "from": {from_rule},
-    "to": [{to_rule}],
-    "description": "{qwerty_name} to {kana}"
-}}
+                {{
+                    "type": "basic",
+                    "from": {from_rule},
+                    "to": [{to_rule}],
+                    "description": "{qwerty_name} to {kana}"
+                }}
 """
 
 
@@ -279,7 +308,7 @@ with open(output_name, "w") as handle:
         + ",\n".join(_.rstrip() for _ in kana_rules)
         + """\n
             ]
-        },
+        }
     ]
 }
 """
