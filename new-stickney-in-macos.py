@@ -98,7 +98,7 @@ jis_japanese_shift = (
     "❌❌ぁぅぇぉゃゅょを❌❌❌"  # number row
     "❌❌ぃ❌❌❌❌❌❌❌❌「"  # top row (12 keys)
     "❌❌❌❌❌❌❌❌❌❌❌」"  # home row (12 keys)
-    "っ❌❌❌❌❌❌❌、。・"  # bottom row (11 keys)
+    "っ❌❌❌❌❌❌、。・❌"  # bottom row (11 keys)
 )
 # Using option in kana mode gives "wide ASCII" versions of the QWERTY layout,
 # https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)
@@ -237,10 +237,23 @@ def to_key_using_jis_kana_mode(kana: str) -> str:
     return no_jis[kana]
 
 
-assert (
-    to_key_using_jis_kana_mode("０")
-    == '{"key_code": "0", "modifiers": ["fn", "option"]}'
-)
+_ = to_key_using_jis_kana_mode("０")
+assert _ == '{"key_code": "0", "modifiers": ["fn", "option"]}', _
+_ = to_key_using_jis_kana_mode("、")
+assert _ == '{"key_code": "comma", "modifiers": ["shift"]}', _
+_ = to_key_using_jis_kana_mode("を")
+assert _ == '{"key_code": "0", "modifiers": ["shift"]}', _
+_ = to_key_using_jis_kana_mode("＇")
+assert _ == '{"key_code": "7", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("む")
+assert _ == '{"key_code": "backslash"}', _
+_ = to_key_using_jis_kana_mode("゜")
+assert _ == '{"key_code": "close_bracket"}', _
+_ = to_key_using_jis_kana_mode("え")
+assert _ == '{"key_code": "5"}', _
+
+
+del _
 
 
 def build_stickney_to_jis_kana_map():
