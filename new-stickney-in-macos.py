@@ -149,7 +149,7 @@ new_stickney_normal = (
     "１２３４５６７８９０－＾￥"  # number row unchanged (13 keys)
     "けくすさつぬおのにね❌「"  # top row (12 keys)
     "はかしたてらうい゛な　」"  # home row includes ten-ten (12 keys)
-    "よきことちっん、。・❌"  # bottom row (11 keys)
+    "よきことちっん、。・＿"  # bottom row (11 keys)
 )
 new_stickney_shift = (
     "！＂＃＄％＆＇（）－＝〜｜"  # wide symbols via option+shift (13 keys)
@@ -177,7 +177,22 @@ kana_rules_description = "New Stickney to JIS layout in Japanese Kana input mode
 romaji_rules_description = "New Stickney to JIS layout in Japanese Romaji input mode"
 
 
+def from_key_using_ns_layout(kana: str) -> str:
+    """Build KE from_key rule for a New Stickney character."""
+    # Is this an un-shifted key on the NS layout:
+    index = new_stickney_normal.find(kana)
+    if index >= 0:
+        return f'{{"key_code": "{jis_qwerty[index]}"}}'
+    # Should be a shifted-key on the NS layout:
+    index = new_stickney_shift.find(kana)
+    if index >= 0:
+        return f'{{"key_code": "{jis_qwerty[index]}", "modifiers": ["shift"]}}'
+
+
 def to_key_using_jis_kana_mode(kana: str) -> str:
+    """Build KE to-event keycode string to type given character in JIS kana mode."""
+    if kana == unused:
+        return "{}"
     # No mods needed in JIS jana:
     index = jis_japanese_normal.find(kana)
     if index >= 0:
@@ -202,19 +217,24 @@ def to_key_using_jis_kana_mode(kana: str) -> str:
 
 def build_stickney_to_jis_kana_map():
     for from_index, from_qwerty in enumerate(jis_qwerty):
-        for from_shift, kana in (
-            (False, new_stickney_normal[from_index]),
-            (True, new_stickney_shift[from_index]),
+        for from_shift, kana, from_rule in (
+            (
+                False,
+                new_stickney_normal[from_index],
+                f'{{"key_code": "{jis_qwerty[from_index]}"}}',
+            ),
+            (
+                True,
+                new_stickney_shift[from_index],
+                f'{{"key_code": "{jis_qwerty[from_index]}", "modifiers": ["shift"]}}',
+            ),
         ):
-            if kana == unused:
-                continue
             to_rule = to_key_using_jis_kana_mode(kana)
+            if kana == unused:
+                assert to_rule == "{}", f"{kana=} {from_rule=} {to_rule=}"
+
             # use jis_qwerty_shifted not from_qwerty.upper()
-            print(
-                f"Kana '{kana}' : New Stickney"
-                f" '{from_qwerty.upper() if from_shift else from_qwerty}' -> " + to_rule
-                # f" '{to_querty.upper() if to_shift else to_querty}' JIS kana mode"
-            )
+            print(f"Kana '{kana}' : New Stickney {from_rule} -> {to_rule}")
 
 
 build_stickney_to_jis_kana_map()
