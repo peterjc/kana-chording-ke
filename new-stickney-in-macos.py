@@ -45,10 +45,10 @@ or Kogaki moji) via the ten-ten key AFTER the kana. This is not supported by the
 macOS IME. We need a complex (fragile?) dead-key like set of rules, perhaps
 sending backspace(s) and then the small kana equivalent.
 
-The small tsu "っ" is an exception, and does still get its own key in the New
-Stickney layout due to its higher usage (double consanants in romaji mode). That
-is the same as JIS, so a simple remapping. Likewise in romaji mode we can remap
-to send `xtu` or `ltu` (or sent `x` or `l` if used as a prefix).
+The small tsu "っ" (sokuon) is an exception, and does still get its own key in
+the New Stickney layout due to its higher usage (double consanants in romaji
+mode). That is the same as JIS, so a simple remapping. Likewise in romaji mode
+we can remap to send `xtu` or `ltu` (or sent `x` or `l` if used as a prefix).
 
 Open questions:
 
@@ -106,8 +106,8 @@ jis_japanese_shift = (
 # Note fixed ＂ and ＇ from smart quotes, also －, but others as typed.
 # With these we can map the New Stickney number row to numbers and symbols.
 #
-jis_japanese_shift_option = (
-    "！＂＃＄％＆＇（）０＝〜｜"  # number row (13 keys)
+jis_japanese_shift_option = (  # in kana mode!!!
+    "！＂＃＄％＆＇（）０＝〜｜"  # number row (13 keys), smart quotes reverted
     "ＱＷＥ❌ＴＹＵＩＯＰ｀｛"  # top row (12 keys)
     "❌❌ＤＦＧＨＪＫＬ＋＊｝"  # home row (12 keys)
     "❌❌❌ＶＢＮＭ＜＞？＿"  # bottom row (11 keys)
@@ -180,10 +180,13 @@ romaji_rules_description = "New Stickney to JIS layout in Japanese Romaji input 
 
 
 # JIS so rather different from USA ASCI layout:
+# See https://karabiner-elements.pqrs.org/docs/help/troubleshooting/symbols-with-non-ansi-keyboard/
 ke_key_names = {
+    "¥": "international3",
+    "\\": "international3",  #  backslash vs yen content dependent!
+    "_": "international1",
     "-": "hyphen",
     "^": "equal_sign",
-    "¥": "international3",
     "@": "open_bracket",
     "[": "close_bracket",  # really!
     ";": "semicolon",
@@ -192,9 +195,10 @@ ke_key_names = {
     ",": "comma",
     ".": "period",
     "/": "slash",
-    "_": "international1",
     " ": "spacebar",
 }
+
+kana_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}]'
 
 
 def ke_key_name(character: str) -> str:
@@ -243,17 +247,41 @@ _ = to_key_using_jis_kana_mode("、")
 assert _ == '{"key_code": "comma", "modifiers": ["shift"]}', _
 _ = to_key_using_jis_kana_mode("を")
 assert _ == '{"key_code": "0", "modifiers": ["shift"]}', _
-_ = to_key_using_jis_kana_mode("＇")
+_ = to_key_using_jis_kana_mode("＆")  # wide &
+assert _ == '{"key_code": "6", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("＇")  # wide '
 assert _ == '{"key_code": "7", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("（")  # wide (
+assert _ == '{"key_code": "8", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("）")  # wide )
+assert _ == '{"key_code": "9", "modifiers": ["shift", "option"]}', _
 _ = to_key_using_jis_kana_mode("む")
 assert _ == '{"key_code": "backslash"}', _
 _ = to_key_using_jis_kana_mode("゜")
 assert _ == '{"key_code": "close_bracket"}', _
 _ = to_key_using_jis_kana_mode("え")
 assert _ == '{"key_code": "5"}', _
-
-
+_ = to_key_using_jis_kana_mode("へ")
+assert _ == '{"key_code": "equal_sign"}', _
+# The 'mu' key does not exist in same place on ANSI keyboards
+# (it is their backslash above the shorte enter), but is
+# on the home row on ISO and JIS beside the enter key:
+_ = to_key_using_jis_kana_mode("む")
+assert _ == '{"key_code": "backslash"}', _
+_ = to_key_using_jis_kana_mode("ろ")
+assert _ == '{"key_code": "international1"}', _
+_ = to_key_using_jis_kana_mode("ー")
+assert _ == '{"key_code": "international3"}', _
 del _
+
+# Seems to be related to the layout differences in JIS?
+# shift+6 should give &, getting  etc.
+# shift+7 should give ', getting ＆ etc.
+# shift+w should give maru ゜, getting mu む
+# shift+f should give he へ, but getting maru　゜
+# shitt+y should give mu む, but getting he へ
+# shift+n should give ro ろ, getting nothing
+# shift+m should give onbiki ー, getting nothing
 
 
 def build_stickney_to_jis_kana_map():
@@ -284,6 +312,7 @@ def build_stickney_to_jis_kana_map():
                     "type": "basic",
                     "from": {from_rule},
                     "to": [{to_rule}],
+                    {kana_conditions},
                     "description": "{qwerty_name} to {kana}"
                 }}
 """
