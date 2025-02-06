@@ -50,6 +50,14 @@ the New Stickney layout due to its higher usage (double consanants in romaji
 mode). That is the same as JIS, so a simple remapping. Likewise in romaji mode
 we can remap to send `xtu` or `ltu` (or sent `x` or `l` if used as a prefix).
 
+Third complication: Karabiner Elements can set the virtual keyboard to one of
+ANSI, ISO, and JIS. Using ISO messes up the mappings using the `international1`
+key (for "ろ") and `international3` (for "ー") keys, and assorted punctuation
+keys (`equal_sign` for "へ", `backslash` for "む" and `close_bracket` for "゜").
+*Running in JIS mode is required*.
+
+https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-keyboard-type/
+
 Open questions:
 
 * The "変換" key (conversion or wide space - on the USA single-quote key, or JIS
@@ -274,14 +282,14 @@ _ = to_key_using_jis_kana_mode("ー")
 assert _ == '{"key_code": "international3"}', _
 del _
 
-# Seems to be related to the layout differences in JIS?
+# Problems seen when Karabiner Elements Virtual Decive in ISO mode (use JIS):
 # shift+6 should give &, getting  etc.
 # shift+7 should give ', getting ＆ etc.
-# shift+w should give maru ゜, getting mu む
-# shift+f should give he へ, but getting maru　゜
-# shitt+y should give mu む, but getting he へ
-# shift+n should give ro ろ, getting nothing
-# shift+m should give onbiki ー, getting nothing
+# shift+w should give maru ゜ (aka "close_bracket"), getting mu む
+# shift+f should give he へ (aka "equal_sign"), but getting maru　゜
+# shift+y should give mu む (aka "backslash"), but getting he へ
+# shift+n should give ro ろ (aka "international1"), getting nothing
+# shift+m should give onbiki ー (aka "international3"), getting nothing
 
 
 def build_stickney_to_jis_kana_map():
