@@ -217,16 +217,18 @@ def to_key_using_jis_kana_mode(kana: str) -> str:
 
 def build_stickney_to_jis_kana_map():
     for from_index, from_qwerty in enumerate(jis_qwerty):
-        for from_shift, kana, from_rule in (
+        for from_shift, kana, from_rule, qwerty_name in (
             (
                 False,
                 new_stickney_normal[from_index],
                 f'{{"key_code": "{jis_qwerty[from_index]}"}}',
+                from_qwerty,
             ),
             (
                 True,
                 new_stickney_shift[from_index],
                 f'{{"key_code": "{jis_qwerty[from_index]}", "modifiers": ["shift"]}}',
+                "shift-" + from_qwerty,
             ),
         ):
             to_rule = to_key_using_jis_kana_mode(kana)
@@ -234,12 +236,19 @@ def build_stickney_to_jis_kana_map():
                 assert to_rule == "{}", f"{kana=} {from_rule=} {to_rule=}"
 
             # use jis_qwerty_shifted not from_qwerty.upper()
-            print(f"Kana '{kana}' : New Stickney {from_rule} -> {to_rule}")
+            # print(f"Kana '{kana}' : New Stickney {from_rule} -> {to_rule}")
+            yield f"""\
+{{
+    "type": "basic",
+    "from": {from_rule},
+    "to": [{to_rule}],
+    "description": "{qwerty_name} to {kana}"
+}}
+"""
 
 
-build_stickney_to_jis_kana_map()
 romaji_rules = []
-kana_rules = []
+kana_rules = list(build_stickney_to_jis_kana_map())
 
 with open(output_name, "w") as handle:
     # This does not nicely indent.
