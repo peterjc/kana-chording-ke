@@ -383,14 +383,24 @@ with open(output_name, "w") as handle:
     "homepage": "https://github.com/peterjc/kana-chording-ke",
     "repo": "https://github.com/peterjc/kana-chording-ke",
     "rules": [
+"""
+    )
+
+    if romaji_rules:
+        handle.write(
+            f"""\
         {{
             "description": "{romaji_rules_description}",
             "manipulators": [
 """
-        + ",\n".join(_.rstrip() for _ in romaji_rules)
-        + f"""\n
+            + ",\n".join(_.rstrip() for _ in romaji_rules)
+            + """\n
             ]
-        }},
+        },
+"""
+        )
+    handle.write(
+        f"""\
         {{
             "description": "{kana_rules_description}",
             "manipulators": [
