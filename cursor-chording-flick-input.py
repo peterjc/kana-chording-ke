@@ -264,7 +264,7 @@ with open(output_name, "w") as handle:
 """
     )
 
-sys.stderr.write(f"Generated {len(rules)} rules in {output_name}\n")
+sys.stderr.write(f"Generated {len(rules)} sub-rules in {output_name}\n")
 sys.stderr.write("Try running this to add to Karabiner Elements:\n\n")
 sys.stderr.write(
     f"cp {output_name} ~/.config/karabiner/assets/complex_modifications/\n\n"
