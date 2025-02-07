@@ -195,9 +195,12 @@ ke_key_names = {
     # Differ in JIS vs ANSI/ISO, see JIS_TO_ISO_ANSI_NAME
     "¥": "international3",
     "_": "international1",
-    "@": "open_bracket",
-    "[": "close_bracket",
-    "]": "backslash",
+    # QWERTYUIOP@[ on Japanese, ...P[] on ANSI and UK.
+    "@": "open_bracket",  # Used for in ゛ JIS, but in NS only ellipsis with shift?
+    "[": "close_bracket",  # Used for in ゜ JIS, but 「 in NS (and 『 with shift)
+    # ASDFGHJKL;:] on Japanese, ...HJKL;' only on ANSI, ...HJKL;'# on UK
+    "]": "backslash",  # Used for む in JIS, but 」in NS (and 』with shift)
+    # "]": "non_us_pound",  # Used for む and with shift 」in JIS, but 」in NS (and 』with shift)
     # Same in JIS/ANSI/ISO
     "-": "hyphen",
     "^": "equal_sign",
@@ -209,13 +212,17 @@ ke_key_names = {
     " ": "spacebar",
 }
 
-JIS_TO_ISO_ANSI_NAME = {
-    "close_bracket": '{"key_code": "equal_sign"}',  # for getting "゜""
-    "equal_sign": '{"key_code": "backslash"}',  # for getting "へ"　- or non_us_pound?
-    "backslash": '{"key_code": "close_bracket"}',  # for getting "む"
-    "international3": '{"key_code": "slash"}',  # for getting "ー"
-    "international1": '{"key_code": "quote", "modifiers": ["shift"]}',  # getting "ろ"
-    # Shifted higher numbers too!
+ISO_ANSI_SPECIAL = {
+    # shift+n -> "ろ" but international1 is JIS specific, so use alternative:
+    "ろ": '{"key_code": "quote", "modifiers": ["shift"]}',
+    # shift+w -> "゜" but brackets etc move between JIS and ISO/ANSI (shared with "「"):
+    "゜": '{"key_code": "equal_sign"}',
+    # shift+[ -> "「" but brackets etc move on JIS vs ISO/ANSI
+    "「": '{"key_code": "equal_sign", "modifiers": ["shift"]}',
+    # shift+] -> "」" but brackets etc move on JIS vs ISO/ANSI
+    "」": '{"key_code": "open_bracket", "modifiers": ["shift"]}',
+    # shift+m -> "ー" using international3 is JIS specific, so use an alternative
+    "ー": '{"key_code": "hyphen"}',
 }
 
 kana_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}]'
@@ -260,54 +267,48 @@ def _to_key_code_and_mods(kana: str) -> tuple[str, str]:
     raise KeyError(kana)
 
 
-def to_key_using_kana_mode(kana: str, jis_mode=True) -> str:
+def to_key_using_jis_kana_mode(kana: str) -> str:
     """Build KE to-event keycode string to type given character in ISO/ANSI kana mode."""
     if kana == unused:
-        return no_op_to_action, False
+        return no_op_to_action
     try:
         key_code, modifiers = _to_key_code_and_mods(kana)
         key_name = ke_key_name(key_code)
-        flag = False
-        if key_name in JIS_TO_ISO_ANSI_NAME:
-            flag = True
-            if not jis_mode:
-                # Use the ISO/ANSI rule
-                return JIS_TO_ISO_ANSI_NAME[key_name], True
         if modifiers:
-            return f'{{"key_code": "{key_name}", {modifiers}}}', flag
+            return f'{{"key_code": "{key_name}", {modifiers}}}'
         else:
-            return f'{{"key_code": "{key_name}"}}', flag
+            return f'{{"key_code": "{key_name}"}}'
     except KeyError:
         # Fall back of last resort - used to disable wyi, wye
-        return no_jis[kana], False
+        return no_jis[kana]
 
 
-_ = to_key_using_kana_mode("０")
-assert _ == ('{"key_code": "0", "modifiers": ["fn", "option"]}', False), _
-_ = to_key_using_kana_mode("、")
-assert _ == ('{"key_code": "comma", "modifiers": ["shift"]}', False), _
-_ = to_key_using_kana_mode("を")
-assert _ == ('{"key_code": "0", "modifiers": ["shift"]}', False), _
-_ = to_key_using_kana_mode("え")
-assert _ == ('{"key_code": "5"}', False), _
-_ = to_key_using_kana_mode("＆")  # wide &
-assert _ == ('{"key_code": "6", "modifiers": ["shift", "option"]}', False), _
-_ = to_key_using_kana_mode("＇")  # wide '
-assert _ == ('{"key_code": "7", "modifiers": ["shift", "option"]}', False), _
-_ = to_key_using_kana_mode("（")  # wide (
-assert _ == ('{"key_code": "8", "modifiers": ["shift", "option"]}', False), _
-_ = to_key_using_kana_mode("）")  # wide )
-assert _ == ('{"key_code": "9", "modifiers": ["shift", "option"]}', False), _
-_ = to_key_using_kana_mode("む")
-assert _ == ('{"key_code": "backslash"}', True), _
-_ = to_key_using_kana_mode("゜")
-assert _ == ('{"key_code": "close_bracket"}', True), _
-_ = to_key_using_kana_mode("へ")
-assert _ == ('{"key_code": "equal_sign"}', True), _
-_ = to_key_using_kana_mode("ろ")
-assert _ == ('{"key_code": "international1"}', True), _
-_ = to_key_using_kana_mode("ー")
-assert _ == ('{"key_code": "international3"}', True), _
+_ = to_key_using_jis_kana_mode("０")
+assert _ == '{"key_code": "0", "modifiers": ["fn", "option"]}', _
+_ = to_key_using_jis_kana_mode("、")
+assert _ == '{"key_code": "comma", "modifiers": ["shift"]}', _
+_ = to_key_using_jis_kana_mode("を")
+assert _ == '{"key_code": "0", "modifiers": ["shift"]}', _
+_ = to_key_using_jis_kana_mode("え")
+assert _ == '{"key_code": "5"}', _
+_ = to_key_using_jis_kana_mode("＆")  # wide &
+assert _ == '{"key_code": "6", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("＇")  # wide '
+assert _ == '{"key_code": "7", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("（")  # wide (
+assert _ == '{"key_code": "8", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("）")  # wide )
+assert _ == '{"key_code": "9", "modifiers": ["shift", "option"]}', _
+_ = to_key_using_jis_kana_mode("む")
+assert _ == ('{"key_code": "backslash"}'), _
+_ = to_key_using_jis_kana_mode("゜")
+assert _ == '{"key_code": "close_bracket"}', _
+_ = to_key_using_jis_kana_mode("へ")
+assert _ == '{"key_code": "equal_sign"}', _
+_ = to_key_using_jis_kana_mode("ろ")
+assert _ == '{"key_code": "international1"}', _
+_ = to_key_using_jis_kana_mode("ー")
+assert _ == '{"key_code": "international3"}', _
 del _
 
 # Problems seen when Karabiner Elements Virtual Decive in ISO mode (use JIS):
@@ -337,7 +338,7 @@ def build_stickney_to_jis_kana_map():
                 "shift-" + from_qwerty,
             ),
         ):
-            to_rule, flag = to_key_using_kana_mode(kana)
+            to_rule = to_key_using_jis_kana_mode(kana)
             if kana == unused:
                 assert to_rule == no_op_to_action, f"{kana=} {from_rule=} {to_rule=}"
 
@@ -347,13 +348,13 @@ def build_stickney_to_jis_kana_map():
                     "type": "basic",
                     "from": {from_rule},
                     "to": [{to_rule}],
-                    {kana_JIS_conditions if flag else kana_conditions},
+                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
                     "description": "{qwerty_name} to {kana}"
                 }}
 """
-            if flag:
+            if kana in ISO_ANSI_SPECIAL:
                 # Need a second version for ISO/JIS
-                to_rule, flag = to_key_using_kana_mode(kana, jis_mode=False)
+                to_rule = ISO_ANSI_SPECIAL[kana]
                 yield f"""\
                 {{
                     "type": "basic",
