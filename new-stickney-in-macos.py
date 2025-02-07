@@ -342,6 +342,18 @@ def build_stickney_to_jis_kana_map():
             if kana == unused:
                 assert to_rule == no_op_to_action, f"{kana=} {from_rule=} {to_rule=}"
 
+            if kana == "ろ":
+                assert (
+                    from_rule
+                    == '{"key_code": "n", "modifiers": { "mandatory": ["shift"] } }'
+                ), from_rule
+            elif kana == "』":
+                assert (
+                    from_rule
+                    == '{"key_code": "backslash", "modifiers": { "mandatory": ["shift"] } }'
+                )
+                assert to_rule == no_op_to_action, to_rule
+
             # Usually universal, but could be JIS specific:
             yield f"""\
                 {{
@@ -353,6 +365,7 @@ def build_stickney_to_jis_kana_map():
                 }}
 """
             if kana in ISO_ANSI_SPECIAL:
+                assert kana not in no_jis, kana
                 # Need a second version for ISO/JIS
                 to_rule = ISO_ANSI_SPECIAL[kana]
                 yield f"""\
