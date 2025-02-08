@@ -222,11 +222,13 @@ ISO_ANSI_SPECIAL = {
     "「": '{"key_code": "equal_sign", "modifiers": ["shift"]}',
     # shift+] -> "」" but brackets etc move on JIS vs ISO/ANSI
     "」": '{"key_code": "open_bracket", "modifiers": ["shift"]}',
+    # "『": '{"key_code": "open_bracket", "modifiers": ["shift", "option"]}',
     # shift+m -> "ー" using international3 is JIS specific, so use an alternative
-    "ー": '{"key_code": "hyphen"}',
-    "＿": '{"key_code": "hyphen"}',  # ??
-    "￥": '{"key_code": "hyphen"}',  # ??
-    "｜": '{"key_code": "hyphen"}',  # ??
+    "ー": '{"key_code": "hyphen", "modifiers": ["option"]}',
+    "＿": '{"key_code": "hyphen", "modifiers": ["shift", "option"]}',
+    "￥": '{"key_code": "non_us_pound", "modifiers": ["option"]}',
+    "｜": '{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}',
+    "〜": '{"key_code": "non_us_backslash", "modifiers": ["shift"]}',
 }
 
 kana_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}]'
