@@ -145,7 +145,7 @@ new_stickney_normal = (
 # Not sure there is a full-width Japanese three-dot ellipsis?
 # I don't know how to type this or the double-quotes either.
 new_stickney_shift = (
-    "❌❌❌❌❌❌❌❌❌❌❌〜❌"  # number row unchanged (13 keys)
+    "❌❌❌❌❌❌❌❌❌❌❌〜｜"  # number row unchanged (13 keys)
     "❌゜ひふ❌むえもみめ…『"  # top row (12 keys)
     "やそせへほれるりあま　』"  # home row (12 keys)
     "ゆゐ❌ゑ❌ろーをわ？❌"  # bottom row (11 keys)
