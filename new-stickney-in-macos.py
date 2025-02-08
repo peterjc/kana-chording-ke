@@ -115,7 +115,7 @@ jis_japanese_shift = (
 # With these we can map the New Stickney number row to numbers and symbols.
 #
 jis_japanese_shift_option = (  # in kana mode!!!
-    "！＂＃＄％＆＇（）０＝〜｜"  # number row (13 keys), smart quotes reverted
+    "！＂＃＄％＆＇（）❌＝〜｜"  # number row (13 keys), smart quotes reverted
     "ＱＷＥ❌ＴＹＵＩＯＰ｀｛"  # top row (12 keys)
     "❌❌ＤＦＧＨＪＫＬ＋＊｝"  # home row (12 keys)
     "❌❌❌ＶＢＮＭ＜＞？＿"  # bottom row (11 keys)
@@ -370,7 +370,7 @@ def build_stickney_to_jis_kana_map():
                     "type": "basic",
                     "from": {{"key_code": "{key_name}"}},
                     "to": [{to_rule}],
-                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
+                    {kana_not_JIS_conditions},
                     "description": "ISO {key_name} to {kana}"
                 }}
             """
@@ -397,7 +397,7 @@ def build_stickney_to_jis_kana_map():
                     "type": "basic",
                     "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
                     "to": [{to_rule}],
-                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
+                    {kana_not_JIS_conditions},
                     "description": "ISO {key_name} to {kana}"
                 }}
             """
