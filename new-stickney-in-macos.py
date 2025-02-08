@@ -254,6 +254,8 @@ ISO_ANSI_SPECIAL = {
     "＿": '{"key_code": "hyphen", "modifiers": ["shift", "option"]}',
     "￥": '{"key_code": "non_us_pound", "modifiers": ["option"]}',
     "｜": '{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}',
+    # shift+f -> "へ" but "equal_sign" moves between JIS and ISO/ANSI
+    "へ": '{"key_code": "non_us_pound"}',
     "〜": '{"key_code": "non_us_backslash", "modifiers": ["shift"]}',
 }
 
@@ -374,7 +376,7 @@ def build_stickney_to_jis_kana_map():
     for key_name, kana in ISO_MAPPINGS.items():
         # These are "extra" keys on ISO keyboards not on JIS
         to_rule = to_key_using_jis_kana_mode(kana)
-        print(f"Mapping ISO {key_name} to {kana} using {to_rule}")
+        # print(f"Mapping ISO {key_name} to {kana} using {to_rule}")
         yield f"""\
                 {{
                     "type": "basic",
@@ -387,7 +389,7 @@ def build_stickney_to_jis_kana_map():
         if kana in ISO_ANSI_SPECIAL:
             # Need a second version for ISO/JIS
             to_rule = ISO_ANSI_SPECIAL[kana]
-            print(f"Mapping ISO {key_name} to {kana} using ISO {to_rule}")
+            # print(f"Mapping ISO {key_name} to {kana} using ISO {to_rule}")
             yield f"""\
                 {{
                     "type": "basic",
@@ -400,7 +402,7 @@ def build_stickney_to_jis_kana_map():
         # And with shift...
         kana = new_stickney_shift[new_stickney_normal.index(kana)]
         to_rule = to_key_using_jis_kana_mode(kana)
-        print(f"Mapping ISO shift+{key_name} to {kana} using {to_rule}")
+        # print(f"Mapping ISO shift+{key_name} to {kana} using {to_rule}")
         yield f"""\
                 {{
                     "type": "basic",
@@ -413,7 +415,7 @@ def build_stickney_to_jis_kana_map():
         if kana in ISO_ANSI_SPECIAL:
             # Need a second version for ISO/JIS
             to_rule = ISO_ANSI_SPECIAL[kana]
-            print(f"Mapping ISO shift+{key_name} to {kana} using ISO {to_rule}")
+            # print(f"Mapping ISO shift+{key_name} to {kana} using ISO {to_rule}")
             yield f"""\
                 {{
                     "type": "basic",
@@ -469,7 +471,7 @@ def build_stickney_to_jis_kana_map():
             if kana in ISO_ANSI_SPECIAL:
                 # Need a second version for ISO/JIS
                 to_rule = ISO_ANSI_SPECIAL[kana]
-                print(f"Making ISO/ANSI exception for {kana} via {to_rule}")
+                # print(f"ISO/ANSI exception for {kana}: {from_rule} -> {to_rule}")
                 yield f"""\
                 {{
                     "type": "basic",

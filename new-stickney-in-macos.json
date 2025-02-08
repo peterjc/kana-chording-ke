@@ -525,7 +525,14 @@
                     "type": "basic",
                     "from": {"key_code": "f", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "equal_sign"}],
-                    "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
+                    "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "shift-f to へ"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "f", "modifiers": { "mandatory": ["shift"] } },
+                    "to": [{"key_code": "non_us_pound"}],
+                    "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-f to へ"
                 },
                 {
