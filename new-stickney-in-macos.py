@@ -364,13 +364,13 @@ def build_stickney_to_jis_kana_map():
             to_rule = ISO_ANSI_SPECIAL[kana]
             print(f"Mapping ISO {key_name} to {kana} using ISO {to_rule}")
             yield f"""\
-                    {{
-                        "type": "basic",
-                        "from": {{"key_code": "{key_name}"}},
-                        "to": [{to_rule}],
-                        {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
-                        "description": "ISO {key_name} to {kana}"
-                    }}
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{key_name}"}},
+                    "to": [{to_rule}],
+                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
+                    "description": "ISO {key_name} to {kana}"
+                }}
             """
         # And with shift...
         kana = new_stickney_shift[new_stickney_normal.index(kana)]
@@ -379,7 +379,7 @@ def build_stickney_to_jis_kana_map():
         yield f"""\
                 {{
                     "type": "basic",
-                    "from": {{"key_code": "{key_name}", "modifiers": ["shift"]}},
+                    "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
                     "to": [{to_rule}],
                     {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
                     "description": "ISO {key_name} to {kana}"
@@ -391,15 +391,15 @@ def build_stickney_to_jis_kana_map():
             to_rule = ISO_ANSI_SPECIAL[kana]
             print(f"Mapping ISO shift+{key_name} to {kana} using ISO {to_rule}")
             yield f"""\
-                    {{
-                        "type": "basic",
-                        "from": {{"key_code": "{key_name}", "modifiers": ["shift"]}},
-                        "to": [{to_rule}],
-                        {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
-                        "description": "ISO {key_name} to {kana}"
-                    }}
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                    "to": [{to_rule}],
+                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
+                    "description": "ISO {key_name} to {kana}"
+                }}
             """
-    return
+    # return
     for from_index, from_qwerty in enumerate(jis_qwerty):
         from_qwerty = ke_key_name(from_qwerty)
         for from_shift, kana, from_rule, qwerty_name in (
