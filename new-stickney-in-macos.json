@@ -29,7 +29,7 @@
                     "from": {"key_code": "non_us_pound", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "ISO non_us_pound to 』"
+                    "description": "ISO non_us_pound to ❌"
                 },
                 {
                     "type": "basic",
@@ -449,7 +449,7 @@
                     "from": {"key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-open_bracket to …"
+                    "description": "shift-open_bracket to ❌"
                 },
                 {
                     "type": "basic",
@@ -470,7 +470,7 @@
                     "from": {"key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-close_bracket to 『"
+                    "description": "shift-close_bracket to ❌"
                 },
                 {
                     "type": "basic",
@@ -645,7 +645,7 @@
                     "from": {"key_code": "backslash", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-backslash to 』"
+                    "description": "shift-backslash to ❌"
                 },
                 {
                     "type": "basic",
@@ -673,7 +673,7 @@
                     "from": {"key_code": "x", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-x to ゐ"
+                    "description": "shift-x to ❌"
                 },
                 {
                     "type": "basic",
@@ -701,7 +701,7 @@
                     "from": {"key_code": "v", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-v to ゑ"
+                    "description": "shift-v to ❌"
                 },
                 {
                     "type": "basic",

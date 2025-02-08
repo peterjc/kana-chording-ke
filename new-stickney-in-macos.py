@@ -198,15 +198,15 @@ assert len(new_stickney_normal) == len(new_stickney_shift) == len(jis_qwerty)
 
 # no_op_to_action = '{"halt": true}'  # not valid
 no_op_to_action = '{"set_variable": { "name": "kogaki", "value": ""}}'
-no_jis = {
-    "ゐ": no_op_to_action,  # Obsolete (wyi in romaji)
-    "ゑ": no_op_to_action,  # Obsolete (wye in romaji)
-    "　": '{"key_code": "spacebar"}',  # Use plain space to get wide space
-    "…": no_op_to_action,  # How to enter in macOS kana mode?
-    "『": no_op_to_action,  # How to enter in macOS kana mode?
-    "』": no_op_to_action,  # How to enter in macOS kana mode?
-}
-
+for _ in (
+    "ゐ",  # Obsolete (wyi in romaji)
+    "ゑ",  # Obsolete (wye in romaji)
+    "…",
+    "『",
+    "』",
+):  # Believe we can't enter these in macOS kana mode?
+    new_stickney_normal = new_stickney_normal.replace(_, unused)
+    new_stickney_shift = new_stickney_shift.replace(_, unused)
 
 output_name = "new-stickney-in-macos.json"
 title = "New Stickney Japanese Kana Layout in macOS"
@@ -235,6 +235,7 @@ ke_key_names = {
     ".": "period",
     "/": "slash",
     " ": "spacebar",
+    "　": "spacebar",  # Use plain space to get wide space
 }
 
 # What to simulate pressing in ISO/ANSI mode, because the key we wanted was JIS only:
@@ -314,6 +315,8 @@ def _to_key_code_and_mods(kana: str) -> tuple[str, str]:
     index = jis_japanese_shift_option.find(kana)
     if index >= 0:
         return jis_qwerty[index], '"modifiers": ["shift", "option"]'
+    if kana == "　":  # wide space
+        return " ", False
     raise KeyError(kana)
 
 
@@ -321,16 +324,12 @@ def to_key_using_jis_kana_mode(kana: str) -> str:
     """Build KE to-event keycode string to type given character in ISO/ANSI kana mode."""
     if kana == unused:
         return no_op_to_action
-    try:
-        key_code, modifiers = _to_key_code_and_mods(kana)
-        key_name = ke_key_name(key_code)
-        if modifiers:
-            return f'{{"key_code": "{key_name}", {modifiers}}}'
-        else:
-            return f'{{"key_code": "{key_name}"}}'
-    except KeyError:
-        # Fall back of last resort - used to disable wyi, wye
-        return no_jis[kana]
+    key_code, modifiers = _to_key_code_and_mods(kana)
+    key_name = ke_key_name(key_code)
+    if modifiers:
+        return f'{{"key_code": "{key_name}", {modifiers}}}'
+    else:
+        return f'{{"key_code": "{key_name}"}}'
 
 
 _ = to_key_using_jis_kana_mode("０")
@@ -386,7 +385,6 @@ def build_stickney_to_jis_kana_map():
                 }}
         """
         if kana in ISO_ANSI_SPECIAL:
-            assert kana not in no_jis, kana
             # Need a second version for ISO/JIS
             to_rule = ISO_ANSI_SPECIAL[kana]
             print(f"Mapping ISO {key_name} to {kana} using ISO {to_rule}")
@@ -413,7 +411,6 @@ def build_stickney_to_jis_kana_map():
                 }}
         """
         if kana in ISO_ANSI_SPECIAL:
-            assert kana not in no_jis, kana
             # Need a second version for ISO/JIS
             to_rule = ISO_ANSI_SPECIAL[kana]
             print(f"Mapping ISO shift+{key_name} to {kana} using ISO {to_rule}")
@@ -470,9 +467,9 @@ def build_stickney_to_jis_kana_map():
                 }}
 """
             if kana in ISO_ANSI_SPECIAL:
-                assert kana not in no_jis, kana
                 # Need a second version for ISO/JIS
                 to_rule = ISO_ANSI_SPECIAL[kana]
+                print(f"Making ISO/ANSI exception for {kana} via {to_rule}")
                 yield f"""\
                 {{
                     "type": "basic",
