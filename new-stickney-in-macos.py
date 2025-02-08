@@ -212,6 +212,7 @@ ke_key_names = {
     " ": "spacebar",
 }
 
+# What to simulate pressing in ISO/ANSI mode, because the key we wanted was JIS only:
 ISO_ANSI_SPECIAL = {
     # shift+n -> "ろ" but international1 is JIS specific, so use alternative:
     "ろ": '{"key_code": "quote", "modifiers": ["shift"]}',
