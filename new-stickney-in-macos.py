@@ -126,6 +126,31 @@ jis_japanese_fn_option = (
     "ａｓｄｆｇｈｊｋｌ；：］"  # home row (12 keys)
     "ｚｘｃｖｂｎｍ、。・＿"  # bottom row (11 keys)
 )
+# Note in ISO/ANSI mode can get 『 mismatched with ｝ - odd!
+iso_japanese_shift_option = (  # in kana mode!!!
+    "！＠＃＄％＾＆＊（）＿｛❌"  # number row (13 keys), smart quotes reverted
+    "ＱＷＥ❌ＴＹＵＩＯＰ『｝"  # top row (12 keys)
+    "❌❌ＤＦＧＨＪＫＬ：＂｜"  # home row (12 keys), smart quote reverted
+    "❌❌❌ＶＢＮＭ＜＞？＿❌"  # bottom row (11 keys)
+)
+iso_japanese_fn_option = (
+    "１２３４５６７８９０ー＝❌"  # number row (13 keys)
+    "ｑｗｅｒｔｙｕｉｏｐ「」"  # top row (12 keys)
+    "ａｓｄｆｇｈｊｋｌ；＇￥"  # home row (12 keys), smart quote reverted
+    "ｚｘｃｖｂｎｍ、。・❌"  # bottom row (11 keys)
+)
+ansi_japanese_shift_option = (  # in kana mode!!!
+    "！＠＃＄％＾＆＊（）＿｛❌"  # number row (13 keys), smart quotes reverted
+    "ＱＷＥ❌ＴＹＵＩＯＰ『｝"  # top row (12 keys)
+    "❌❌ＤＦＧＨＪＫＬ：＂｜"  # home row (12 keys), smart quote reverted
+    "❌❌❌ＶＢＮＭ＜＞？❌"  # bottom row (11 keys)
+)
+ansi_japanese_fn_option = (
+    "１２３４５６７８９０ー＝❌"  # number row (13 keys)
+    "ｑｗｅｒｔｙｕｉｏｐ「」"  # top row (12 keys)
+    "ａｓｄｆｇｈｊｋｌ；＇￥"  # home row (12 keys), smart quote reverted
+    "ｚｘｃｖｂｎｍ、。・❌"  # bottom row (11 keys)
+)
 
 assert len(jis_qwerty) == len(jis_qwerty_shifted) == len(jis_qwerty_option_shifted)
 assert len(jis_qwerty) == len(jis_japanese_normal) == len(jis_japanese_shift)
