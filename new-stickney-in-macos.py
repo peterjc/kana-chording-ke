@@ -74,15 +74,15 @@ handaku = "ぱぴぷぺぽ"
 kogaki = "ぁぃぅぇぉゃゅょ"  # excluding small tsu "っ" and no small ka or ke "ヵヶ"
 
 
-# As typed on Japanese Apple MacBook keyboard
+# As typed on Japanese Apple MacBook keyboard (except first key)
 jis_qwerty = (
-    "1234567890-^¥"  # number row (13 keys)
+    "`1234567890-^¥"  # number row (1 ANSI/ISO ghost then 13 keys)
     "qwertyuiop@["  # top row (12 keys)
     "asdfghjkl;:]"  # home row (12 keys)
     "zxcvbnm,./_"  # bottom row (11 keys)
 )
 jis_qwerty_shifted = (
-    "!\"#$%&'()0=~|"  # number row (13 keys)
+    "~!\"#$%&'()0=~|"  # number row (1 ANSI/ISO ghost then 13 keys)
     "QWERTYUIOP`{"  # top row (12 keys)
     "ASDFGHJKL+*}"  # home row (12 keys)
     "ZXCVBNM<>?_"  # bottom row (11 keys)
@@ -90,20 +90,20 @@ jis_qwerty_shifted = (
 # Nothing critical here, except perhaps euro sign:
 # The top left slash "⁄" is wider than ASCII "/"?
 jis_qwerty_option_shifted = (
-    "⁄€‹›ﬁﬂ‡°·‚—±|"  # number row (13 keys)
+    "`⁄€‹›ﬁﬂ‡°·‚—±|"  # number row (1 ANSI/ISO ghost then 13 keys)
     "Œ„´‰ˇÁ¨ˆØ∏”’"  # top row (12 keys)
     "ÅÍÎÏ˝ÓÔÒÚÆ»"  # home row (12 keys)
     "¸˛Ç◊ı˜Â¯˘¿`"  # bottom row (11 keys)
 )
 
 jis_japanese_normal = (
-    "ぬふあうえおやゆよわほへー"  # number row (13 keys)
+    "｀ぬふあうえおやゆよわほへー"  # number row (1 ANSI/ISO ghost then 13 keys)
     "たていすかんなにらせ゛゜"  # top row (12 keys)
     "ちとしはきくまのりれけむ"  # home row (12 keys)
     "つさそひこみもねるめろ"  # bottom row (11 keys)
 )
 jis_japanese_shift = (
-    "❌❌ぁぅぇぉゃゅょを❌❌❌"  # number row
+    "〜❌❌ぁぅぇぉゃゅょを❌❌❌"  # number row
     "❌❌ぃ❌❌❌❌❌❌❌❌「"  # top row (12 keys)
     "❌❌❌❌❌❌❌❌❌❌❌」"  # home row (12 keys)
     "っ❌❌❌❌❌❌、。・❌"  # bottom row (11 keys)
@@ -115,38 +115,41 @@ jis_japanese_shift = (
 # With these we can map the New Stickney number row to numbers and symbols.
 #
 jis_japanese_shift_option = (  # in kana mode!!!
-    "！＂＃＄％＆＇（）❌＝〜｜"  # number row (13 keys), smart quotes reverted
+    "〜！＂＃＄％＆＇（）❌＝〜｜"  # number row (1 ISO then 13 keys), smart quotes reverted
     "ＱＷＥ❌ＴＹＵＩＯＰ｀｛"  # top row (12 keys)
     "❌❌ＤＦＧＨＪＫＬ＋＊｝"  # home row (12 keys)
     "❌❌❌ＶＢＮＭ＜＞？＿"  # bottom row (11 keys)
 )
+# I have the ` key top left on an external keyboard, but not function
 jis_japanese_fn_option = (
-    "１２３４５６７８９０－＾￥"  # number row (13 keys)
+    "❌１２３４５６７８９０－＾￥"  # number row (1 missing then 13 keys)
     "ｑｗｅｒｔｙｕｉｏｐ＠［"  # top row (12 keys)
     "ａｓｄｆｇｈｊｋｌ；：］"  # home row (12 keys)
     "ｚｘｃｖｂｎｍ、。・＿"  # bottom row (11 keys)
 )
 # Note in ISO/ANSI mode can get 『 mismatched with ｝ - odd!
 iso_japanese_shift_option = (  # in kana mode!!!
-    "！＠＃＄％＾＆＊（）＿｛❌"  # number row (13 keys), smart quotes reverted
+    "±！＠＃＄％＾＆＊（）＿｛❌"  # number row (1 ISO then 13 keys), smart quotes reverted
     "ＱＷＥ❌ＴＹＵＩＯＰ『｝"  # top row (12 keys)
     "❌❌ＤＦＧＨＪＫＬ：＂｜"  # home row (12 keys), smart quote reverted
     "❌❌❌ＶＢＮＭ＜＞？＿❌"  # bottom row (11 keys)
 )
+# I have the ` key top left on an external keyboard, but not function
 iso_japanese_fn_option = (
-    "１２３４５６７８９０ー＝❌"  # number row (13 keys)
+    "❌１２３４５６７８９０ー＝❌"  # number row (1 missing then 13 keys)
     "ｑｗｅｒｔｙｕｉｏｐ「」"  # top row (12 keys)
     "ａｓｄｆｇｈｊｋｌ；＇￥"  # home row (12 keys), smart quote reverted
     "ｚｘｃｖｂｎｍ、。・❌"  # bottom row (11 keys)
 )
 ansi_japanese_shift_option = (  # in kana mode!!!
-    "！＠＃＄％＾＆＊（）＿｛❌"  # number row (13 keys), smart quotes reverted
+    "｀！＠＃＄％＾＆＊（）＿｛❌"  # number row (13 keys), smart quotes reverted
     "ＱＷＥ❌ＴＹＵＩＯＰ『｝"  # top row (12 keys)
     "❌❌ＤＦＧＨＪＫＬ：＂｜"  # home row (12 keys), smart quote reverted
     "❌❌❌ＶＢＮＭ＜＞？❌"  # bottom row (11 keys)
 )
+# I have the ` key top left on an external keyboard, but not function
 ansi_japanese_fn_option = (
-    "１２３４５６７８９０ー＝❌"  # number row (13 keys)
+    "❌１２３４５６７８９０ー＝❌"  # number row (13 keys)
     "ｑｗｅｒｔｙｕｉｏｐ「」"  # top row (12 keys)
     "ａｓｄｆｇｈｊｋｌ；＇￥"  # home row (12 keys), smart quote reverted
     "ｚｘｃｖｂｎｍ、。・❌"  # bottom row (11 keys)
@@ -156,38 +159,39 @@ assert len(jis_qwerty) == len(jis_qwerty_shifted) == len(jis_qwerty_option_shift
 assert len(jis_qwerty) == len(jis_japanese_normal) == len(jis_japanese_shift)
 assert len(jis_qwerty) == len(jis_japanese_shift_option)
 
-# These are as laid out on JIS keyboard, not USA (punctuation keys move)
+# These are as laid out on JIS keyboard, not ANSI/USA (punctuation keys move)
+# save for the insertion of a ghost key for the ANSI/ISO backtick/tilde key.
 # The "wide space" on the home row is actually the 変換 key
 # (which should give a wide space when there is nothing to convert)
 # The ❌ are not explicitly redefined, assuming follow JIS punctuation
 # and QWERTY for the number row...
 new_stickney_normal = (
-    "❌❌❌❌❌❌❌❌❌❌❌❌￥"  # number row unchanged (13 keys)
+    "｀❌❌❌❌❌❌❌❌❌❌❌❌￥"  # number row unchanged (1 ANSI/ISO plus 13 keys)
     "けくすさつぬおのにね❌「"  # top row (12 keys)
     "はかしたてらうい゛な　」"  # home row includes ten-ten (12 keys)
     "よきことちっん、。・❌"  # bottom row (11 keys)
 )
-# Not sure there is a full-width Japanese three-dot ellipsis?
-# I don't know how to type this or the double-quotes either.
+# There does not seem to be a full-width ellipsis in unicode, using backtick
+# instead for the ISO key. Also does not seem possible to type 『double-quotes』 either.
 new_stickney_shift = (
-    "❌❌❌❌❌❌❌❌❌❌❌〜｜"  # number row unchanged (13 keys)
+    "〜❌❌❌❌❌❌❌❌❌❌❌〜｜"  # number row unchanged (1 ANSI/ISO plus 13 keys)
     "❌゜ひふ❌むえもみめ…『"  # top row (12 keys)
     "やそせへほれるりあま　』"  # home row (12 keys)
     "ゆゐ❌ゑ❌ろーをわ？❌"  # bottom row (11 keys)
 )
-# Here will map unused ❌ number row to the JIS option/fn
+# Here will map unused ❌ number row to the JIS option/fn,
 # and option/shift row of wide numbers and symbols, and
 # for the five punctuation map to JIS kana mode usage.
-# [Note this is New Stickney on JIS, on ANSI shows tilde top left,
-# and moves the quotes to follow the curly and square brackets.]
+# [Note this is New Stickney on JIS, plus ANSI/ISO backtick/tilde top left.
+# New Stickney on ANSI moves the quotes to follow the curly and square brackets.]
 new_stickney_normal = (
-    "１２３４５６７８９０－＾￥"  # number row unchanged (13 keys)
+    "｀１２３４５６７８９０－＾￥"  # number row unchanged (1 ANSI/ISO plus 13 keys)
     "けくすさつぬおのにね❌「"  # top row (12 keys)
     "はかしたてらうい゛な　」"  # home row includes ten-ten (12 keys)
     "よきことちっん、。・＿"  # bottom row (11 keys)
 )
 new_stickney_shift = (
-    "！＂＃＄％＆＇（）－＝〜｜"  # wide symbols via option+shift (13 keys)
+    "〜！＂＃＄％＆＇（）－＝〜｜"  # wide symbols via option+shift (1 ANSI/ISO plus 13 keys)
     "❌゜ひふ❌むえもみめ…『"  # top row (12 keys)
     "やそせへほれるりあま　』"  # home row (12 keys)
     "ゆゐ❌ゑ❌ろーをわ？＿"  # bottom row (11 keys)
@@ -234,6 +238,7 @@ ke_key_names = {
     ",": "comma",
     ".": "period",
     "/": "slash",
+    "`": "grave_accent_and_tilde",
     " ": "spacebar",
     "　": "spacebar",  # Use plain space to get wide space
 }
@@ -257,6 +262,7 @@ ISO_ANSI_SPECIAL = {
     # shift+f -> "へ" but "equal_sign" moves between JIS and ISO/ANSI
     "へ": '{"key_code": "non_us_pound"}',
     "〜": '{"key_code": "non_us_backslash", "modifiers": ["shift"]}',
+    "｀": '{"key_code": "non_us_backslash", "modifiers": ["option"]}',
 }
 
 kana_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}]'
@@ -272,14 +278,15 @@ ISO_MAPPINGS = {
     # is the shape here is the same as JIS keyboards so will ise this for "」"
     "non_us_pound": "」",
     # This is the slash/broken-pipe bottom left between left-shift and Z on
-    # a UK keyboard, also known as the ISO key. Map to JIS ろ key bottom.
-    "non_us_backslash": "＿",
+    # a UK keyboard, also known as the ISO key. Map to ￥ (top right in JIS/ANSI).
+    "non_us_backslash": "￥",
     # This is the top left back-tick and pipe on a UK keyboard. There is a key
     # here on both JIS (New Stickney uses it for あ/A) and ANSI keyboards (where
     # New Stickney uses it for ellipsis/tilde). My Japanese MacBook has no key
     # here (but has dedicated switching keys). In JIS Kana mode, it gives §±
-    # which is useless. Treat like JIS top right ￥ and pipe.
-    "grave_accent_and_tilde": "￥",
+    # which is useless. Treat like ANSI New Stickney top left for ellipsis/tilde
+    # (which I have re-interpreted as wide-backtick and wide-tilde).
+    "grave_accent_and_tilde": "｀",
 }
 
 
