@@ -230,9 +230,9 @@ ke_key_names = {
     # ASDFGHJKL;:] on Japanese, ...HJKL;' only on ANSI, ...HJKL;'# on UK
     "]": "backslash",  # Used for む in JIS, but 」in NS (and 』with shift)
     # "]": "non_us_pound",  # Used for む and with shift 」in JIS, but 」in NS (and 』with shift)
+    "^": "equal_sign",
     # Same in JIS/ANSI/ISO
     "-": "hyphen",
-    "^": "equal_sign",
     ";": "semicolon",
     ":": "quote",
     ",": "comma",
@@ -434,26 +434,61 @@ def build_stickney_to_jis_kana_map():
                     "description": "ISO {key_name} to {kana}"
                 }}
             """
-    # return
+    # Now loop over the main set of keys expected on JIS keyboards
     for from_index, from_qwerty in enumerate(jis_qwerty):
-        if from_qwerty in "1234567890":
-            # Special case the numbers and symbols as want to always follow ANSI/ISO/JIS local defaults
+        if from_qwerty in "1234567890-^":
+            # Special case the numbers and symbols row,
+            # want to always follow ANSI/ISO/JIS local defaults
+            kana = jis_japanese_fn_option[from_index]
+            if from_qwerty == "-":
+                from_qwerty = "hyphen"
+                kana = "－"
+            elif from_qwerty == "^":
+                from_qwerty = "equal_sign"
+                kana = "＝ (ISO/ANSI) or ＾ (JIS)"
             yield f"""\
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{from_qwerty}"}},
                     "to": [{{"key_code": "{from_qwerty}", "modifiers": ["fn", "option"]}}],
                     {kana_conditions},
-                    "description": "{from_qwerty} to {jis_japanese_fn_option[from_index]} wide digit"
+                    "description": "{from_qwerty} to {kana} (wide)"
                 }}
             """
-            yield f"""\
+            if from_qwerty != "equal_sign":
+                # Map the shift+number to option+shift+number
+                yield f"""\
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
                     "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}],
                     {kana_conditions},
                     "description": "shift+{from_qwerty} to wide symbol"
+                }}
+            """
+            else:
+                # In JIS the "equal_sign" key should give ＾ (done) or 〜 with shift.
+                # An easy mapping. But in ISO/ANSI, want ＝ (done) or + with shift.
+                # So, two rules!
+                yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}],
+                    {kana_JIS_conditions},
+                    "description": "shift+{from_qwerty} to ＋ (wide) in JIS"
+                }}
+            """
+                # Can't seem to generate wide plus using option/alt combinations
+                # (unless in JIS mode where we don't want it here) so settling
+                # for the narrow plus via the keypad:
+                yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                    "to": [{{"key_code": "keypad_plus"}}],
+                    {kana_not_JIS_conditions},
+                    "description": "shift+{from_qwerty} to plus symbol"
                 }}
             """
             continue
