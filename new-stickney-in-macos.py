@@ -200,8 +200,10 @@ new_stickney_shift = (
 assert len(new_stickney_normal) == len(new_stickney_shift)
 assert len(new_stickney_normal) == len(new_stickney_shift) == len(jis_qwerty)
 
+clear_kogaki = '{"set_variable": { "name": "kogaki", "value": ""} }'
+
 # no_op_to_action = '{"halt": true}'  # not valid
-no_op_to_action = '{"set_variable": { "name": "kogaki", "value": ""}}'
+no_op_to_action = clear_kogaki
 for _ in (
     "ゐ",  # Obsolete (wyi in romaji)
     "ゑ",  # Obsolete (wye in romaji)
@@ -400,7 +402,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}"}},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_not_ISO_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -410,7 +412,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}"}},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_ISO_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -421,7 +423,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}"}},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -434,7 +436,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}"}},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_not_JIS_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -448,7 +450,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_not_ISO_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -458,7 +460,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_ISO_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -469,7 +471,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -482,7 +484,7 @@ def build_stickney_to_jis_kana_map():
                     {{
                         "type": "basic",
                         "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                        "to": [{to_rule}],
+                        "to": [{to_rule}, {clear_kogaki}],
                         {kana_not_JIS_conditions},
                         "description": "ISO {key_name} to {kana}"
                     }}
@@ -503,7 +505,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{from_qwerty}"}},
-                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["fn", "option"]}}],
+                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["fn", "option"]}}, {clear_kogaki}],
                     {kana_conditions},
                     "description": "{from_qwerty} to {kana} (wide)"
                 }}
@@ -514,7 +516,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}],
+                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}, {clear_kogaki}],
                     {kana_conditions},
                     "description": "shift+{from_qwerty} to wide symbol"
                 }}
@@ -527,7 +529,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}],
+                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}, {clear_kogaki}],
                     {kana_JIS_conditions},
                     "description": "shift+{from_qwerty} to ＋ (wide) in JIS"
                 }}
@@ -539,7 +541,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                    "to": [{{"key_code": "keypad_plus"}}],
+                    "to": [{{"key_code": "keypad_plus"}}, {clear_kogaki}],
                     {kana_not_JIS_conditions},
                     "description": "shift+{from_qwerty} to plus symbol"
                 }}
@@ -581,7 +583,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {from_rule},
-                    "to": [{to_rule}],
+                    "to": [{to_rule}, {clear_kogaki}],
                     {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
                     "description": "{qwerty_name} to {kana}"
                 }}
@@ -594,7 +596,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {from_rule},
-                    "to": [{to_rule}],
+                    "to": [{to_rule}, {clear_kogaki}],
                     {kana_not_JIS_conditions},
                     "description": "{qwerty_name} to {kana}"
                 }}

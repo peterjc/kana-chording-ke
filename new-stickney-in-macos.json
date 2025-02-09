@@ -13,840 +13,840 @@
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_pound"},
-                        "to": [{"key_code": "backslash", "modifiers": ["shift"]}],
+                        "to": [{"key_code": "backslash", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                         "description": "ISO non_us_pound to 」"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_pound"},
-                        "to": [{"key_code": "open_bracket", "modifiers": ["shift"]}],
+                        "to": [{"key_code": "open_bracket", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                         "description": "ISO non_us_pound to 」"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_pound", "modifiers": { "mandatory": ["shift"] } },
-                        "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                        "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                         "description": "ISO non_us_pound to ❌"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_backslash"},
-                        "to": [{"key_code": "international3", "modifiers": ["fn", "option"]}],
+                        "to": [{"key_code": "international3", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                         "description": "ISO non_us_backslash to ￥"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_backslash"},
-                        "to": [{"key_code": "non_us_pound", "modifiers": ["option"]}],
+                        "to": [{"key_code": "non_us_pound", "modifiers": ["option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                         "description": "ISO non_us_backslash to ￥"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_backslash", "modifiers": { "mandatory": ["shift"] } },
-                        "to": [{"key_code": "international3", "modifiers": ["shift", "option"]}],
+                        "to": [{"key_code": "international3", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                         "description": "ISO non_us_backslash to ｜"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "non_us_backslash", "modifiers": { "mandatory": ["shift"] } },
-                        "to": [{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}],
+                        "to": [{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                         "description": "ISO non_us_backslash to ｜"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "grave_accent_and_tilde"},
-                        "to": [{"key_code": "grave_accent_and_tilde"}],
+                        "to": [{"key_code": "grave_accent_and_tilde"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "jis"], "type": "keyboard_type_if"}],
                         "description": "ISO grave_accent_and_tilde to ｀"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "grave_accent_and_tilde"},
-                        "to": [{"key_code": "non_us_backslash", "modifiers": ["option"]}],
+                        "to": [{"key_code": "non_us_backslash", "modifiers": ["option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["iso"], "type": "keyboard_type_if"}],
                         "description": "ISO grave_accent_and_tilde to ｀"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
-                        "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}],
+                        "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "jis"], "type": "keyboard_type_if"}],
                         "description": "ISO grave_accent_and_tilde to 〜"
                     },
                     {
                         "type": "basic",
                         "from": {"key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
-                        "to": [{"key_code": "non_us_backslash", "modifiers": ["shift"]}],
+                        "to": [{"key_code": "non_us_backslash", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                         "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["iso"], "type": "keyboard_type_if"}],
                         "description": "ISO grave_accent_and_tilde to 〜"
                     },
                 {
                     "type": "basic",
                     "from": {"key_code": "grave_accent_and_tilde"},
-                    "to": [{"key_code": "grave_accent_and_tilde"}],
+                    "to": [{"key_code": "grave_accent_and_tilde"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "grave_accent_and_tilde to ｀"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-grave_accent_and_tilde to 〜"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "1"},
-                    "to": [{"key_code": "1", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "1", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "1 to １ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "1", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "1", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "1", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+1 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "2"},
-                    "to": [{"key_code": "2", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "2", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "2 to ２ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "2", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "2", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "2", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+2 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "3"},
-                    "to": [{"key_code": "3", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "3", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "3 to ３ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "3", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "3", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "3", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+3 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "4"},
-                    "to": [{"key_code": "4", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "4", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "4 to ４ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "4", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "4", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "4", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+4 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "5"},
-                    "to": [{"key_code": "5", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "5", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "5 to ５ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "5", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "5", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "5", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+5 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "6"},
-                    "to": [{"key_code": "6", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "6", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "6 to ６ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "6", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "6", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "6", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+6 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "7"},
-                    "to": [{"key_code": "7", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "7", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "7 to ７ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "7", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "7", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "7", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+7 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "8"},
-                    "to": [{"key_code": "8", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "8", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "8 to ８ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "8", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "8", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "8", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+8 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "9"},
-                    "to": [{"key_code": "9", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "9", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "9 to ９ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "9", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "9", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "9", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+9 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "0"},
-                    "to": [{"key_code": "0", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "0", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "0 to ０ (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "0", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "0", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "0", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+0 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "hyphen"},
-                    "to": [{"key_code": "hyphen", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "hyphen", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "hyphen to － (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "hyphen", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "hyphen", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "hyphen", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift+hyphen to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "equal_sign"},
-                    "to": [{"key_code": "equal_sign", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "equal_sign", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "equal_sign to ＝ (ISO/ANSI) or ＾ (JIS) (wide)"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "equal_sign", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "equal_sign", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "equal_sign", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift+equal_sign to ＋ (wide) in JIS"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "equal_sign", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "keypad_plus"}],
+                    "to": [{"key_code": "keypad_plus"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift+equal_sign to plus symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international3"},
-                    "to": [{"key_code": "international3", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "international3", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "international3 to ￥"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international3"},
-                    "to": [{"key_code": "non_us_pound", "modifiers": ["option"]}],
+                    "to": [{"key_code": "non_us_pound", "modifiers": ["option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "international3 to ￥"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international3", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "international3", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "international3", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift-international3 to ｜"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international3", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-international3 to ｜"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "q"},
-                    "to": [{"key_code": "quote"}],
+                    "to": [{"key_code": "quote"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "q to け"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "q", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-q to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "w"},
-                    "to": [{"key_code": "h"}],
+                    "to": [{"key_code": "h"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "w to く"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "w", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "close_bracket"}],
+                    "to": [{"key_code": "close_bracket"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift-w to ゜"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "w", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "equal_sign"}],
+                    "to": [{"key_code": "equal_sign"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-w to ゜"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "e"},
-                    "to": [{"key_code": "r"}],
+                    "to": [{"key_code": "r"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "e to す"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "e", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "v"}],
+                    "to": [{"key_code": "v"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-e to ひ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "r"},
-                    "to": [{"key_code": "x"}],
+                    "to": [{"key_code": "x"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "r to さ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "r", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "2"}],
+                    "to": [{"key_code": "2"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-r to ふ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "t"},
-                    "to": [{"key_code": "z"}],
+                    "to": [{"key_code": "z"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "t to つ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "t", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-t to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "y"},
-                    "to": [{"key_code": "1"}],
+                    "to": [{"key_code": "1"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "y to ぬ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "y", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "backslash"}],
+                    "to": [{"key_code": "backslash"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-y to む"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "u"},
-                    "to": [{"key_code": "6"}],
+                    "to": [{"key_code": "6"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "u to お"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "u", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "5"}],
+                    "to": [{"key_code": "5"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-u to え"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "i"},
-                    "to": [{"key_code": "k"}],
+                    "to": [{"key_code": "k"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "i to の"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "i", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "m"}],
+                    "to": [{"key_code": "m"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-i to も"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "o"},
-                    "to": [{"key_code": "i"}],
+                    "to": [{"key_code": "i"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "o to に"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "o", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "n"}],
+                    "to": [{"key_code": "n"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-o to み"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "p"},
-                    "to": [{"key_code": "comma"}],
+                    "to": [{"key_code": "comma"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "p to ね"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "p", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "slash"}],
+                    "to": [{"key_code": "slash"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-p to め"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "open_bracket"},
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "open_bracket to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-open_bracket to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "close_bracket"},
-                    "to": [{"key_code": "close_bracket", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "close_bracket", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "close_bracket to 「"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "close_bracket"},
-                    "to": [{"key_code": "equal_sign", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "equal_sign", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "close_bracket to 「"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-close_bracket to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "a"},
-                    "to": [{"key_code": "f"}],
+                    "to": [{"key_code": "f"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "a to は"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "a", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "7"}],
+                    "to": [{"key_code": "7"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-a to や"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "s"},
-                    "to": [{"key_code": "t"}],
+                    "to": [{"key_code": "t"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "s to か"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "s", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "c"}],
+                    "to": [{"key_code": "c"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-s to そ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "d"},
-                    "to": [{"key_code": "d"}],
+                    "to": [{"key_code": "d"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "d to し"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "d", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "p"}],
+                    "to": [{"key_code": "p"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-d to せ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "f"},
-                    "to": [{"key_code": "q"}],
+                    "to": [{"key_code": "q"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "f to た"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "f", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "equal_sign"}],
+                    "to": [{"key_code": "equal_sign"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift-f to へ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "f", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "non_us_pound"}],
+                    "to": [{"key_code": "non_us_pound"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-f to へ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "g"},
-                    "to": [{"key_code": "w"}],
+                    "to": [{"key_code": "w"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "g to て"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "g", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "hyphen"}],
+                    "to": [{"key_code": "hyphen"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-g to ほ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "h"},
-                    "to": [{"key_code": "o"}],
+                    "to": [{"key_code": "o"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "h to ら"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "h", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "semicolon"}],
+                    "to": [{"key_code": "semicolon"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-h to れ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "j"},
-                    "to": [{"key_code": "4"}],
+                    "to": [{"key_code": "4"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "j to う"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "j", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "period"}],
+                    "to": [{"key_code": "period"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-j to る"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "k"},
-                    "to": [{"key_code": "e"}],
+                    "to": [{"key_code": "e"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "k to い"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "k", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "l"}],
+                    "to": [{"key_code": "l"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-k to り"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "l"},
-                    "to": [{"key_code": "open_bracket"}],
+                    "to": [{"key_code": "open_bracket"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "l to ゛"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "l", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "3"}],
+                    "to": [{"key_code": "3"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-l to あ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "semicolon"},
-                    "to": [{"key_code": "u"}],
+                    "to": [{"key_code": "u"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "semicolon to な"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "semicolon", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "j"}],
+                    "to": [{"key_code": "j"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-semicolon to ま"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "quote"},
-                    "to": [{"key_code": "spacebar"}],
+                    "to": [{"key_code": "spacebar"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "quote to 　"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "quote", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "spacebar"}],
+                    "to": [{"key_code": "spacebar"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-quote to 　"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "backslash"},
-                    "to": [{"key_code": "backslash", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "backslash", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "backslash to 」"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "backslash"},
-                    "to": [{"key_code": "open_bracket", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "open_bracket", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "backslash to 」"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "backslash", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-backslash to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "z"},
-                    "to": [{"key_code": "9"}],
+                    "to": [{"key_code": "9"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "z to よ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "8"}],
+                    "to": [{"key_code": "8"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-z to ゆ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "x"},
-                    "to": [{"key_code": "g"}],
+                    "to": [{"key_code": "g"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "x to き"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "x", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-x to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "c"},
-                    "to": [{"key_code": "b"}],
+                    "to": [{"key_code": "b"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "c to こ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "c", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-c to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "v"},
-                    "to": [{"key_code": "s"}],
+                    "to": [{"key_code": "s"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "v to と"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "v", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-v to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "b"},
-                    "to": [{"key_code": "a"}],
+                    "to": [{"key_code": "a"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "b to ち"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "b", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"set_variable": { "name": "kogaki", "value": ""}}],
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-b to ❌"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "n"},
-                    "to": [{"key_code": "z", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "z", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "n to っ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "n", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "international1"}],
+                    "to": [{"key_code": "international1"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift-n to ろ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "n", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "quote", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "quote", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-n to ろ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "m"},
-                    "to": [{"key_code": "y"}],
+                    "to": [{"key_code": "y"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "m to ん"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "m", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "international3"}],
+                    "to": [{"key_code": "international3"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift-m to ー"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "m", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "hyphen", "modifiers": ["option"]}],
+                    "to": [{"key_code": "hyphen", "modifiers": ["option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-m to ー"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "comma"},
-                    "to": [{"key_code": "comma", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "comma", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "comma to 、"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "comma", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "0", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "0", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-comma to を"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "period"},
-                    "to": [{"key_code": "period", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "period", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "period to 。"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "period", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "0"}],
+                    "to": [{"key_code": "0"}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-period to わ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "slash"},
-                    "to": [{"key_code": "slash", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "slash", "modifiers": ["shift"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "slash to ・"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "slash", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "slash", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "slash", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
                     "description": "shift-slash to ？"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international1"},
-                    "to": [{"key_code": "international1", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "international1", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "international1 to ＿"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international1"},
-                    "to": [{"key_code": "hyphen", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "hyphen", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "international1 to ＿"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international1", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "international1", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "international1", "modifiers": ["fn", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "shift-international1 to ＿"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international1", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "hyphen", "modifiers": ["shift", "option"]}],
+                    "to": [{"key_code": "hyphen", "modifiers": ["shift", "option"]}, {"set_variable": { "name": "kogaki", "value": ""} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-international1 to ＿"
                 }
