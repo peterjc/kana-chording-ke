@@ -393,6 +393,33 @@ del _
 
 
 def build_stickney_to_jis_kana_map():
+    # ------------
+    # Rule Set One - kogaki via ten-ten key
+    # ------------
+    for kana in kogaki:
+        # We delete the previously entered large kana, and replace with
+        # the small version (which is always on on JIS shift layer).
+        # (Main catch here is ensuring the variable gets cleared properly)
+        from_qwerty = jis_qwerty[jis_japanese_shift.index(kana)]
+        yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "l"}},
+                        "to": [
+                            {{"key_code": "delete_or_backspace"}},
+                            {{"key_code": "{from_qwerty}", "modifiers": ["shift"]}},
+                            {clear_kogaki}
+                        ],
+                        "conditions": [
+                            {{"input_sources": [{{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }}], "type": "input_source_if"}},
+                            {{"type": "variable_if", "name": "kogaki", "value": "{kana}"}}
+                        ],
+                        "description": "Ten-ten suffix for {kana} kogaki"
+                    }}
+            """
+    # ------------
+    # Rule Set Two - extra keys on ISO keyboards not on JIS
+    # ------------
     for key_name, kana in ISO_MAPPINGS.items():
         # These are "extra" keys on ISO keyboards not on JIS
         to_rule = to_key_using_jis_kana_mode(kana)
@@ -489,6 +516,10 @@ def build_stickney_to_jis_kana_map():
                         "description": "ISO {key_name} to {kana}"
                     }}
                 """
+
+    # --------------
+    # Rule Set Three - main keys on JIS
+    # --------------
     # Now loop over the main set of keys expected on JIS keyboards
     for from_index, from_qwerty in enumerate(jis_qwerty):
         if from_qwerty in "1234567890-^":
@@ -564,7 +595,7 @@ def build_stickney_to_jis_kana_map():
         ):
             to_rule = to_key_using_jis_kana_mode(kana)
             if kana in has_kogaki:
-                kogaki_rule = f'{{"set_variable": {{"name": "{kogaki[has_kogaki.index(kana)]}"}} }}'
+                kogaki_rule = f'{{"set_variable": {{"name": "kogaki", "value": "{kogaki[has_kogaki.index(kana)]}"}} }}'
             else:
                 kogaki_rule = clear_kogaki
             if kana == unused:
