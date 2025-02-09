@@ -740,7 +740,34 @@ with open(output_name, "w") as handle:
                     "description": "Change spacebar (alone) to left_shift sticky modifier",
                     "from": {{"key_code": "spacebar"}},
                     "to": [{clear_kogaki}, {{"key_code": "left_shift"}}],
-                    "to_if_alone": [{clear_kogaki}, {{"sticky_modifier": {{"left_shift": "toggle"}} }}],
+                    "to_if_alone": [
+                        {clear_kogaki},
+                        {{"sticky_modifier": {{"left_shift": "toggle"}} }}
+                    ],
+                    "type": "basic"
+                }}
+            ]
+        }},
+        {{
+            "description": "{kana_rules_description} : Hold space (alone) for left-shift",
+            "manipulators": [
+                {{
+                    "conditions": [
+                        {{
+                            "input_sources": [{{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }}],
+                            "type": "input_source_if"
+                        }}
+                    ],
+                    "description": "Hold spacebar (alone) as left_shift modifier",
+                    "to_if_alone": [{clear_kogaki}, {{"key_code": "spacebar", "halt": true}}],
+                    "to_if_held_down": [{clear_kogaki}, {{"key_code": "left_shift"}}],
+                    "to_delayed_action": {{"to_if_canceled": [
+                        {clear_kogaki}, {{"key_code": "spacebar"}}
+                    ]}},
+                    "parameters": {{
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 500
+                    }},
                     "type": "basic"
                 }}
             ]
