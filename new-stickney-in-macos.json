@@ -8,7 +8,7 @@
     "repo": "https://github.com/peterjc/kana-chording-ke",
     "rules": [
         {
-            "description": "New Stickney to JIS layout in Japanese Kana input mode",
+            "description": "New Stickney to JIS layout in Japanese Kana input mode : Core mappings",
             "manipulators": [
                     {
                         "type": "basic",
@@ -978,6 +978,24 @@
                     "description": "shift-international1 to ＿"
                 }
 
+            ]
+        },
+        {
+            "description": "New Stickney to JIS layout in Japanese Kana input mode : Space is sticky left-shift",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "description": "Change spacebar (alone) to left_shift sticky modifier",
+                    "from": {"key_code": "spacebar"},
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"key_code": "left_shift"}],
+                    "to_if_alone": [{"set_variable": { "name": "kogaki", "value": ""} }, {"sticky_modifier": {"left_shift": "toggle"} }],
+                    "type": "basic"
+                }
             ]
         }
     ]

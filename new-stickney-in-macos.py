@@ -703,7 +703,7 @@ with open(output_name, "w") as handle:
         handle.write(
             f"""\
         {{
-            "description": "{romaji_rules_description}",
+            "description": "{romaji_rules_description} : Core mappings",
             "manipulators": [
 """
             + ",\n".join(_.rstrip() for _ in romaji_rules)
@@ -715,17 +715,43 @@ with open(output_name, "w") as handle:
     handle.write(
         f"""\
         {{
-            "description": "{kana_rules_description}",
+            "description": "{kana_rules_description} : Core mappings",
             "manipulators": [
 """
         + ",\n".join(_.rstrip() for _ in kana_rules)
         + """\n
             ]
-        }
-    ]
-}
+        },
 """
     )
+    # Add a separate rule set
+    handle.write(
+        f"""\
+        {{
+            "description": "{kana_rules_description} : Space is sticky left-shift",
+            "manipulators": [
+                {{
+                    "conditions": [
+                        {{
+                            "input_sources": [{{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }}],
+                            "type": "input_source_if"
+                        }}
+                    ],
+                    "description": "Change spacebar (alone) to left_shift sticky modifier",
+                    "from": {{"key_code": "spacebar"}},
+                    "to": [{clear_kogaki}, {{"key_code": "left_shift"}}],
+                    "to_if_alone": [{clear_kogaki}, {{"sticky_modifier": {{"left_shift": "toggle"}} }}],
+                    "type": "basic"
+                }}
+            ]
+        }}
+"""
+    )
+    # Finish the rule set
+    handle.write("""\
+    ]
+}
+""")
 
 sys.stderr.write(f"Generated {len(romaji_rules)} romaji mode and {len(kana_rules)}")
 sys.stderr.write(f" kana mode sub-rules in {output_name}\n\n")
