@@ -120,140 +120,140 @@
                     "from": {"key_code": "1"},
                     "to": [{"key_code": "1", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "1 to １"
+                    "description": "1 to １ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "1", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "1", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-1 to ！"
+                    "description": "shift+1 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "2"},
                     "to": [{"key_code": "2", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "2 to ２"
+                    "description": "2 to ２ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "2", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "2", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-2 to ＂"
+                    "description": "shift+2 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "3"},
                     "to": [{"key_code": "3", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "3 to ３"
+                    "description": "3 to ３ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "3", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "3", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-3 to ＃"
+                    "description": "shift+3 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "4"},
                     "to": [{"key_code": "4", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "4 to ４"
+                    "description": "4 to ４ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "4", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "4", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-4 to ＄"
+                    "description": "shift+4 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "5"},
                     "to": [{"key_code": "5", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "5 to ５"
+                    "description": "5 to ５ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "5", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "5", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-5 to ％"
+                    "description": "shift+5 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "6"},
                     "to": [{"key_code": "6", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "6 to ６"
+                    "description": "6 to ６ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "6", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "6", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-6 to ＆"
+                    "description": "shift+6 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "7"},
                     "to": [{"key_code": "7", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "7 to ７"
+                    "description": "7 to ７ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "7", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "7", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-7 to ＇"
+                    "description": "shift+7 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "8"},
                     "to": [{"key_code": "8", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "8 to ８"
+                    "description": "8 to ８ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "8", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "8", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-8 to （"
+                    "description": "shift+8 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "9"},
                     "to": [{"key_code": "9", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "9 to ９"
+                    "description": "9 to ９ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "9", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "9", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-9 to ）"
+                    "description": "shift+9 to wide symbol"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "0"},
                     "to": [{"key_code": "0", "modifiers": ["fn", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "0 to ０"
+                    "description": "0 to ０ wide digit"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "0", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "hyphen", "modifiers": ["fn", "option"]}],
+                    "to": [{"key_code": "0", "modifiers": ["shift", "option"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-0 to －"
+                    "description": "shift+0 to wide symbol"
                 },
                 {
                     "type": "basic",

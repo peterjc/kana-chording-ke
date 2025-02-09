@@ -434,6 +434,27 @@ def build_stickney_to_jis_kana_map():
             """
     # return
     for from_index, from_qwerty in enumerate(jis_qwerty):
+        if from_qwerty in "1234567890":
+            # Special case the numbers and symbols as want to always follow ANSI/ISO/JIS local defaults
+            yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{from_qwerty}"}},
+                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["fn", "option"]}}],
+                    {kana_conditions},
+                    "description": "{from_qwerty} to {jis_japanese_fn_option[from_index]} wide digit"
+                }}
+            """
+            yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{from_qwerty}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                    "to": [{{"key_code": "{from_qwerty}", "modifiers": ["shift", "option"]}}],
+                    {kana_conditions},
+                    "description": "shift+{from_qwerty} to wide symbol"
+                }}
+            """
+            continue
         from_qwerty = ke_key_name(from_qwerty)
         for from_shift, kana, from_rule, qwerty_name in (
             (
