@@ -261,15 +261,24 @@ ISO_ANSI_SPECIAL = {
     "｜": '{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}',
     # shift+f -> "へ" but "equal_sign" moves between JIS and ISO/ANSI
     "へ": '{"key_code": "non_us_pound"}',
-    # JIS/ISO: Using shift+non_us_backslash gives 〜, option+non_us_backslash gives ｀
-    # ANSI: Using shift+non_us_backslash gives §, option+non_us_backslash gives ±
-    "〜": '{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}',
-    "｀": '{"key_code": "grave_accent_and_tilde"}',
+}
+# These are going to have to split ANSI and ISO rules!
+# JIS/ISO: Using shift+non_us_backslash gives 〜, option+non_us_backslash gives ｀
+# but ANSI: Using shift+non_us_backslash gives §, option+non_us_backslash gives ±
+# JIS/ANSI: Using grave_accent_and_tilde gives ｀, shift+grave_accent_and_tilde gives 〜
+# but ISO: Using grave_accent_and_tilde gives §, shift+grave_accent_and_tilde gives ±
+# "〜": '{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}',
+# "｀": '{"key_code": "grave_accent_and_tilde"}',
+ISO_ONLY_SPECIAL = {
+    "〜": '{"key_code": "non_us_backslash", "modifiers": ["shift"]}',
+    "｀": '{"key_code": "non_us_backslash", "modifiers": ["option"]}',
 }
 
 kana_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}]'
 kana_JIS_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}]'
 kana_not_JIS_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}]'
+kana_ISO_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["iso"], "type": "keyboard_type_if"}]'
+kana_not_ISO_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "jis"], "type": "keyboard_type_if"}]'
 
 # Compared to ANSI and ISO, JIS has an extra ろ key bottom right.
 # Compared to ANSI, JIS has an extra ￥ key top right (between equal_sign and backspace),
@@ -385,55 +394,99 @@ def build_stickney_to_jis_kana_map():
     for key_name, kana in ISO_MAPPINGS.items():
         # These are "extra" keys on ISO keyboards not on JIS
         to_rule = to_key_using_jis_kana_mode(kana)
-        # print(f"Mapping ISO {key_name} to {kana} using {to_rule}")
-        yield f"""\
-                {{
-                    "type": "basic",
-                    "from": {{"key_code": "{key_name}"}},
-                    "to": [{to_rule}],
-                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
-                    "description": "ISO {key_name} to {kana}"
-                }}
-        """
-        if kana in ISO_ANSI_SPECIAL:
-            # Need a second version for ISO/JIS
-            to_rule = ISO_ANSI_SPECIAL[kana]
-            # print(f"Mapping ISO {key_name} to {kana} using ISO {to_rule}")
+        if kana in ISO_ONLY_SPECIAL:
+            # Default works on JIS/ANSI, but not ISO
             yield f"""\
-                {{
-                    "type": "basic",
-                    "from": {{"key_code": "{key_name}"}},
-                    "to": [{to_rule}],
-                    {kana_not_JIS_conditions},
-                    "description": "ISO {key_name} to {kana}"
-                }}
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}"}},
+                        "to": [{to_rule}],
+                        {kana_not_ISO_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
             """
+            to_rule = ISO_ONLY_SPECIAL[kana]
+            yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}"}},
+                        "to": [{to_rule}],
+                        {kana_ISO_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
+            """
+        else:
+            # print(f"Mapping ISO {key_name} to {kana} using {to_rule}")
+            yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}"}},
+                        "to": [{to_rule}],
+                        {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
+            """
+            if kana in ISO_ANSI_SPECIAL:
+                # Need a second version for ISO/JIS
+                to_rule = ISO_ANSI_SPECIAL[kana]
+                # print(f"Mapping ISO {key_name} to {kana} using ISO {to_rule}")
+                yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}"}},
+                        "to": [{to_rule}],
+                        {kana_not_JIS_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
+                """
         # And with shift...
         kana = new_stickney_shift[new_stickney_normal.index(kana)]
         to_rule = to_key_using_jis_kana_mode(kana)
-        # print(f"Mapping ISO shift+{key_name} to {kana} using {to_rule}")
-        yield f"""\
-                {{
-                    "type": "basic",
-                    "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                    "to": [{to_rule}],
-                    {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
-                    "description": "ISO {key_name} to {kana}"
-                }}
-        """
-        if kana in ISO_ANSI_SPECIAL:
-            # Need a second version for ISO/JIS
-            to_rule = ISO_ANSI_SPECIAL[kana]
-            # print(f"Mapping ISO shift+{key_name} to {kana} using ISO {to_rule}")
+        if kana in ISO_ONLY_SPECIAL:
+            # Default works on JIS/ANSI, but not ISO
             yield f"""\
-                {{
-                    "type": "basic",
-                    "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
-                    "to": [{to_rule}],
-                    {kana_not_JIS_conditions},
-                    "description": "ISO {key_name} to {kana}"
-                }}
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                        "to": [{to_rule}],
+                        {kana_not_ISO_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
             """
+            to_rule = ISO_ONLY_SPECIAL[kana]
+            yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                        "to": [{to_rule}],
+                        {kana_ISO_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
+            """
+        else:
+            # print(f"Mapping ISO shift+{key_name} to {kana} using {to_rule}")
+            yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                        "to": [{to_rule}],
+                        {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
+            """
+            if kana in ISO_ANSI_SPECIAL:
+                # Need a second version for ISO/JIS
+                to_rule = ISO_ANSI_SPECIAL[kana]
+                # print(f"Mapping ISO shift+{key_name} to {kana} using ISO {to_rule}")
+                yield f"""\
+                    {{
+                        "type": "basic",
+                        "from": {{"key_code": "{key_name}", "modifiers": {{ "mandatory": ["shift"] }} }},
+                        "to": [{to_rule}],
+                        {kana_not_JIS_conditions},
+                        "description": "ISO {key_name} to {kana}"
+                    }}
+                """
     # Now loop over the main set of keys expected on JIS keyboards
     for from_index, from_qwerty in enumerate(jis_qwerty):
         if from_qwerty in "1234567890-^":
