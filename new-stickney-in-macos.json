@@ -43,20 +43,6 @@
                         "from": {"key_code": "l"},
                         "to": [
                             {"key_code": "delete_or_backspace"},
-                            {"key_code": "4", "modifiers": ["shift"]},
-                            {"set_variable": { "name": "kogaki", "value": ""} }
-                        ],
-                        "conditions": [
-                            {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
-                            {"type": "variable_if", "name": "kogaki", "value": "ぅ"}
-                        ],
-                        "description": "Ten-ten suffix for ぅ kogaki"
-                    },
-                    {
-                        "type": "basic",
-                        "from": {"key_code": "l"},
-                        "to": [
-                            {"key_code": "delete_or_backspace"},
                             {"key_code": "5", "modifiers": ["shift"]},
                             {"set_variable": { "name": "kogaki", "value": ""} }
                         ],
@@ -121,6 +107,35 @@
                             {"type": "variable_if", "name": "kogaki", "value": "ょ"}
                         ],
                         "description": "Ten-ten suffix for ょ kogaki"
+                    },
+                    {
+                        "type": "basic",
+                        "from": {"key_code": "l"},
+                        "to": [
+                            {"key_code": "delete_or_backspace"},
+                            {"key_code": "4", "modifiers": ["shift"]},
+                            {"set_variable": {"name": "kogaki", "value": "ゔ"}}
+                        ],
+                        "conditions": [
+                            {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
+                            {"type": "variable_if", "name": "kogaki", "value": "ぅ"}
+                        ],
+                        "description": "Ten-ten suffix for ぅ kogaki"
+                    },
+                    {
+                        "type": "basic",
+                        "from": {"key_code": "l"},
+                        "to": [
+                            {"key_code": "delete_or_backspace"},
+                            {"key_code": "4"},
+                            {"key_code": "open_bracket"},
+                            {"set_variable": {"name": "kogaki", "value": ""}}
+                        ],
+                        "conditions": [
+                            {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
+                            {"type": "variable_if", "name": "kogaki", "value": "ゔ"}
+                        ],
+                        "description": "Ten-ten suffix twice for ゔ"
                     },
                     {
                         "type": "basic",

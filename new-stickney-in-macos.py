@@ -400,6 +400,9 @@ def build_stickney_to_jis_kana_map():
         # We delete the previously entered large kana, and replace with
         # the small version (which is always on on JIS shift layer).
         # (Main catch here is ensuring the variable gets cleared properly)
+        if kana == "ぅ":
+            # Special case う to allow for second modification `う`→`ぅ`→`ゔ`
+            continue
         from_qwerty = jis_qwerty[jis_japanese_shift.index(kana)]
         yield f"""\
                     {{
@@ -416,6 +419,44 @@ def build_stickney_to_jis_kana_map():
                         ],
                         "description": "Ten-ten suffix for {kana} kogaki"
                     }}
+            """
+    # Two special rules for う - first gives small ぅ (ux) - second gives ゔ (vu)
+    assert "4" == jis_qwerty[jis_japanese_shift.index("ぅ")]
+    yield """\
+                    {
+                        "type": "basic",
+                        "from": {"key_code": "l"},
+                        "to": [
+                            {"key_code": "delete_or_backspace"},
+                            {"key_code": "4", "modifiers": ["shift"]},
+                            {"set_variable": {"name": "kogaki", "value": "ゔ"}}
+                        ],
+                        "conditions": [
+                            {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
+                            {"type": "variable_if", "name": "kogaki", "value": "ぅ"}
+                        ],
+                        "description": "Ten-ten suffix for ぅ kogaki"
+                    }
+            """
+    # Clear the variable only on second press...
+    assert "4" == jis_qwerty[jis_japanese_normal.index("う")]
+    assert "open_bracket" == ke_key_names[jis_qwerty[jis_japanese_normal.index("゛")]]
+    yield """\
+                    {
+                        "type": "basic",
+                        "from": {"key_code": "l"},
+                        "to": [
+                            {"key_code": "delete_or_backspace"},
+                            {"key_code": "4"},
+                            {"key_code": "open_bracket"},
+                            {"set_variable": {"name": "kogaki", "value": ""}}
+                        ],
+                        "conditions": [
+                            {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
+                            {"type": "variable_if", "name": "kogaki", "value": "ゔ"}
+                        ],
+                        "description": "Ten-ten suffix twice for ゔ"
+                    }
             """
     # ------------
     # Rule Set Two - extra keys on ISO keyboards not on JIS
