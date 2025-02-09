@@ -69,7 +69,7 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "grave_accent_and_tilde"},
-                    "to": [{"key_code": "non_us_backslash", "modifiers": ["option"]}],
+                    "to": [{"key_code": "grave_accent_and_tilde"}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "ISO grave_accent_and_tilde to ｀"
                 },
@@ -83,7 +83,7 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "non_us_backslash", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "ISO grave_accent_and_tilde to 〜"
                 },
@@ -97,7 +97,7 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "grave_accent_and_tilde"},
-                    "to": [{"key_code": "non_us_backslash", "modifiers": ["option"]}],
+                    "to": [{"key_code": "grave_accent_and_tilde"}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "grave_accent_and_tilde to ｀"
                 },
@@ -111,7 +111,7 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "non_us_backslash", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-grave_accent_and_tilde to 〜"
                 },
@@ -286,7 +286,7 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "equal_sign", "modifiers": { "mandatory": ["shift"] } },
-                    "to": [{"key_code": "non_us_backslash", "modifiers": ["shift"]}],
+                    "to": [{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}, {"keyboard_types": ["ansi", "iso"], "type": "keyboard_type_if"}],
                     "description": "shift-equal_sign to 〜"
                 },

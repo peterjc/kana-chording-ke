@@ -261,8 +261,10 @@ ISO_ANSI_SPECIAL = {
     "｜": '{"key_code": "non_us_pound", "modifiers": ["shift", "option"]}',
     # shift+f -> "へ" but "equal_sign" moves between JIS and ISO/ANSI
     "へ": '{"key_code": "non_us_pound"}',
-    "〜": '{"key_code": "non_us_backslash", "modifiers": ["shift"]}',
-    "｀": '{"key_code": "non_us_backslash", "modifiers": ["option"]}',
+    # JIS/ISO: Using shift+non_us_backslash gives 〜, option+non_us_backslash gives ｀
+    # ANSI: Using shift+non_us_backslash gives §, option+non_us_backslash gives ±
+    "〜": '{"key_code": "grave_accent_and_tilde", "modifiers": ["shift"]}',
+    "｀": '{"key_code": "grave_accent_and_tilde"}',
 }
 
 kana_conditions = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}]'
