@@ -72,7 +72,7 @@ unused = "❌"  # wanted something double-width
 daku = "がぎぐげござじずぜぞだぢづでどばびぶべぼ"
 handaku = "ぱぴぷぺぽ"
 kogaki = "ぁぃぅぇぉゃゅょ"  # excluding small tsu "っ" and no small ka or ke "ヵヶ"
-
+has_kogaki = "あいうえおやゆよ"
 
 # As typed on Japanese Apple MacBook keyboard (except first key)
 jis_qwerty = (
@@ -563,6 +563,10 @@ def build_stickney_to_jis_kana_map():
             ),
         ):
             to_rule = to_key_using_jis_kana_mode(kana)
+            if kana in has_kogaki:
+                kogaki_rule = f'{{"set_variable": {{"name": "{kogaki[has_kogaki.index(kana)]}"}} }}'
+            else:
+                kogaki_rule = clear_kogaki
             if kana == unused:
                 assert to_rule == no_op_to_action, f"{kana=} {from_rule=} {to_rule=}"
 
@@ -583,7 +587,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {from_rule},
-                    "to": [{to_rule}, {clear_kogaki}],
+                    "to": [{to_rule}, {kogaki_rule}],
                     {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
                     "description": "{qwerty_name} to {kana}"
                 }}
@@ -596,7 +600,7 @@ def build_stickney_to_jis_kana_map():
                 {{
                     "type": "basic",
                     "from": {from_rule},
-                    "to": [{to_rule}, {clear_kogaki}],
+                    "to": [{to_rule}, {kogaki_rule}],
                     {kana_not_JIS_conditions},
                     "description": "{qwerty_name} to {kana}"
                 }}
