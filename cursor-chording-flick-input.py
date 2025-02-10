@@ -86,6 +86,9 @@ title = "Kana chording with cursor keys"
 romaji_description = (
     "Romanji mode chording: row key like r plus cursors sends ra/ri/ru/er/ro"
 )
+romaji_numpad_description = (
+    "Romanji mode chording: NumPad key like 3 plus cursors sends ra/ri/ru/er/ro"
+)
 vowel_modifiers = {
     "i": "left_arrow",
     "u": "up_arrow",
@@ -146,7 +149,11 @@ exceptions = {
 
 
 def romaji_simple_mapping(
-    prefix: str, modifier: str, out_keys: str | list[str], threshold: int = 100
+    prefix: str,
+    modifier: str,
+    out_keys: str | list[str],
+    source_map=None,
+    threshold: int = 100,
 ) -> str:
     """Generate Karabina Elements JSON to map key+modifier to given romaji key sequence.
 
@@ -158,6 +165,8 @@ def romaji_simple_mapping(
     * `へ` from `h` + `right_arrow` to `he`
     * `ほ` from `h` + `down_arrow` to `ho`
     """
+    if not source_map:
+        source_map = {}
     if not prefix:
         # binding a/i/u/e/o to a
         key = "a"
@@ -167,6 +176,8 @@ def romaji_simple_mapping(
     else:
         # binding the first letter only (small ya/yu/yo special case)
         key = prefix[:1]
+    if source_map:
+        key = source_map[key]
 
     out_list = ", ".join(('{"key_code": "' + _ + '"}') for _ in out_keys)
     # Used these in per mapping descriptions:
@@ -223,6 +234,20 @@ def romaji_simple_mapping(
 
 
 rules = []
+numpad_rules = []
+numpad_map = {
+    "a": "keypad_7",  # Top left
+    "k": "keypad_8",
+    "s": "keypad_9",
+    "t": "keypad_4",
+    "n": "keypad_5",
+    "h": "keypad_6",
+    "m": "keypad_1",
+    "y": "keypad_2",
+    "r": "keypad_3",
+    "w": "keypad_0",  # Might use larger key for ten-ten/maru/chiisai?
+    "comma": "keypad_period",
+}
 
 # Mappings for extended gojūon table including ba and pa as well as ha,
 # plus comma bindings based on iOS flick-input
@@ -236,6 +261,14 @@ for prefix in rows:
             # sees y and left, or y and right, x and left, x and right
             continue
         rules.append(romaji_simple_mapping(prefix, modifier, romaji))
+        try:
+            numpad_rules.append(
+                romaji_simple_mapping(prefix, modifier, romaji, numpad_map)
+            )
+        except KeyError:
+            # With only ~12 keys, can't give ten-ten (gzdb), maru forms (p)
+            # nor small forms (x) with their own keys
+            pass
 
 with open(output_name, "w") as handle:
     # This does not nicely indent.
@@ -256,6 +289,14 @@ with open(output_name, "w") as handle:
             "manipulators": [
 """
         + ",\n".join(_.rstrip() for _ in rules)
+        + f"""\n
+            ]
+        }},
+        {{
+            "description": "{romaji_numpad_description}",
+            "manipulators": [
+"""
+        + ",\n".join(_.rstrip() for _ in numpad_rules)
         + """\n
             ]
         }
@@ -271,6 +312,6 @@ sys.stderr.write(
 )
 sys.stderr.write("Then open 'Karabiner Elements', select 'Complex Modifications',\n")
 sys.stderr.write("click 'Add predefined rule', scroll down to find the new\n")
-sys.stderr.write(f"'{title}' block with\n")
-sys.stderr.write(f"'{romaji_description}' entry.\n")
-sys.stderr.write("Click enable (or enable all).")
+sys.stderr.write(f"'{title}' block with entries\n")
+sys.stderr.write(f"'{romaji_description}' etc.\n")
+sys.stderr.write("Click enable individually (or enable all).")

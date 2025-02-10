@@ -2063,6 +2063,1207 @@
                 }
 
             ]
+        },
+        {
+            "description": "Romanji mode chording: NumPad key like 3 plus cursors sends ra/ri/ru/er/ro",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_7" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_7" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_7" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_7" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_7" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_8" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "k"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_8" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "k"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_8" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "k"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_8" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "k"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_8" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "k"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_9" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "s"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_9" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "s"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_9" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "s"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_9" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "s"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_9" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "s"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_4" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "t"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_4" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "t"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_4" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "t"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_4" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "t"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_4" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "t"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_5" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "n"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_5" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "n"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_5" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "n"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_5" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "n"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_5" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "n"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_6" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "h"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_6" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "h"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_6" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "h"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_6" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "h"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_6" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "h"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_1" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "m"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_1" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "m"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_1" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "m"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_1" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "m"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_1" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "m"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_2" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "open_bracket"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_2" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "y"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_2" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "close_bracket"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_2" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "y"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_2" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "y"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_3" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "r"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_3" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "r"}, {"key_code": "u"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_3" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "r"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_3" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "r"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_3" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "r"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_0" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "w"}, {"key_code": "y"}, {"key_code": "i"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_0" },
+                            {"key_code": "up_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "n"}, {"key_code": "n"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_0" },
+                            {"key_code": "right_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "w"}, {"key_code": "y"}, {"key_code": "e"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_0" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "w"}, {"key_code": "o"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_0" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "w"}, {"key_code": "a"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_period" },
+                            {"key_code": "left_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "period"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "Romaji",
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_period" },
+                            {"key_code": "down_arrow" }
+                        ],
+                        "simultaneous_options": {"key_down_order": "insensitive" }
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "hyphen"} ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [{"language": "^ja$" }],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {"optional": ["any"] },
+                        "simultaneous": [
+                            {"key_code": "keypad_period" }
+                        ]
+                    },
+                    "parameters": {"basic.simultaneous_threshold_milliseconds": 100 },
+                    "to": [ {"key_code": "comma"} ]
+                }
+
+            ]
         }
     ]
 }
