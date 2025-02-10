@@ -132,26 +132,29 @@ exceptions = {
     "xti": None,  # there is no small ち
     "xte": None,  # there is no small て
     "xto": None,  # there is no small と
-    "yi": ["open_bracket"],  # historical, not used (large), using for open quote
-    "ye": ["close_bracket"],  # historical, not used (large), using for close quote
+    "yi": '{"key_code": "open_bracket"}',  # historical, not used (large), using for open quote
+    "ye": '{"key_code": "close_bracket"}',  # historical, not used (large), using for close quote
     "xyi": None,  # historical, not used (small)
     "xye": None,  # historical, not used (small)
-    "wi": "wyi",  # historical, only used in names now
-    "wu": "nn",  # "wu" is historical and not used, instead w+up mapped to "ん"
-    "we": "wye",  # historical, only used in names now
+    # wi is historical, only used in names now
+    "wi": '{"key_code": "w"}, {"key_code": "y"}, {"key_code": "i"}',
+    # "wu" is historical and not used, instead w+up mapped to "ん"
+    "wu": '{"key_code": "n"}, {"key_code": "n"}',
+    # we is historical, only used in names now
+    "we": '{"key_code": "w"}, {"key_code": "y"}, {"key_code": "e"}',
     # punctuation
-    ",a": ["comma"],
-    ",i": ["period"],
-    ",u": None,  # need shift and one
-    ",e": None,  # need shift and /
-    ",o": ["hyphen"],
+    ",a": '{"key_code": "comma"}',
+    ",i": '{"key_code": "period"}',
+    ",u": '{"key_code": "1", "modifiers": ["shift"]}',  # for "!"
+    ",e": '{"key_code": "slash", "modifiers": ["shift"]}',  # for "?""
+    ",o": '{"key_code": "hyphen"}',
 }
 
 
 def romaji_simple_mapping(
-    prefix: str,
+    in_key: str,
     modifier: str,
-    out_keys: str | list[str],
+    out_keys: str,
     source_map=None,
     threshold: int = 100,
 ) -> str:
@@ -165,21 +168,6 @@ def romaji_simple_mapping(
     * `へ` from `h` + `right_arrow` to `he`
     * `ほ` from `h` + `down_arrow` to `ho`
     """
-    if not source_map:
-        source_map = {}
-    if not prefix:
-        # binding a/i/u/e/o to a
-        key = "a"
-    elif prefix == ",":
-        # needs a name as the key code
-        key = "comma"
-    else:
-        # binding the first letter only (small ya/yu/yo special case)
-        key = prefix[:1]
-    if source_map:
-        key = source_map[key]
-
-    out_list = ", ".join(('{"key_code": "' + _ + '"}') for _ in out_keys)
     # Used these in per mapping descriptions:
     # vowel = next(k for (k, v) in vowel_modifiers.items() if v == modifier)
     # kana = rows["" if prefix == "a" else prefix]["aiueo".index(vowel)]
@@ -201,13 +189,13 @@ def romaji_simple_mapping(
                     "from": {{
                         "modifiers": {{"optional": ["any"] }},
                         "simultaneous": [
-                            {{"key_code": "{key}" }},
+                            {{"key_code": "{in_key}" }},
                             {{"key_code": "{modifier}" }}
                         ],
                         "simultaneous_options": {{"key_down_order": "insensitive" }}
                     }},
                     "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
-                    "to": [ {out_list} ]
+                    "to": [ {out_keys} ]
                 }}
 """
         if modifier
@@ -223,11 +211,11 @@ def romaji_simple_mapping(
                     "from": {{
                         "modifiers": {{"optional": ["any"] }},
                         "simultaneous": [
-                            {{"key_code": "{key}" }}
+                            {{"key_code": "{in_key}" }}
                         ]
                     }},
                     "parameters": {{"basic.simultaneous_threshold_milliseconds": {threshold} }},
-                    "to": [ {out_list} ]
+                    "to": [ {out_keys} ]
                 }}
 """
     )
@@ -254,21 +242,34 @@ numpad_map = {
 for prefix in rows:
     for suffix, modifier in vowel_modifiers.items():
         romaji = prefix + suffix
-        romaji = exceptions.get(romaji, romaji)  # apply exception
-        if not romaji:
+
+        if not prefix:
+            # binding a/i/u/e/o to a
+            key = "a"
+        elif prefix == ",":
+            # needs a name as the key code
+            key = "comma"
+        else:
+            # binding the first letter only (small ya/yu/yo special case)
+            key = prefix[:1]
+
+        try:
+            romaji_out_keys = exceptions[romaji]
+        except KeyError:
+            romaji_out_keys = ", ".join(('{"key_code": "' + _ + '"}') for _ in romaji)
+        if not romaji_out_keys:
             # skip the historical entries yi/ye and small versions etc
             # Might be better to map this to a no-op, otherwise macOS
             # sees y and left, or y and right, x and left, x and right
             continue
-        rules.append(romaji_simple_mapping(prefix, modifier, romaji))
-        try:
-            numpad_rules.append(
-                romaji_simple_mapping(prefix, modifier, romaji, numpad_map)
-            )
-        except KeyError:
+
+        rules.append(romaji_simple_mapping(key, modifier, romaji_out_keys))
+        if key in numpad_map:
             # With only ~12 keys, can't give ten-ten (gzdb), maru forms (p)
             # nor small forms (x) with their own keys
-            pass
+            numpad_rules.append(
+                romaji_simple_mapping(numpad_map[key], modifier, romaji_out_keys)
+            )
 
 with open(output_name, "w") as handle:
     # This does not nicely indent.
@@ -289,7 +290,7 @@ with open(output_name, "w") as handle:
             "manipulators": [
 """
         + ",\n".join(_.rstrip() for _ in rules)
-        + f"""\n
+        + f"""\
             ]
         }},
         {{
@@ -297,7 +298,7 @@ with open(output_name, "w") as handle:
             "manipulators": [
 """
         + ",\n".join(_.rstrip() for _ in numpad_rules)
-        + """\n
+        + """\
             ]
         }
     ]
