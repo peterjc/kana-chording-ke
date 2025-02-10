@@ -81,8 +81,8 @@ character (ー) here to the down modifier:
 
 import sys
 
-output_name = "cursor-chording-flick-input-romaji-mode.json"
-title = "Kana chording with cursor keys (Romaji Mode)"
+output_name = "cursor-chording-flick-input.json"
+title = "Kana chording with cursor keys"
 romaji_description = (
     "Romanji mode chording: row key like r plus cursors sends ra/ri/ru/er/ro"
 )
