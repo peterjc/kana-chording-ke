@@ -11,6 +11,20 @@ then the `sa`-row, etc. We can address any of the matrix positions with a
 consonant row (`a`, `ka`, `sa`, `ta`, `na`, `ma`, `ya`, `ra`, `wa`) and
 vowel column. Thus combining `ha` and `i` gives `hi`, `は`＋`い`→`ひ`).
 
+| あぁ　 | いぃ　 | うぅ　 | えぇ　 | おぉ　 |
+|-------|-------|-------|-------|-------|
+| かが　 | きぎ　 | くぐ　 | けげ　 | こご　 |
+| さざ　 | しじ　 | すず　 | せぜ　 | そぞ　 |
+| ただ　 | ちぢ 　| つづ　 | てで　 | とど　 |
+| な　　 | に　　 | ぬ　　 | ね　　 | の　　 |
+| はばぱ | ひびぴ | ふぶぷ | へべぺ | ほぼぽ |
+| ま　　 | み　　 | む　　 | め　　 | も　　 |
+| ら　　 | り 　　| る　　 | れ　　 | ろ　　 |
+| やゃ　 |  　　　| ゆゅ　 |  　　　| よょ　 |
+| わ　　 |　　　  | ん　　 | 　　　 | を　　 |
+
+Plus っ (xtu), ゔ (vu), ヵ (xka), and ヶ (xke).
+
 This is a software based project inspired by:
 
 * [KanaCord](https://github.com/maccody/KanaChord) which was a hardware project
