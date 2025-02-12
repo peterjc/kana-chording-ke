@@ -8,7 +8,7 @@ on a 5×10 grid (the gojūon, 五十音, "Fifty Sounds"), starting with the five
 vowels (`a`, `i`, `u`, `e`, `o`, or `あ`, `い`, `う`, `え`, `お`), followed by
 the `ka`-row (`ka`, `ki`, `ku`, `ke`, `ko`, or `か`, `き`, `く`, `け`, `こ`),
 then the `sa`-row, etc. We can address any of the matrix positions with a
-consonant row (`a`, `ka`, `sa`, `ta`, `na`, `ma`, `ya`, `ra`, `wa`) and
+consonant row (`a`, `ka`, `sa`, `ta`, `na`, `ha`, `ma`, `ya`, `ra`, `wa`) and
 vowel column. Thus combining `ha` and `i` gives `hi`, `は`＋`い`→`ひ`).
 
 | あぁ　 | いぃ　 | うぅ　 | えぇ　 | おぉ　 |
