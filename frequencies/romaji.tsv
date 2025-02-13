@@ -4,6 +4,11 @@ Katakana	Hiragana	Romaji
 ウ	う	u
 エ	え	e
 オ	お	o
+ァ	あ	xa
+ィ	ぃ	xi
+ゥ	ぅ	xu
+ェ	ぇ	xe
+ォ	ぉ	xo
 パ	ぱ	pa
 ピ	ぴ	pi
 プ	ぷ	pu
@@ -12,6 +17,7 @@ Katakana	Hiragana	Romaji
 タ	た	ta
 チ	ち	ti
 ツ	つ	tu
+ッ	っ	xtu
 テ	て	te
 ト	と	to
 カ	か	ka
@@ -67,6 +73,9 @@ Katakana	Hiragana	Romaji
 ヤ	や	ya
 ユ	ゆ	yu
 ヨ	よ	yo
+ャ	ゃ	xya
+ュ	ゅ	xyu
+ョ	ょ	xyo
 ワ	わ	wa
 ヰ	ゐ	wyi
 ヱ	ゑ	wye
