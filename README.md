@@ -8,9 +8,10 @@ equally be done with a programmable keyboard.
 Currently there are two main sub-projects:
 
 * [Flick-input like Japanese keyboard chording using cursor
-  keys](cursor-chording-flick-input.md) where for example the `か` (ka)
-  key alone gives か, but in combination with `←`, `↑`, `↓`, or `→`` gives
-  き, く, け, or こ mimicking the touch-screen iOS 12-key flick input.
+  keys](cursor-chording-flick-input.md) where for example the `k` or `か`
+  (ka) key alone gives か, but in combination with `←`, `↑`, `↓`, or `→`
+  gives き, く, け, or こ (ki, ku, ke, ko) mimicking the touch-screen iOS
+  12-key flick input.
 
 * [New Stickney Japanese keyboard layout](new-stickney-in-macos.md) where
   for example Qwerty `q` with the standard JIS layout gives `た`, but is
