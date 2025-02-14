@@ -23,5 +23,8 @@
     "-": 3607169,
     "v": 34
   },
-  "modifiers": []
+  "modifiers": [
+    "left shift", "left ctrl", "❖", "alt",
+    "altGr", "right ctrl", "right shift"
+  ]
 }
