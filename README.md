@@ -16,3 +16,7 @@ Currently there are two main sub-projects:
 * [New Stickney Japanese keyboard layout](new-stickney-in-macos.md) where
   for example Qwerty `q` with the standard JIS layout gives `た`, but is
   remapped to `f` in order to give `け` as per the New Stickney layout.
+  The standard JIS kana layout uses four rows of keys (including the
+  numberpad; small kana are typed using shift), while New Stickney is more
+  ergonomic using only three rows (small kana are typed using the `゛`
+  post-modifier).
