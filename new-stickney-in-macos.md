@@ -12,6 +12,18 @@ work but there may be some minor issues with the punctuation keys.
 The rule has not yet been added to https://ke-complex-modifications.pqrs.org/
 so for now save [new-stickney-in-macos.json](https://github.com/peterjc/kana-chording-ke/raw/refs/heads/main/new-stickney-in-macos.json) to `~/.config/karabiner/assets/complex_modifications/`
 
+Then open Karabiner Elements, select "Complex Modifications" from the left hand
+column, and click "Add predefined rule", which should show a screen like this
+(sorted alphabetically):
+
+![Screenshot 2025-02-14 at 12 23 40](https://github.com/user-attachments/assets/4c99e2a4-c04d-404c-b267-3ea29417b688)
+
+Find "New Stickney Japanese Kana Layout in macOS" and click "Enable All".
+
+If not already installed, add "Japanese - Kana" mode.
+
+Switch to "Japanese - Kana" mode and start typing!
+
 # Implementation
 
 Python script `cursor-chording-flick-input.py` generates the verbose JSON file
