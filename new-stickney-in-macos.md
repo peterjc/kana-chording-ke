@@ -31,6 +31,12 @@ Python script `cursor-chording-flick-input.py` generates the verbose JSON file
 The rules are conditional on being in "Japanese - Kana" input mode, so they do not
 alter the normal ABC (Qwerty) usage, nor currently "Japanese - Romaji" input.
 
+Many of the kana on the JIS layout are on what are punctuation keys in Qwerty
+layouts, and some of these keys differ between the ANSI/ISO/JIS physical keyboards.
+Also, the New Stickney layout leaves the number row and symbols to the underlying
+locale. This means some of the re-mapping rules are ANSI/IOS/JIS mode specific
+(Karabiner Elements has a notational mode for their virtual keyboard device).
+
 The rule for using the spacebar as a central sticky-shift key (where you can press
 it once and the next character is shifted, or hold it down like a traditional shift)
 has been created separately from the kana-remapping rules as this is something the
