@@ -60,18 +60,11 @@ be scripted, for which I am using Python.
 The [KanaCord](https://github.com/maccody/KanaChord) uses operating system
 specific keyboard expressions to enter the [hex code for individual unicode
 for each kana](http://www.i18nguy.com/unicode/hiragana.html). For example,
-け (ke) is unicode 3051 in hex.
+け (ke) is unicode 3051 in hex. For macOS, that is only possible in
+"*Unicode Hex Input*" mode, which has the significant drawback that you
+won't get access to the OS' IME for kanji.
 
-For macOS, once in "*Unicode Hex Input*" mode, press-and-hold the option key
-(aka alt), then type `3`, `0`, `5`, `1`, and release the option key. The top
-number row or the number pad can be used. This will insert unicode hex character
-3051, け (ke). The same trick works for emoji too, usually eight digits, and
-can be done from KE. Unfortunately, using "Unicode Hex Input" mode has the
-significant drawback that you won't get access to the OS' kanji support. In
-this mode hiragana and katanana would both work by directly sending the
-unicode hex for each character.
-
-If instead we use "*Japanese - Romaji*" mode, we must map the desired kana to
+Instead we use "*Japanese - Romaji*" mode, and map the desired kana to
 any of the supported romaji aliases, and send that key sequence. Thus if
 the user presses `right+k` wanting `け` we map this to sending `k` then `e`,
 and let the OS turn this into the kana or kanji as more is typed. We can
@@ -83,19 +76,10 @@ a great [introduction to typing in romaji
 mode](https://www.tofugu.com/japanese/how-to-type-in-japanese/) which
 covers this and more.
 
-Alternatively, in "*Japanese - Kana*" mode, we must map the desired kana to
-the physical key on the macOS Japanese keyboard, and send that keycode. In
-KE these are labelled by the English letter or symbol on that key (these
-keyboards have a full QWERTY layout with USA like punctuation placement).
-Thus if the user presses `right+k` wanting `け` this corresponds to the
-semi-colon key `:` so we send that. When `right+g` is pressed for `げ`,
-we must also send the ten-ten key `@` (and likewise for maru modifications
-follow the base kana with the maru key `[`). In this mode the shift key
-gives the small form of the vowels `a`/`i`/`u`/`e`/`o`, `tsu` or
-`ya`/`yu`/`yo`, and toggles the `わ` key to `を` (key zero). For katakana,
-in this mode to enter coffee we would want to simulate pressing `b` `¥`
-`v` `¥` giving `コーヒー` via the language support. There are explicit keys
-for `◌゙` (adding ten-ten or dakuten) and `◌゚ ` (adding maru or handakuten).
+Alternatively, in "*Japanese - Kana*" mode, we would have to map the
+desired kana to the physical key on the macOS Japanese JIS kana layout,
+and send that - possibly followed by the keys for `◌゙` (adding ten-ten
+or dakuten) or `◌゚ ` (adding maru or handakuten).
 
 ## Physical Keyboards
 
