@@ -26,8 +26,11 @@ Switch to "Japanese - Kana" mode and start typing!
 
 # Implementation
 
-Python script `cursor-chording-flick-input.py` generates the verbose JSON file
-`cursor-chording-flick-input.json` which you can import into Karabiner Elements.
+Python script [cursor-chording-flick-input.py](cursor-chording-flick-input.py)
+generates the verbose JSON file
+[cursor-chording-flick-input.json](cursor-chording-flick-input.json) which you can
+import into Karabiner Elements.
+
 The rules are conditional on being in "Japanese - Kana" input mode, so they do not
 alter the normal ABC (Qwerty) usage, nor currently "Japanese - Romaji" input.
 
