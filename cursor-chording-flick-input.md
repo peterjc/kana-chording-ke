@@ -54,8 +54,9 @@ Elements](https://karabiner-elements.pqrs.org/) to do this on macOS. KE has
 its own rather verbose [JSON configuration
 language](https://karabiner-elements.pqrs.org/docs/json/) which can be used
 to define complex reboard remappings, including multiple keys at once which
-we need for chording. Creating over 100 JSON rules for all the kana had to
-be scripted, for which I am using Python.
+we need for chording. Creating over 100 JSON rules for all the kana was done
+in Python [cursor-chording-flick-input.py](cursor-chording-flick-input.py),
+generating [cursor-chording-flick-input.json](cursor-chording-flick-input.json).
 
 The [KanaCord](https://github.com/maccody/KanaChord) uses operating system
 specific keyboard expressions to enter the [hex code for individual unicode
