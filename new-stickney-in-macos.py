@@ -218,7 +218,7 @@ output_name = "new-stickney-in-macos.json"
 title = "New Stickney Japanese Kana Layout in macOS"
 kana_rules_description = "New Stickney to JIS layout in Japanese Kana input mode"
 romaji_rules_description = "New Stickney to JIS layout in Japanese Romaji input mode"
-
+clear_timeout = 500  # in units of ms
 
 # JIS so rather different from USA ASCI layout:
 # See https://karabiner-elements.pqrs.org/docs/help/troubleshooting/symbols-with-non-ansi-keyboard/
@@ -637,8 +637,16 @@ def build_stickney_to_jis_kana_map():
             to_rule = to_key_using_jis_kana_mode(kana)
             if kana in has_kogaki:
                 kogaki_rule = f'{{"set_variable": {{"name": "kogaki", "value": "{kogaki[has_kogaki.index(kana)]}"}} }}'
+                timeout = f""""parameters": {{
+                        "basic.to_delayed_action_delay_milliseconds": {clear_timeout}
+                    }},
+                    "to_delayed_action": {{
+                        "to_if_invoked": [ {clear_kogaki} ]
+                    }},
+"""
             else:
                 kogaki_rule = clear_kogaki
+                timeout = ""
             if kana == unused:
                 assert to_rule == no_op_to_action, f"{kana=} {from_rule=} {to_rule=}"
 
@@ -661,7 +669,7 @@ def build_stickney_to_jis_kana_map():
                     "from": {from_rule},
                     "to": [{to_rule}, {kogaki_rule}],
                     {kana_JIS_conditions if kana in ISO_ANSI_SPECIAL else kana_conditions},
-                    "description": "{qwerty_name} to {kana}"
+                    {timeout}"description": "{qwerty_name} to {kana}"
                 }}
 """
             if kana in ISO_ANSI_SPECIAL:
@@ -674,7 +682,7 @@ def build_stickney_to_jis_kana_map():
                     "from": {from_rule},
                     "to": [{to_rule}, {kogaki_rule}],
                     {kana_not_JIS_conditions},
-                    "description": "{qwerty_name} to {kana}"
+                    {timeout}"description": "{qwerty_name} to {kana}"
                 }}
 """
 

@@ -527,14 +527,26 @@
                     "from": {"key_code": "u"},
                     "to": [{"key_code": "6"}, {"set_variable": {"name": "kogaki", "value": "ぉ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "u to お"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "u to お"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "u", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "5"}, {"set_variable": {"name": "kogaki", "value": "ぇ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-u to え"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "shift-u to え"
                 },
                 {
                     "type": "basic",
@@ -625,7 +637,13 @@
                     "from": {"key_code": "a", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "7"}, {"set_variable": {"name": "kogaki", "value": "ゃ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-a to や"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "shift-a to や"
                 },
                 {
                     "type": "basic",
@@ -709,7 +727,13 @@
                     "from": {"key_code": "j"},
                     "to": [{"key_code": "4"}, {"set_variable": {"name": "kogaki", "value": "ぅ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "j to う"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "j to う"
                 },
                 {
                     "type": "basic",
@@ -723,7 +747,13 @@
                     "from": {"key_code": "k"},
                     "to": [{"key_code": "e"}, {"set_variable": {"name": "kogaki", "value": "ぃ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "k to い"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "k to い"
                 },
                 {
                     "type": "basic",
@@ -744,7 +774,13 @@
                     "from": {"key_code": "l", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "3"}, {"set_variable": {"name": "kogaki", "value": "ぁ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-l to あ"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "shift-l to あ"
                 },
                 {
                     "type": "basic",
@@ -800,14 +836,26 @@
                     "from": {"key_code": "z"},
                     "to": [{"key_code": "9"}, {"set_variable": {"name": "kogaki", "value": "ょ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "z to よ"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "z to よ"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": { "mandatory": ["shift"] } },
                     "to": [{"key_code": "8"}, {"set_variable": {"name": "kogaki", "value": "ゅ"} }],
                     "conditions": [{"input_sources": [{ "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"}],
-                    "description": "shift-z to ゆ"
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500
+                    },
+                    "to_delayed_action": {
+                        "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                    },
+"description": "shift-z to ゆ"
                 },
                 {
                     "type": "basic",
