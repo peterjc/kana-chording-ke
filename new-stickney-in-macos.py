@@ -759,15 +759,12 @@ with open(output_name, "w") as handle:
                         }}
                     ],
                     "description": "Hold spacebar (alone) as left_shift modifier",
-                    "to_if_alone": [{clear_kogaki}, {{"key_code": "spacebar", "halt": true}}],
-                    "to_if_held_down": [{clear_kogaki}, {{"key_code": "left_shift"}}],
-                    "to_delayed_action": {{"to_if_canceled": [
-                        {clear_kogaki}, {{"key_code": "spacebar"}}
-                    ]}},
-                    "parameters": {{
-                        "basic.to_delayed_action_delay_milliseconds": 500,
-                        "basic.to_if_held_down_threshold_milliseconds": 500
-                    }},
+                    "from": {{"key_code": "spacebar"}},
+                    "to": [{clear_kogaki}, {{"key_code": "left_shift", "lazy": true}}],
+                    "to_if_alone": [
+                        {clear_kogaki},
+                        {{"key_code": "spacebar"}}
+                    ],
                     "type": "basic"
                 }}
             ]

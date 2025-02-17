@@ -18,7 +18,8 @@ column, and click "Add predefined rule", which should show a screen like this
 
 ![Screenshot 2025-02-14 at 12 23 40](https://github.com/user-attachments/assets/4c99e2a4-c04d-404c-b267-3ea29417b688)
 
-Find "New Stickney Japanese Kana Layout in macOS" and click "Enable All".
+Find "New Stickney Japanese Kana Layout in macOS" and click "Enable" on the
+"Core Mappings" and *one* of the spacebar as central-shift rules.
 
 If not already installed, add "Japanese - Kana" mode.
 
@@ -44,5 +45,3 @@ The rule for using the spacebar as a central sticky-shift key (where you can pre
 it once and the next character is shifted, or hold it down like a traditional shift)
 has been created separately from the kana-remapping rules as this is something the
 user may wish to experiment with (e.g. using this as a shift in ordinary mode?).
-
-

@@ -1012,15 +1012,12 @@
                         }
                     ],
                     "description": "Hold spacebar (alone) as left_shift modifier",
-                    "to_if_alone": [{"set_variable": { "name": "kogaki", "value": ""} }, {"key_code": "spacebar", "halt": true}],
-                    "to_if_held_down": [{"set_variable": { "name": "kogaki", "value": ""} }, {"key_code": "left_shift"}],
-                    "to_delayed_action": {"to_if_canceled": [
-                        {"set_variable": { "name": "kogaki", "value": ""} }, {"key_code": "spacebar"}
-                    ]},
-                    "parameters": {
-                        "basic.to_delayed_action_delay_milliseconds": 500,
-                        "basic.to_if_held_down_threshold_milliseconds": 500
-                    },
+                    "from": {"key_code": "spacebar"},
+                    "to": [{"set_variable": { "name": "kogaki", "value": ""} }, {"key_code": "left_shift", "lazy": true}],
+                    "to_if_alone": [
+                        {"set_variable": { "name": "kogaki", "value": ""} },
+                        {"key_code": "spacebar"}
+                    ],
                     "type": "basic"
                 }
             ]
