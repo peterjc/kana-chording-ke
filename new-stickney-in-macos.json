@@ -114,8 +114,14 @@
                         "to": [
                             {"key_code": "delete_or_backspace"},
                             {"key_code": "4", "modifiers": ["shift"]},
-                            {"set_variable": {"name": "kogaki", "value": "ゔ"}}
+                            {"set_variable": {"name": "kogaki", "value": "ゔ"} }
                         ],
+                        "parameters": {
+                            "basic.to_delayed_action_delay_milliseconds": 500
+                        },
+                        "to_delayed_action": {
+                            "to_if_invoked": [ {"set_variable": { "name": "kogaki", "value": ""} } ]
+                        },
                         "conditions": [
                             {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
                             {"type": "variable_if", "name": "kogaki", "value": "ぅ"}

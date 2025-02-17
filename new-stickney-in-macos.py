@@ -422,23 +422,29 @@ def build_stickney_to_jis_kana_map():
             """
     # Two special rules for う - first gives small ぅ (ux) - second gives ゔ (vu)
     assert "4" == jis_qwerty[jis_japanese_shift.index("ぅ")]
-    yield """\
-                    {
+    yield f"""\
+                    {{
                         "type": "basic",
-                        "from": {"key_code": "l"},
+                        "from": {{"key_code": "l"}},
                         "to": [
-                            {"key_code": "delete_or_backspace"},
-                            {"key_code": "4", "modifiers": ["shift"]},
-                            {"set_variable": {"name": "kogaki", "value": "ゔ"}}
+                            {{"key_code": "delete_or_backspace"}},
+                            {{"key_code": "4", "modifiers": ["shift"]}},
+                            {{"set_variable": {{"name": "kogaki", "value": "ゔ"}} }}
                         ],
+                        "parameters": {{
+                            "basic.to_delayed_action_delay_milliseconds": {clear_timeout}
+                        }},
+                        "to_delayed_action": {{
+                            "to_if_invoked": [ {clear_kogaki} ]
+                        }},
                         "conditions": [
-                            {"input_sources": [{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }], "type": "input_source_if"},
-                            {"type": "variable_if", "name": "kogaki", "value": "ぅ"}
+                            {{"input_sources": [{{"input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese" }}], "type": "input_source_if"}},
+                            {{"type": "variable_if", "name": "kogaki", "value": "ぅ"}}
                         ],
                         "description": "Ten-ten suffix for ぅ kogaki"
-                    }
+                    }}
             """
-    # Clear the variable only on second press...
+    # Unconditionally clear the variable only on second press...
     assert "4" == jis_qwerty[jis_japanese_normal.index("う")]
     assert "open_bracket" == ke_key_names[jis_qwerty[jis_japanese_normal.index("゛")]]
     yield """\
