@@ -29,7 +29,7 @@ There are at least three ways to enter Japanese hiragana or katakana (and
 in some cases kanji) on computers which I have tested on macOS:
 
 1. There are operating system specific keyboard expressions to enter the hex
-   code of an individual unicde symbol which can be used for kana or even kanji.
+   code of an individual unicode symbol which can be used for kana or even kanji.
    See [hex codes for kana in unicode](http://www.i18nguy.com/unicode/hiragana.html).
    For macOS, once in "*Unicode Hex Input*" mode, to enter け (ke), press-and-hold
    the option key (aka alt), then type `3`, `0`, `5`, `1`, and release the option
