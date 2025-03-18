@@ -19,11 +19,24 @@ column, and click "Add predefined rule", which should show a screen like this
 ![Screenshot 2025-02-14 at 12 23 40](https://github.com/user-attachments/assets/4c99e2a4-c04d-404c-b267-3ea29417b688)
 
 Find "New Stickney Japanese Kana Layout in macOS" and click "Enable" on the
-"Core Mappings" and *one* of the spacebar as central-shift rules.
+"Core Mappings" and *one* of the spacebar as central-shift rules (see below).
 
 If not already installed, add "Japanese - Kana" mode.
 
 Switch to "Japanese - Kana" mode and start typing!
+
+# Spacebar
+
+Two alternative rules are provided for using the spacebar as a central shift:
+
+* "Space is sticky left-shift" - You can press it once and the next character is
+   shifted, or hold it down like a traditional shift. This aims to follow the New
+   Stickney behaviour as documented for the (Linux) Hiragana IME.
+* "Hold space (alone) for left-shift" - You can still tap the spacebar to act as
+  space, or use shift-space, both of which are useful with the default macOS IME.
+
+Note currently the Qwerty quote (ANSI/ISO) or colon (JIS) is assigned to `変換`
+in New Stickney, but here currently just acts as space.
 
 # Implementation
 
@@ -49,8 +62,3 @@ The standard JIS layout uses the shift key to enter enter "ぁぃぅぇぉゃゅ
 vowel sounds). In this layout you type the corresponding large character from
 "あいうえおやゆよ" and then press `゛` (Qwerty letter `L`).  This is done in KE with
 a variable to track which vowel is wanted and sending backspace and the shifted key.
-
-The rule for using the spacebar as a central sticky-shift key (where you can press
-it once and the next character is shifted, or hold it down like a traditional shift)
-has been created separately from the kana-remapping rules as this is something the
-user may wish to experiment with (e.g. using this as a shift in ordinary mode?).
