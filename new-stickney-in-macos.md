@@ -27,6 +27,10 @@ Switch to "Japanese - Kana" mode and start typing!
 
 # Implementation
 
+This works detecting by remapping keys like `q` so that rather than the IME
+turning this into た as per the JIS layout, Karabiner elements replaces it with
+`f` to that the IME turns this into け as per the New Stickney layout.
+
 Python script [cursor-chording-flick-input.py](cursor-chording-flick-input.py)
 generates the verbose JSON file
 [cursor-chording-flick-input.json](cursor-chording-flick-input.json) which you can
@@ -40,6 +44,11 @@ layouts, and some of these keys differ between the ANSI/ISO/JIS physical keyboar
 Also, the New Stickney layout leaves the number row and symbols to the underlying
 locale. This means some of the re-mapping rules are ANSI/IOS/JIS mode specific
 (Karabiner Elements has a notational mode for their virtual keyboard device).
+
+The standard JIS layout uses the shift key to enter enter "ぁぃぅぇぉゃゅょ" (small
+vowel sounds). In this layout you type the corresponding large character from
+"あいうえおやゆよ" and then press `゛` (Qwerty letter `L`).  This is done in KE with
+a variable to track which vowel is wanted and sending backspace and the shifted key.
 
 The rule for using the spacebar as a central sticky-shift key (where you can press
 it once and the next character is shifted, or hold it down like a traditional shift)
