@@ -62,3 +62,9 @@ The standard JIS layout uses the shift key to enter enter "ぁぃぅぇぉゃゅ
 vowel sounds). In this layout you type the corresponding large character from
 "あいうえおやゆよ" and then press `゛` (Qwerty letter `L`).  This is done in KE with
 a variable to track which vowel is wanted and sending backspace and the shifted key.
+
+The New Stickney layout leaves the top number/symbol row largely unchanged.
+However, they are used as a fourth row of kana in the JIS layout. These keys are
+therefore remapped to option (alt) equivalents giving wide versions of the expected
+characters. We could map to the numberpad keys instead which seems to give narrow
+number characters.
