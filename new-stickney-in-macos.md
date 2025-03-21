@@ -1,11 +1,21 @@
 This is a proof-of-principle implementation of the [New Stickney Japanese keyboard
-layout](https://esrille.github.io/ibus-hiragana/en/layouts.html#new_stickney) on
-on macOS via Karabiner Elements, which has been tested with the default Apple IME
-in "Japanese - Kana" mode.
+layout](https://esrille.github.io/ibus-hiragana/en/layouts.html#new_stickney)
+([version 17](https://github.com/esrille/new-stickney)) on macOS via Karabiner
+Elements, which has been tested with the default Apple IME in "Japanese - Kana"
+mode.
 
 This should work on any Qwerty layout keyboard, but has been tested on an Apple
 MacBook Japanese keyboard, and a GB ISO external keyboard. ANSI keyboards should
 work but there may be some minor issues with the punctuation keys.
+
+It should also work on a 30 key reduced Qwerty layout - as shown here as a matrix
+with the Qwerty key, base kana, and shifted kana:
+
+|     1    |   2    |     3    |     4   |     5    |     6   |     7   |     8    |     9   |    0    |
+|--------:|---------:|--------:|--------:|---------:|--------:|--------:|---------:|--------:|--------:|
+| Q `け❌` | W `く゜` | E `すひ` | R `さふ` | T `つ❌` | Y `ぬむ` | U `おえ` | I `のも` | O `にみ` | P `ねめ` |
+| A `はや` | S `かそ` | D `しせ` | F `たへ` | G `てほ` | H `られ` | J `うる` | K `いり` | L `゛あ` | ; `なま` |
+| Z `よゆ` | X `きゐ` | C `こ❌` | V `とゑ` | B `ち❌` | N `っろ` | M `んー` | , `、を` | . `。わ` | / `・？` |
 
 # Installation
 
