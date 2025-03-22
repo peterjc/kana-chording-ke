@@ -25,7 +25,10 @@ Right hand:
 | `H` → `られ` | `J` → `うる` | `K` → `いり` | `L` → `゛あ` | `;` → `なま` |
 | `N` → `っろ` | `M` → `んー` | `,` → `、を` | `.` → `。わ` | `/` → `・？` |
 
-Four of the shifted keys are currently used (shown as `❌`).
+Four of the shifted keys are currently used (shown as `❌`). The layout also
+follows romaji mode in mapping `[` and `]` to `「` and `」` for quotation
+(keys off to the right - their location depends on ANSI vs ISO vs JIS
+keyboard type).
 
 # Installation
 
@@ -88,3 +91,12 @@ However, they are used as a fourth row of kana in the JIS layout. These keys are
 therefore remapped to option (alt) equivalents giving wide versions of the expected
 characters. We could map to the numberpad keys instead which seems to give narrow
 number characters.
+
+# Limitations
+
+New Stickney maps `[` and `]` to `「` and `」` for quotation, and that works -
+with the caveat that which keys should be used is only specified for ANSI/JIS
+(which differ) and not ISO (which could follow the placement of either). With
+shift (where Qwerty would give `{` and `}`), these should be `『` and `』`. As
+far as I am aware, in macOS "Japanese - Kana" input mode we can only type one of
+these (`『` using shift+option).
