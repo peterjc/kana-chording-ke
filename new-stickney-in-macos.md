@@ -9,13 +9,21 @@ MacBook Japanese keyboard, and a GB ISO external keyboard. ANSI keyboards should
 work but there may be some minor issues with the punctuation keys.
 
 It should also work on a 30 key reduced Qwerty layout - as shown here as a matrix
-with the Qwerty key, base kana, and shifted kana:
+with the Qwerty key, base kana, and shifted kana. Left hand:
 
-|     1    |   2    |     3    |     4   |     5    |     6   |     7   |     8    |     9   |    0    |
-|--------:|---------:|--------:|--------:|---------:|--------:|--------:|---------:|--------:|--------:|
-| Q `け❌` | W `く゜` | E `すひ` | R `さふ` | T `つ❌` | Y `ぬむ` | U `おえ` | I `のも` | O `にみ` | P `ねめ` |
-| A `はや` | S `かそ` | D `しせ` | F `たへ` | G `てほ` | H `られ` | J `うる` | K `いり` | L `゛あ` | ; `なま` |
-| Z `よゆ` | X `きゐ` | C `こ❌` | V `とゑ` | B `ち❌` | N `っろ` | M `んー` | , `、を` | . `。わ` | / `・？` |
+|     1    |   2    |     3    |     4   |     5    |
+|--------:|---------:|--------:|--------:|---------:|
+| Q `け❌` | W `く゜` | E `すひ` | R `さふ` | T `つ❌` |
+| A `はや` | S `かそ` | D `しせ` | F `たへ` | G `てほ` |
+| Z `よゆ` | X `きゐ` | C `こ❌` | V `とゑ` | B `ち❌` |
+
+Right hand:
+
+|     6   |     7   |     8    |     9   |    0    |
+|--------:|--------:|---------:|--------:|--------:|
+| Y `ぬむ` | U `おえ` | I `のも` | O `にみ` | P `ねめ` |
+| H `られ` | J `うる` | K `いり` | L `゛あ` | ; `なま` |
+| N `っろ` | M `んー` | , `、を` | . `。わ` | / `・？` |
 
 # Installation
 
