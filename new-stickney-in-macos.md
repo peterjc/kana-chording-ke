@@ -25,7 +25,7 @@ Right hand:
 | `H` → `られ` | `J` → `うる` | `K` → `いり` | `L` → `゛あ` | `;` → `なま` |
 | `N` → `っろ` | `M` → `んー` | `,` → `、を` | `.` → `。わ` | `/` → `・？` |
 
-Four of the shifted keys are currently used (shown as `❌`). The layout also
+Four of the shifted keys are currently unused (shown as `❌`). The layout also
 follows romaji mode in mapping `[` and `]` to `「` and `」` for quotation
 (keys off to the right - their location depends on ANSI vs ISO vs JIS
 keyboard type).
