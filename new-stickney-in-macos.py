@@ -68,6 +68,9 @@ layout colon): Does it have a macOS Kana entry mode equivalent?
 
 import sys
 
+new_stickney_version = "17"
+script_version = "0.1"
+
 unused = "❌"  # wanted something double-width
 daku = "がぎぐげござじずぜぞだぢづでどばびぶべぼ"
 handaku = "ぱぴぷぺぽ"
@@ -215,12 +218,12 @@ for _ in (
     new_stickney_shift = new_stickney_shift.replace(_, unused)
 
 output_name = "new-stickney-in-macos.json"
-title = "New Stickney Japanese Kana Layout in macOS"
+title = f"New Stickney Japanese Kana Layout (version {new_stickney_version}) in macOS (KE rules version {script_version})"
 kana_rules_description = "New Stickney to JIS layout in Japanese Kana input mode"
 romaji_rules_description = "New Stickney to JIS layout in Japanese Romaji input mode"
 clear_timeout = 500  # in units of ms
 
-# JIS so rather different from USA ASCI layout:
+# In kana mode want to use JIS, which is rather different from USA ASCI layout:
 # See https://karabiner-elements.pqrs.org/docs/help/troubleshooting/symbols-with-non-ansi-keyboard/
 ke_key_names = {
     # Differ in JIS vs ANSI/ISO, see JIS_TO_ISO_ANSI_NAME
