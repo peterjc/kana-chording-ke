@@ -37,7 +37,8 @@ kana mode reflecting the JIS kana layout.
 First complication: The New Stickney layout's handling of small kana (sutegana
 or kogaki moji) via the ten-ten key AFTER the kana. This is not supported by the
 macOS IME. We need a complex (fragile?) dead-key like set of rules, sending
-backspace and then the small kana equivalent.
+backspace and then the small kana equivalent. In romaji mode we would need to do
+the same for the maru and ten-ten post-modifiers as well.
 
 The small tsu "っ" (sokuon) is an exception, and does still get its own key in
 the New Stickney layout due to its higher usage (equivalent to double consonants
