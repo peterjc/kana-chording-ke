@@ -34,27 +34,28 @@ For example, the Qwery key `a` is the kana "た" (ta) in the JIS kana layout, bu
 to the two key presses `k` `e` in romaji mode, or `shift`+`;` (i.e. ":") if in
 kana mode reflecting the JIS kana layout.
 
-First complication: The numbers/symbols row is part of the JIS kana layout, but
-for New Stickney it is implicitly left as numbers/sybmols. In romaji mode we
-need do nothing, but in kana mode unless stopped those keys would give JIS kana.
-Therefore we map these to option modifier versions which in macOS kana mode
-gives wide versions of the ASCII numbers and symbols.
-
-Second complication: The New Stickney layout's handling of small kana (sutegana
-or Kogaki moji) via the ten-ten key AFTER the kana. This is not supported by the
-macOS IME. We need a complex (fragile?) dead-key like set of rules, perhaps
-sending backspace(s) and then the small kana equivalent.
+First complication: The New Stickney layout's handling of small kana (sutegana
+or kogaki moji) via the ten-ten key AFTER the kana. This is not supported by the
+macOS IME. We need a complex (fragile?) dead-key like set of rules, sending
+backspace and then the small kana equivalent.
 
 The small tsu "っ" (sokuon) is an exception, and does still get its own key in
-the New Stickney layout due to its higher usage (double consanants in romaji
-mode). That is the same as JIS, so a simple remapping. Likewise in romaji mode
-we can remap to send `xtu` or `ltu` (or sent `x` or `l` if used as a prefix).
+the New Stickney layout due to its higher usage (equivalent to double consonants
+in romaji mode). That is the same as JIS, so a simple remapping. Likewise in
+romaji mode we can remap to send `xtu` or `ltu`.
 
-Third complication: Karabiner Elements can set the virtual keyboard to one of
-ANSI, ISO, and JIS. Using ISO messes up the mappings using the `international1`
-key (for "ろ") and `international3` (for "ー") keys, and assorted punctuation
-keys (`equal_sign` for "へ", `backslash` for "む" and `close_bracket` for "゜").
-*Running in JIS mode is required*.
+Second complication (in JIS kana mode): The numbers/symbols row is part of the
+JIS kana layout, but for New Stickney it is implicitly left as numbers/sybmols.
+In romaji mode we need do nothing, but in kana mode unless stopped those keys
+would give JIS kana. Therefore we must map these to option modifier versions which
+in macOS kana mode gives wide versions of the ASCII numbers and symbols, or to
+the number pad.
+
+Third complication (in JIS kana mode): Karabiner Elements can set the virtual
+keyboard to one of ANSI, ISO, and JIS. Using ISO messes up the mappings using
+the `international1` key (for "ろ") and `international3` (for "ー") keys, and
+assorted punctuation keys (`equal_sign` for "へ", `backslash` for "む" and
+`close_bracket` for "゜"). *Running in JIS mode is required*.
 
 https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-keyboard-type/
 
@@ -62,8 +63,7 @@ Open questions:
 
 * The "変換" key (conversion or wide space - on the USA single-quote key, or JIS
 layout colon): Does it have a macOS Kana entry mode equivalent?
-* Center shift: Need to remap the space bar to shift (if held)?
-* Other special mode keys: Leave them alone as per macOS kana entry?
+* Other JIS language keys: Leave them alone as per macOS kana entry?
 """
 
 import sys
