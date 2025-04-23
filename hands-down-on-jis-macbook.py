@@ -31,7 +31,7 @@ offers a way to use this bottom row for thumb keys, like the letter "R" as
 used on the left-thumb in many of the "Hands Down" alternative layouts.
 
 This allows us to remap the letter keys while still using the same home row
-(although we use a "wide mod" and shift both hands further apart), while
+(although we use a "wide mod" and shift the right hand further over), while
 using (left-command), "eisuu" and spacebar for the left thumb, and "kana",
 right-command (and globe/fn?) for the right thumb keys. The number row is
 deliberately not altered.
@@ -44,9 +44,8 @@ The thumb-keys are R on "eisuu" & backspace on spacebar for the left-thumb,
 and shift on "kana" & space on right-command for the right-thumb. Bottom left
 caps-lock becomes control, with left-option and left-command unchanged.
 
-The left-hand home-keys are "SNTH" on left-control (where caps-lock would be
-with ANSI/ISO), Qwerty A, S, and D (i.e. shifted one key to the left). The
-right-hand home-keys are "AEIC" on Qwerty L, semicolon, colon, and close quote
+The left-hand home-keys are "SNTH" on Qwerty A, S, D, and F (i.e. unchanged).
+The right-hand home-keys are "AEIC" on Qwerty L, semicolon, colon, and close quote
 (which are L, semicolon, quote, backslash on ANSI; i.e. shifted two keys right).
 This makes enter an easy but potentially tiring horizontal pinkie finger move.
 
@@ -80,7 +79,7 @@ jis_qwerty = (
     "open_bracket",
     "close_bracket",
     # Home row:
-    "left_control",
+    "left_control",  # ANSI/ISO has cap-locks here
     "a",
     "s",
     "d",
@@ -117,33 +116,33 @@ jis_qwerty = (
     "right_command",
 )
 # For both left and right, core is three rows of five, plus thumbs
-# We have a 3 column misc zone between the two hands being used for Q and Z
-# (rather than a far-right extra pinkie column), tab & the other punctuation.
+# We have a 2,2,3 key misc zone between the two hands being used for Q and Z
+# (rather than a far-right extra pinkie column), and the other punctuation.
 # Bottom row is left-shift, left-option, left-command, eisuu, spacebar,
 # kana, right-command, (then globe/fn but cannot remap that, and cursors).
 hands_down = (
     # Top row:
+    "🔻",  # i.e. tab
     "v",
     "p",
     "g",
     "m",
     "x",
-    "open_bracket",  # misc zone
-    "close_bracket",  # misc zone
-    "backslash",  # misc zone
+    "open_bracket",  # misc zone, this is @ and ` on JIS`
+    "close_bracket",  # misc zone, this is [ and { on JIS
     "slash",
     "period",
     "quote",
     "hyphen",
     "equal_sign",
     # Home row:
+    "🔻",  # i.e. left-ctrl where ASNI/ISO has caps lock
     "s",
     "n",
     "t",
     "h",
     "k",
-    "tab",  # misc zone
-    "tab",  # misc zone
+    "backslash",  # misc zone, this is ] and } on JIS
     "q",  # misc zone
     "comma",
     "a",
@@ -156,8 +155,8 @@ hands_down = (
     "d",
     "l",
     "j",
-    "quote",  # misc zone
-    "international1",  # misc zone
+    "quote",  # misc zone, this is : and * on JIS
+    "international1",  # misc zone, this is _ on JIS (with and without shift)
     "z",
     "semicolon",
     "u",
