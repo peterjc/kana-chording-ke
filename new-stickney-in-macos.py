@@ -20,7 +20,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-"""Generate Karabina Elements JSON for using New Stickney kana layout on macOS.
+"""Generate Karabiner Elements JSON for using New Stickney kana layout on macOS.
 
 There is built in support for both kana and romaji Japanese input on macOS. The
 goal of these Karabiner Elements rules is to use a New Stickney kana layout and
