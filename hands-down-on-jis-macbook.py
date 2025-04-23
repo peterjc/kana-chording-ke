@@ -33,8 +33,11 @@ used on the left-thumb in many of the "Hands Down" alternative layouts.
 This allows us to remap the letter keys while still using the same home row
 (although we use a "wide mod" and shift the right hand further over), while
 using (left-command), "eisuu" and spacebar for the left thumb, and "kana",
-right-command (and globe/fn?) for the right thumb keys. The number row is
-deliberately not altered.
+right-command (and globe/fn?) for the right thumb keys.
+
+The number row is also altered, after digits one to zero placed US style
+back-tick/tilde, Z and Q in top right corner in favour of hyphen and equals
+(which are in the right-hand's core 5x3 block instead).
 
 The specific layout I am using is a personal variant of "Hands Down Promethium"
 (top/bottom inverted, minor letters moved about) with the punctuation placement
@@ -49,6 +52,11 @@ The right-hand home-keys are "AEIC" on Qwerty L, semicolon, colon, and close quo
 (which are L, semicolon, quote, backslash on ANSI; i.e. shifted two keys right).
 This makes enter an easy but potentially tiring horizontal pinkie finger move.
 
+The number row is also altered, after digits one to zero I placed US style
+back-tick/tilde (a surprisingly comfortable middle finger stretch now), then
+Z and Q in top right corner. Hyphen and equals are in the right-hand's core
+5x3 block instead, with international3 (¥ and |) moved to the centre block.
+
 The KE rules are deliberately defined not to be active in Japanese mode,
 meaning Kana mode should still work, as will Romaji-Qwerty mode (although
 you might want to type romaji using Hands Down?).
@@ -62,8 +70,22 @@ import sys
 script_version = "0.1"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
-# excluding the function row, number row, enter key, globe/fn, and cursors.
+# excluding the function row, number row, backspace, enter key, globe/fn, and cursors.
 jis_qwerty = (
+    # Number row:
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "hyphen",
+    "equal_sign",
+    "international3",
     # Top row:
     "tab",
     "q",
@@ -115,12 +137,25 @@ jis_qwerty = (
     "japanese_kana",
     "right_command",
 )
-# For both left and right, core is three rows of five, plus thumbs
-# We have a 2,2,3 key misc zone between the two hands being used for Q and Z
-# (rather than a far-right extra pinkie column), and the other punctuation.
+# For both left and right, core is three rows of five, plus thumbs.
+# The 2,2,3 key misc zone between the hands is being used for punctuation.
 # Bottom row is left-shift, left-option, left-command, eisuu, spacebar,
 # kana, right-command, (then globe/fn but cannot remap that, and cursors).
 hands_down = (
+    # Number row:
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "grave_accent_and_tilde",  # Not on JIS layout, but gives ` and ~ in JIS mode too
+    "z",  # on right-hand pinkie sixth column in canonical HDP layout
+    "q",  # on right-hand pinkie sixth column in canonical HDP layout
     # Top row:
     "🔻",  # i.e. tab
     "v",
@@ -143,7 +178,7 @@ hands_down = (
     "h",
     "k",
     "backslash",  # misc zone, this is ] and } on JIS
-    "q",  # misc zone
+    "caps_lock",  # misc zone
     "comma",
     "a",
     "e",
@@ -155,9 +190,9 @@ hands_down = (
     "d",
     "l",
     "j",
-    "quote",  # misc zone, this is : and * on JIS
     "international1",  # misc zone, this is _ on JIS (with and without shift)
-    "z",
+    "international3",  # misc zone, this is ¥ and | on JIS
+    "quote",  # misc zone, this is : and * on JIS
     "semicolon",
     "u",
     "o",
@@ -174,9 +209,24 @@ hands_down = (
 )
 leave = "🔻"  # do not remap (transparent in Vial layer terminology)
 
-assert len(jis_qwerty) == len(hands_down) == 3 * 13 + 7, (
-    f"{len(jis_qwerty)} vs {len(hands_down)} vs {3 * 13 + 7}"
+assert len(jis_qwerty) == len(hands_down) == 4 * 13 + 7, (
+    f"{len(jis_qwerty)} vs {len(hands_down)} vs {4 * 13 + 7}"
 )
+before = set(jis_qwerty)
+before.update(["delete_or_backspace", "grave_accent_and_tilde"])  # added
+after = {
+    jis_key if hd_key == leave else hd_key
+    for hd_key, jis_key in zip(hands_down, jis_qwerty)
+}
+after.update(
+    [
+        "japanese_eisuu",
+        "japanese_kana",
+        "right_command",
+        "right_shift",
+    ]  # lost
+)
+assert before == after, f"{before.difference(after)} vs {after.difference(before)})"
 
 output_name = "hands-down-on-jis-macbook.json"
 title = f"Hands Down Promethium (inverted personal variant) on Japanese MacBook (KE rules version {script_version})"
