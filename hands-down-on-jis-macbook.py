@@ -31,7 +31,7 @@ offers a way to use this bottom row for thumb keys, like the letter "R" as
 used on the left-thumb in many of the "Hands Down" alternative layouts.
 
 This allows us to remap the letter keys while still using the same home row
-(although we will use a "wide mod" and shift the hands further apart), while
+(although we use a "wide mod" and shift both hands further apart), while
 using (left-command), "eisuu" and spacebar for the left thumb, and "kana",
 right-command (and globe/fn?) for the right thumb keys. The number row is
 deliberately not altered.
@@ -39,6 +39,16 @@ deliberately not altered.
 The specific layout I am using is a personal variant of "Hands Down Promethium"
 (top/bottom inverted, minor letters moved about) with the punctuation placement
 partly based on "Enthium" (top/bottom inverted, unmirrored).
+
+The thumb-keys are R on "eisuu" & backspace on spacebar for the left-thumb,
+and shift on "kana" & space on right-command for the right-thumb. Bottom left
+caps-lock becomes control, with left-option and left-command unchanged.
+
+The left-hand home-keys are "SNTH" on left-control (where caps-lock would be
+with ANSI/ISO), Qwerty A, S, and D (i.e. shifted one key to the left). The
+right-hand home-keys are "AEIC" on Qwerty L, semicolon, colon, and close quote
+(which are L, semicolon, quote, backslash on ANSI; i.e. shifted two keys right).
+This makes enter an easy but potentially tiring horizontal pinkie finger move.
 
 The KE rules are deliberately defined not to be active in Japanese mode,
 meaning Kana mode should still work, as will Romaji-Qwerty mode (although
@@ -50,7 +60,7 @@ This assumes the Karabiner Elements virtual device will be in JIS mode
 
 import sys
 
-script_version = "0.0"
+script_version = "0.1"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
 # excluding the function row, number row, enter key, globe/fn, and cursors.
@@ -107,7 +117,8 @@ jis_qwerty = (
     "right_command",
 )
 # For both left and right, core is three rows of five, plus thumbs
-# We have a 2 (or 3?) dead zone between the two hands (for punctuation? Q, Z?)
+# We have a 3 column misc zone between the two hands being used for Q and Z
+# (rather than a far-right extra pinkie column), tab & the other punctuation.
 # Bottom row is left-shift, left-option, left-command, eisuu, spacebar,
 # kana, right-command, (then globe/fn but cannot remap that, and cursors).
 hands_down = (
@@ -117,55 +128,51 @@ hands_down = (
     "g",
     "m",
     "x",
-    "❌",
-    "❌",
-    # "❌",
+    "open_bracket",  # misc zone
+    "close_bracket",  # misc zone
+    "backslash",  # misc zone
     "slash",
     "period",
     "quote",
     "hyphen",
     "equal_sign",
-    "delete_or_backspace",
     # Home row:
     "s",
     "n",
     "t",
     "h",
     "k",
-    "❌",
-    "❌",
-    # "❌",
+    "tab",  # misc zone
+    "tab",  # misc zone
+    "q",  # misc zone
     "comma",
     "a",
     "e",
     "i",
     "c",
-    "q",
     # Bottom row:
     "b",
     "f",
     "d",
     "l",
     "j",
-    "❌",
-    "❌",
-    # "❌",
+    "quote",  # misc zone
+    "international1",  # misc zone
+    "z",
     "semicolon",
     "u",
     "o",
     "y",
     "w",
-    "z",
     # Thumb row:
     "left_control",
     "🔻",  # i.e. left_option
     "🔻",  # i.e. left_command
     "r",
     "delete_or_backspace",
-    "spacebar",
     "left_shift",
+    "spacebar",
 )
-unused = "❌"  # map to no-op
 leave = "🔻"  # do not remap (transparent in Vial layer terminology)
 
 assert len(jis_qwerty) == len(hands_down) == 3 * 13 + 7, (
@@ -189,8 +196,6 @@ def build_hands_down_to_jis_qwerty_map():
     for hd_key, jis_key in zip(hands_down, jis_qwerty):
         if hd_key == leave:
             continue
-        if hd_key == unused:
-            hd_key = "delete_or_backspace"  # placeholder
         yield f"""\
                 {{
                     "type": "basic",
