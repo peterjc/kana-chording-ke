@@ -1,5 +1,5 @@
 {
-    "title": "Hands Down Promethium (2024 RoastBeefer/vim) on Japanese MacBook (KE script version 0.1)",
+    "title": "Hands Down Promethium (2025 pico mod) on Japanese MacBook (KE script version 0.1)",
     "maintainers": [
         "peterjc"
     ],
@@ -8,7 +8,7 @@
     "repo": "https://github.com/peterjc/kana-chording-ke",
     "rules": [
         {
-            "description": "Hands Down Promethium (2024 RoastBeefer/vim) on JIS layout in non-Japanese input mode : Core mappings",
+            "description": "Hands Down Promethium (2025 pico mod) on JIS layout in non-Japanese input mode : Core mappings",
             "manipulators": [
                 {
                     "type": "basic",
@@ -111,9 +111,9 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "w", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "w"}],
+                    "to": [{"key_code": "p"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get w when press w"
+                    "description": "Get p when press w"
                 },
                 {
                     "type": "basic",
@@ -272,9 +272,9 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "left_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "p"}],
+                    "to": [{"key_code": "b"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get p when press left_shift"
+                    "description": "Get b when press left_shift"
                 },
                 {
                     "type": "basic",
@@ -356,9 +356,9 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "right_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "b"}],
+                    "to": [{"key_code": "w"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get b when press right_shift"
+                    "description": "Get w when press right_shift"
                 },
                 {
                     "type": "basic",

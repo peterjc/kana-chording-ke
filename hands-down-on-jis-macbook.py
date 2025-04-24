@@ -59,7 +59,7 @@ but an English layout like USA or UK should work.
 import sys
 
 script_version = "0.1"
-layout_name = "Hands Down Promethium (2025 RoastBeefer/vim/punctuation)"
+layout_name = "Hands Down Promethium (2025 pico mod)"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
 # excluding the function row, number row, backspace, enter key, globe/fn, and cursors.
@@ -151,7 +151,7 @@ hands_down = (
     # Top row:
     "🔻",  # i.e. tab
     "v",
-    "w",
+    "p",
     "g",
     "m",
     "x",
@@ -177,7 +177,7 @@ hands_down = (
     "i",
     "c",
     # Bottom row:
-    "p",
+    "b",
     "f",
     "d",
     "l",
@@ -189,7 +189,7 @@ hands_down = (
     "u",
     "o",
     "y",
-    "b",
+    "w",
     # Thumb row:
     "left_shift",
     "🔻",  # i.e. left_option
