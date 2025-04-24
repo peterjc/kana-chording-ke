@@ -1,5 +1,5 @@
 {
-    "title": "Hands Down Promethium (2024 Inverted/vim) on Japanese MacBook (KE script version 0.1)",
+    "title": "Hands Down Promethium (2024 RoastBeefer/vim) on Japanese MacBook (KE script version 0.1)",
     "maintainers": [
         "peterjc"
     ],
@@ -8,7 +8,7 @@
     "repo": "https://github.com/peterjc/kana-chording-ke",
     "rules": [
         {
-            "description": "Hands Down Promethium (2024 Inverted/vim) on JIS layout in non-Japanese input mode : Core mappings",
+            "description": "Hands Down Promethium (2024 RoastBeefer/vim) on JIS layout in non-Japanese input mode : Core mappings",
             "manipulators": [
                 {
                     "type": "basic",
@@ -272,16 +272,16 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "left_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "f"}],
+                    "to": [{"key_code": "p"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get f when press left_shift"
+                    "description": "Get p when press left_shift"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "p"}],
+                    "to": [{"key_code": "f"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get p when press z"
+                    "description": "Get f when press z"
                 },
                 {
                     "type": "basic",
