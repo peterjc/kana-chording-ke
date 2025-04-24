@@ -59,7 +59,7 @@ but an English layout like USA or UK should work.
 import sys
 
 script_version = "0.1"
-layout_name = "Hands Down Promethium (2024 RoastBeefer/vim)"
+layout_name = "Hands Down Promethium (2025 RoastBeefer/vim/punctuation)"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
 # excluding the function row, number row, backspace, enter key, globe/fn, and cursors.
@@ -157,11 +157,11 @@ hands_down = (
     "x",
     "open_bracket",  # misc zone, this is @ and ` on JIS`
     "close_bracket",  # misc zone, this is [ and { on JIS
-    "hyphen",
+    "slash",
     "period",
     "quote",
+    "hyphen",
     "equal_sign",
-    "slash",
     # Home row:
     "🔻",  # i.e. left-ctrl where ASNI/ISO has caps lock
     "s",

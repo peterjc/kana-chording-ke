@@ -153,9 +153,9 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "i", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "hyphen"}],
+                    "to": [{"key_code": "slash"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get hyphen when press i"
+                    "description": "Get slash when press i"
                 },
                 {
                     "type": "basic",
@@ -174,16 +174,16 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "open_bracket", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "equal_sign"}],
+                    "to": [{"key_code": "hyphen"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get equal_sign when press open_bracket"
+                    "description": "Get hyphen when press open_bracket"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "close_bracket", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "slash"}],
+                    "to": [{"key_code": "equal_sign"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get slash when press close_bracket"
+                    "description": "Get equal_sign when press close_bracket"
                 },
                 {
                     "type": "basic",
