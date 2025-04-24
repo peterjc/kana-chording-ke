@@ -45,12 +45,15 @@ partly based on "Enthium" (top/bottom inverted, unmirrored).
 
 The thumb-keys are R on "eisuu" & backspace on spacebar for the left-thumb,
 and shift on "kana" & space on right-command for the right-thumb. Bottom left
-caps-lock becomes control, with left-option and left-command unchanged.
+caps-lock becomes left-shift, with left-option and left-command unchanged.
 
 The left-hand home-keys are "SNTH" on Qwerty A, S, D, and F (i.e. unchanged).
 The right-hand home-keys are "AEIC" on Qwerty L, semicolon, colon, and close quote
 (which are L, semicolon, quote, backslash on ANSI; i.e. shifted two keys right).
 This makes enter an easy but potentially tiring horizontal pinkie finger move.
+
+This leaves a 2-2-3 central block (Qwerty YU, HJ, and BNM) into which the
+punctuation typically on the right is transplanted (same row and order).
 
 The number row is also altered, after digits one to zero I placed US style
 back-tick/tilde (a surprisingly comfortable middle finger stretch now), then
@@ -177,8 +180,8 @@ hands_down = (
     "t",
     "h",
     "k",
+    "quote",  # misc zone, this is : and * on JIS
     "backslash",  # misc zone, this is ] and } on JIS
-    "caps_lock",  # misc zone
     "comma",
     "a",
     "e",
@@ -190,21 +193,21 @@ hands_down = (
     "d",
     "l",
     "j",
+    "caps_lock",  # misc zone
     "international1",  # misc zone, this is _ on JIS (with and without shift)
     "international3",  # misc zone, this is ¥ and | on JIS
-    "quote",  # misc zone, this is : and * on JIS
     "semicolon",
     "u",
     "o",
     "y",
     "w",
     # Thumb row:
-    "left_control",
+    "left_shift",
     "🔻",  # i.e. left_option
     "🔻",  # i.e. left_command
     "r",
     "delete_or_backspace",
-    "left_shift",
+    "right_shift",
     "spacebar",
 )
 leave = "🔻"  # do not remap (transparent in Vial layer terminology)
@@ -223,7 +226,6 @@ after.update(
         "japanese_eisuu",
         "japanese_kana",
         "right_command",
-        "right_shift",
     ]  # lost
 )
 assert before == after, f"{before.difference(after)} vs {after.difference(before)})"
