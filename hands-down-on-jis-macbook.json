@@ -1,5 +1,5 @@
 {
-    "title": "Hands Down Promethium (2024 Canonical) on Japanese MacBook (KE script version 0.1)",
+    "title": "Hands Down Promethium (2024 Inverted/vim) on Japanese MacBook (KE script version 0.1)",
     "maintainers": [
         "peterjc"
     ],
@@ -8,7 +8,7 @@
     "repo": "https://github.com/peterjc/kana-chording-ke",
     "rules": [
         {
-            "description": "Hands Down Promethium (2024 Canonical) on JIS layout in non-Japanese input mode : Core mappings",
+            "description": "Hands Down Promethium (2024 Inverted/vim) on JIS layout in non-Japanese input mode : Core mappings",
             "manipulators": [
                 {
                     "type": "basic",
@@ -104,30 +104,30 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "q", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "f"}],
+                    "to": [{"key_code": "v"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get f when press q"
+                    "description": "Get v when press q"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "w", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "p"}],
+                    "to": [{"key_code": "w"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get p when press w"
+                    "description": "Get w when press w"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "e", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "d"}],
+                    "to": [{"key_code": "g"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get d when press e"
+                    "description": "Get g when press e"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "r", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "l"}],
+                    "to": [{"key_code": "m"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get l when press r"
+                    "description": "Get m when press r"
                 },
                 {
                     "type": "basic",
@@ -153,37 +153,37 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "i", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "semicolon"}],
+                    "to": [{"key_code": "hyphen"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get semicolon when press i"
+                    "description": "Get hyphen when press i"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "o", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "u"}],
+                    "to": [{"key_code": "period"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get u when press o"
+                    "description": "Get period when press o"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "p", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "o"}],
+                    "to": [{"key_code": "quote"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get o when press p"
+                    "description": "Get quote when press p"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "open_bracket", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "y"}],
+                    "to": [{"key_code": "equal_sign"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get y when press open_bracket"
+                    "description": "Get equal_sign when press open_bracket"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "close_bracket", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "b"}],
+                    "to": [{"key_code": "slash"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get b when press close_bracket"
+                    "description": "Get slash when press close_bracket"
                 },
                 {
                     "type": "basic",
@@ -272,30 +272,30 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "left_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "v"}],
+                    "to": [{"key_code": "f"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get v when press left_shift"
+                    "description": "Get f when press left_shift"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "w"}],
+                    "to": [{"key_code": "p"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get w when press z"
+                    "description": "Get p when press z"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "x", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "g"}],
+                    "to": [{"key_code": "d"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get g when press x"
+                    "description": "Get d when press x"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "c", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "m"}],
+                    "to": [{"key_code": "l"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get m when press c"
+                    "description": "Get l when press c"
                 },
                 {
                     "type": "basic",
@@ -328,37 +328,37 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "comma", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "hyphen"}],
+                    "to": [{"key_code": "semicolon"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get hyphen when press comma"
+                    "description": "Get semicolon when press comma"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "period", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "period"}],
+                    "to": [{"key_code": "u"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get period when press period"
+                    "description": "Get u when press period"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "slash", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "quote"}],
+                    "to": [{"key_code": "o"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get quote when press slash"
+                    "description": "Get o when press slash"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "international1", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "equal_sign"}],
+                    "to": [{"key_code": "y"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get equal_sign when press international1"
+                    "description": "Get y when press international1"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "right_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "slash"}],
+                    "to": [{"key_code": "b"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get slash when press right_shift"
+                    "description": "Get b when press right_shift"
                 },
                 {
                     "type": "basic",

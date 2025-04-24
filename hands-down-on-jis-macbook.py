@@ -59,7 +59,7 @@ but an English layout like USA or UK should work.
 import sys
 
 script_version = "0.1"
-layout_name = "Hands Down Promethium (2024 Canonical)"
+layout_name = "Hands Down Promethium (2024 Inverted/vim)"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
 # excluding the function row, number row, backspace, enter key, globe/fn, and cursors.
@@ -150,18 +150,18 @@ hands_down = (
     "q",  # on right-hand pinkie sixth column in canonical HDP layout
     # Top row:
     "🔻",  # i.e. tab
-    "f",
-    "p",
-    "d",
-    "l",
+    "v",
+    "w",
+    "g",
+    "m",
     "x",
     "open_bracket",  # misc zone, this is @ and ` on JIS`
     "close_bracket",  # misc zone, this is [ and { on JIS
-    "semicolon",
-    "u",
-    "o",
-    "y",
-    "b",
+    "hyphen",
+    "period",
+    "quote",
+    "equal_sign",
+    "slash",
     # Home row:
     "🔻",  # i.e. left-ctrl where ASNI/ISO has caps lock
     "s",
@@ -177,19 +177,19 @@ hands_down = (
     "i",
     "c",
     # Bottom row:
-    "v",
-    "w",
-    "g",
-    "m",
+    "f",
+    "p",
+    "d",
+    "l",
     "j",
     "caps_lock",  # misc zone
     "international1",  # misc zone, this is _ on JIS (with and without shift)
     "international3",  # misc zone, this is ¥ and | on JIS
-    "hyphen",
-    "period",
-    "quote",
-    "equal_sign",
-    "slash",
+    "semicolon",
+    "u",
+    "o",
+    "y",
+    "b",
     # Thumb row:
     "left_shift",
     "🔻",  # i.e. left_option
