@@ -20,57 +20,46 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-"""Generate Karabiner Elements JSON for Hands Down layout on a JIS MacBook.
+"""Generate Karabiner Elements JSON for 'Hands Down Promethium' on JIS MacBook.
 
-The Apple MacBook sold in Japan has a JIS based keyboard layout which has a
-quite different bottom row compared to Apple's ANSI/US or ISO/European layouts).
-In particular, the spacebar is shorter - just over three keys wide and found
-underneath the Qwerty VBN keys. It is flanked on the by the "eisuu" (switch to
-qwerty) and "kana" (switch to Japanese mode) keys. This is important as it
-offers a way to use this bottom row for thumb keys, like the letter "R" as
-used on the left-thumb in many of the "Hands Down" alternative layouts.
+Karabiner Elements is a free open source keyboard remapping tool for macOS.
+Hands Down Promethium is a modern keyboard layout optimised for English,
+intended for split keyboards with the letter R and space both on thumb keys.
 
-This allows us to remap the letter keys while still using the same home row
-(although we use a "wide mod" and shift the right hand further over), while
-using (left-command), "eisuu" and spacebar for the left thumb, and "kana",
-right-command (and globe/fn?) for the right thumb keys.
+The Apple MacBook sold in Japan has a keyboard with a short spacebar (just
+over three keys wide, underneath the Qwerty VBN keys), flanked on the by the
+"eisuu" (switch to qwerty) and "kana" (switch to Japanese mode) keys.
 
-The number row is also altered, after digits one to zero placed US style
-back-tick/tilde, Z and Q in top right corner in favour of hyphen and equals
-(which are in the right-hand's core 5x3 block instead).
+This lets us remap the Japanese MacBook keyboard with two keys per thumb.
+The left hand still uses the conventional home-keys (Qwerty ASDF), with
+"eisuu" and space-bar as thumb keys. Due to the space-bar width we use a
+"wide mod" and shift the right hand two columns further over (starting at
+Qwerty L), with "kana" and right-command for the right thumb keys. Enter
+becomes an easy horizontal pinkie move. This is enough for each hand to
+have a three rows of five core block.
 
-The specific layout I am using is a personal variant of "Hands Down Promethium"
-(top/bottom inverted, minor letters moved about) with the punctuation placement
-partly based on "Enthium" (top/bottom inverted, unmirrored).
-
-The thumb-keys are R on "eisuu" & backspace on spacebar for the left-thumb,
-and shift on "kana" & space on right-command for the right-thumb. Bottom left
-caps-lock becomes left-shift, with left-option and left-command unchanged.
-
-The left-hand home-keys are "SNTH" on Qwerty A, S, D, and F (i.e. unchanged).
-The right-hand home-keys are "AEIC" on Qwerty L, semicolon, colon, and close quote
-(which are L, semicolon, quote, backslash on ANSI; i.e. shifted two keys right).
-This makes enter an easy but potentially tiring horizontal pinkie finger move.
+Without a sixth column for the right-hand as in the canonical Hands Down
+Promethium layout, Q and Z were moved to the top right corner in favour of
+hyphen and equals (which are in the right-hand's core 5x3 block instead).
 
 This leaves a 2-2-3 central block (Qwerty YU, HJ, and BNM) into which the
 punctuation typically on the right is transplanted (same row and order).
-
-The number row is also altered, after digits one to zero I placed US style
-back-tick/tilde (a surprisingly comfortable middle finger stretch now), then
-Z and Q in top right corner. Hyphen and equals are in the right-hand's core
-5x3 block instead, with international3 (¥ and |) moved to the centre block.
+Hyphen and equals are in the right-hand's core 5x3 block, international3
+(¥ and |) is moved to the centre block. The "ろ" key international1 for
+underscore is also moved there.
 
 The KE rules are deliberately defined not to be active in Japanese mode,
 meaning Kana mode should still work, as will Romaji-Qwerty mode (although
 you might want to type romaji using Hands Down?).
 
-This assumes the Karabiner Elements virtual device will be in JIS mode
-(important for punctuation to work as expected - but not done yet!).
+This assumes the Karabiner Elements virtual device will be in JIS mode,
+but an English layout like USA or UK should work.
 """
 
 import sys
 
 script_version = "0.1"
+layout_name = "Hands Down Promethium (2024 Canonical)"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
 # excluding the function row, number row, backspace, enter key, globe/fn, and cursors.
@@ -161,18 +150,18 @@ hands_down = (
     "q",  # on right-hand pinkie sixth column in canonical HDP layout
     # Top row:
     "🔻",  # i.e. tab
-    "v",
+    "f",
     "p",
-    "g",
-    "m",
+    "d",
+    "l",
     "x",
     "open_bracket",  # misc zone, this is @ and ` on JIS`
     "close_bracket",  # misc zone, this is [ and { on JIS
-    "slash",
-    "period",
-    "quote",
-    "hyphen",
-    "equal_sign",
+    "semicolon",
+    "u",
+    "o",
+    "y",
+    "b",
     # Home row:
     "🔻",  # i.e. left-ctrl where ASNI/ISO has caps lock
     "s",
@@ -188,19 +177,19 @@ hands_down = (
     "i",
     "c",
     # Bottom row:
-    "b",
-    "f",
-    "d",
-    "l",
+    "v",
+    "w",
+    "g",
+    "m",
     "j",
     "caps_lock",  # misc zone
     "international1",  # misc zone, this is _ on JIS (with and without shift)
     "international3",  # misc zone, this is ¥ and | on JIS
-    "semicolon",
-    "u",
-    "o",
-    "y",
-    "w",
+    "hyphen",
+    "period",
+    "quote",
+    "equal_sign",
+    "slash",
     # Thumb row:
     "left_shift",
     "🔻",  # i.e. left_option
@@ -231,10 +220,8 @@ after.update(
 assert before == after, f"{before.difference(after)} vs {after.difference(before)})"
 
 output_name = "hands-down-on-jis-macbook.json"
-title = f"Hands Down Promethium (inverted personal variant) on Japanese MacBook (KE rules version {script_version})"
-rules_description = (
-    "Hands Down Promethium variant on JIS layout in non-Japanese input mode"
-)
+title = f"{layout_name} on Japanese MacBook (KE script version {script_version})"
+rules_description = f"{layout_name} on JIS layout in non-Japanese input mode"
 
 # Want to exclude "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese"
 # and "input_source_id": "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese", but
