@@ -237,10 +237,15 @@ rules_description = (
 )
 
 # Want to exclude "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese"
-# and "input_source_id": "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese",
-# allow "input_source_id": "com.apple.keylayout.ABC", or "language": "en"?
-# Can we cope with ANSI/ISO/JIS for the punctuation? Initially require JIS
-input_source_condition = '"conditions": [{"input_sources": [{ "input_source_id": "com.apple.keylayout.ABC" }], "type": "input_source_if"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}]'
+# and "input_source_id": "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese", but
+# allow "input_source_id": "com.apple.keylayout.ABC", "com.apple.keylayout.British-PC",
+# etc - so making this conditional on not "language": "jp" instead.
+#
+# Note while this assume the Karabiner Elements virtual device is in JIS mode (like the
+# physical keyboard), this allows the user to run any keyboard layout in non-Japanese
+# mode (and macOS lets you set the romaji layout separately so that can still follow
+# the JIS punctuation layout and keycaps).
+input_source_condition = '"conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}]'
 
 
 def build_hands_down_to_jis_qwerty_map():
