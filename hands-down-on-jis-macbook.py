@@ -276,7 +276,7 @@ def build_hands_down_to_jis_qwerty_map():
                 }}
 """
     for hd_key, jis_key in zip(hands_down, jis_qwerty):
-        if hd_key == leave:
+        if hd_key == leave or hd_key == jis_key:
             continue
         yield f"""\
                 {{

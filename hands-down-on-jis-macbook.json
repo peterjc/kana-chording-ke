@@ -94,11 +94,11 @@
                 {
                     "type": "basic",
                     "from": {
-                        "simultaneous": [{"key_code": "x"}, {"key_code": "c"}, {"key_code": "v"}]
+                        "simultaneous": [{"key_code": "z"}, {"key_code": "x"}, {"key_code": "c"}]
                     },
                     "to": [{"key_code": "tab"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get tab when press combo x, c, v"
+                    "description": "Get tab when press combo z, x, c"
                 },
                 {
                     "type": "basic",
@@ -117,76 +117,6 @@
                     "to": [{"key_code": "return_or_enter"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get return_or_enter when press combo period, slash, international1"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "1", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "1"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 1 when press 1"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "2", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "2"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 2 when press 2"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "3", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "3"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 3 when press 3"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "4", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "4"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 4 when press 4"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "5", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "5"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 5 when press 5"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "6", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "6"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 6 when press 6"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "7", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "7"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 7 when press 7"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "8", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "8"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 8 when press 8"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "9", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "9"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 9 when press 9"
-                },
-                {
-                    "type": "basic",
-                    "from": {"key_code": "0", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "0"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get 0 when press 0"
                 },
                 {
                     "type": "basic",
