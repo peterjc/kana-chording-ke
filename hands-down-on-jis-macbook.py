@@ -53,12 +53,13 @@ meaning Kana mode should still work, as will Romaji-Qwerty mode (although
 you might want to type romaji using Hands Down?).
 
 This assumes the Karabiner Elements virtual device will be in JIS mode,
-but an English layout like USA or UK should work.
+but an English layout like USA or UK should work (the combos for brackets
+assume US/UK shift 9 & 0, rather than Japan etc using shift 8 & 9).
 """
 
 import sys
 
-script_version = "0.1"
+script_version = "0.2"
 layout_name = "Hands Down Promethium (2025 pico mod)"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
@@ -200,7 +201,22 @@ hands_down = (
     "spacebar",
 )
 leave = "🔻"  # do not remap (transparent in Vial layer terminology)
+combos = {  # defined from JIS qwerty
+    ("r", "t"): "S(open_bracket)",  # {
+    ("f", "g"): "S(9)",  # (
+    ("v", "b"): "open_bracket",  # [
+    ("i", "o"): "S(close_bracket)",  # }
+    ("k", "l"): "S(0)",  # )
+    ("comma", "period"): "close_bracket",  # ]
+    ("backslash", "right_shift"): "q",
+    ("quote", "international1"): "z",
+    ("s", "d", "f"): "escape",
+    ("z", "x", "c"): "tab",
+    ("l", "semicolon", "quote"): "delete_or_backspace",
+    ("period", "slash", "international1"): "return_or_enter",
+}
 
+# Sanity-check layout:
 assert len(jis_qwerty) == len(hands_down) == 4 * 13 + 7, (
     f"{len(jis_qwerty)} vs {len(hands_down)} vs {4 * 13 + 7}"
 )
@@ -235,7 +251,30 @@ rules_description = f"{layout_name} on JIS layout in non-Japanese input mode"
 input_source_condition = '"conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}]'
 
 
+def make_to_key(key):
+    if key.startswith("S(") and key.endswith(")"):
+        # Just shifted
+        key = key[2:-1]
+        return f'[{{"key_code": "{key}", "modifiers": ["left_shift"]}}]'
+    else:
+        # No modifiers
+        return f'[{{"key_code": "{key}"}}]'
+
+
 def build_hands_down_to_jis_qwerty_map():
+    for combo_keys, key in combos.items():
+        combo = ", ".join(f'{{"key_code": "{_}"}}' for _ in combo_keys)
+        yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{
+                        "simultaneous": [{combo}]
+                    }},
+                    "to": {make_to_key(key)},
+                    {input_source_condition},
+                    "description": "Get {key} when press combo {", ".join(combo_keys)}"
+                }}
+"""
     for hd_key, jis_key in zip(hands_down, jis_qwerty):
         if hd_key == leave:
             continue

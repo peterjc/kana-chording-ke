@@ -1,5 +1,5 @@
 {
-    "title": "Hands Down Promethium (2025 pico mod) on Japanese MacBook (KE script version 0.1)",
+    "title": "Hands Down Promethium (2025 pico mod) on Japanese MacBook (KE script version 0.2)",
     "maintainers": [
         "peterjc"
     ],
@@ -10,6 +10,114 @@
         {
             "description": "Hands Down Promethium (2025 pico mod) on JIS layout in non-Japanese input mode : Core mappings",
             "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "r"}, {"key_code": "t"}]
+                    },
+                    "to": [{"key_code": "open_bracket", "modifiers": ["left_shift"]}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get S(open_bracket) when press combo r, t"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "f"}, {"key_code": "g"}]
+                    },
+                    "to": [{"key_code": "9", "modifiers": ["left_shift"]}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get S(9) when press combo f, g"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "v"}, {"key_code": "b"}]
+                    },
+                    "to": [{"key_code": "open_bracket"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get open_bracket when press combo v, b"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "i"}, {"key_code": "o"}]
+                    },
+                    "to": [{"key_code": "close_bracket", "modifiers": ["left_shift"]}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get S(close_bracket) when press combo i, o"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "k"}, {"key_code": "l"}]
+                    },
+                    "to": [{"key_code": "0", "modifiers": ["left_shift"]}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get S(0) when press combo k, l"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "comma"}, {"key_code": "period"}]
+                    },
+                    "to": [{"key_code": "close_bracket"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get close_bracket when press combo comma, period"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "backslash"}, {"key_code": "right_shift"}]
+                    },
+                    "to": [{"key_code": "q"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get q when press combo backslash, right_shift"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "quote"}, {"key_code": "international1"}]
+                    },
+                    "to": [{"key_code": "z"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get z when press combo quote, international1"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "s"}, {"key_code": "d"}, {"key_code": "f"}]
+                    },
+                    "to": [{"key_code": "escape"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get escape when press combo s, d, f"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "x"}, {"key_code": "c"}, {"key_code": "v"}]
+                    },
+                    "to": [{"key_code": "tab"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get tab when press combo x, c, v"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "l"}, {"key_code": "semicolon"}, {"key_code": "quote"}]
+                    },
+                    "to": [{"key_code": "delete_or_backspace"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get delete_or_backspace when press combo l, semicolon, quote"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "period"}, {"key_code": "slash"}, {"key_code": "international1"}]
+                    },
+                    "to": [{"key_code": "return_or_enter"}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get return_or_enter when press combo period, slash, international1"
+                },
                 {
                     "type": "basic",
                     "from": {"key_code": "1", "modifiers": {"optional": ["any"]}},
