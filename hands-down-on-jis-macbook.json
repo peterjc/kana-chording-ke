@@ -276,6 +276,24 @@
                 {
                     "type": "basic",
                     "from": {
+                        "simultaneous": [{"key_code": "l"}, {"key_code": "period"}]
+                    },
+                    "to": [{"key_code": "1", "modifiers": ["left_shift"]}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get S(1) when press combo l, period"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "l"}, {"key_code": "o"}]
+                    },
+                    "to": [{"key_code": "slash", "modifiers": ["left_shift"]}],
+                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
+                    "description": "Get S(slash) when press combo l, o"
+                },
+                {
+                    "type": "basic",
+                    "from": {
                         "simultaneous": [{"key_code": "backslash"}, {"key_code": "right_shift"}]
                     },
                     "to": [{"key_code": "q"}],

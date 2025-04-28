@@ -286,6 +286,8 @@ combos = {  # defined from JIS qwerty
     ("i", "o"): "S(close_bracket)",  # }
     ("k", "l"): "S(0)",  # )
     ("comma", "period"): "close_bracket",  # ]
+    ("l", "period"): "S(1)",  # !
+    ("l", "o"): "S(slash)",  # ?
     ("backslash", "right_shift"): "q",
     ("quote", "international1"): "z",
     ("s", "d", "f"): "escape",
