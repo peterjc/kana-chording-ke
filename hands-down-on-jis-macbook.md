@@ -64,6 +64,13 @@ Right 5 (or 6) columns, thumbs are shift and spacebar:
 As described above, here Q & Z are placed on the Apple keyboard's number row
 between the zero and backspace.
 
+My modifications preserve the highest frequency letters (the heart of the
+inverted HDP layout) and vi/vim friendly navigation block (H/J left/right,
+K/J up/down), plus readline friendly control shortcuts P/N previous/next,
+B/F back/forward (and have A/E goto start/end of line).
+
+The punctuation changes are inspired by [https://github.com/sunaku/enthium](Enthium).
+
 ## Chording Combos
 
 Pressing two horizontally adjacent keys together by moving the hand inwards
