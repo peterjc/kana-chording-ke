@@ -33,17 +33,24 @@
         },
                 {
                     "type": "basic",
-                    "from": {"key_code": "q", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "international3"}],
+                    "from": {"key_code": "tab", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "4"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get international3 when press q on navigation layer"
+                    "description": "Get 4 when press tab on navigation layer"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "q", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "5"}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get 5 when press q on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "w", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "quote", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "6"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(quote) when press w on navigation layer"
+                    "description": "Get 6 when press w on navigation layer"
                 },
                 {
                     "type": "basic",
@@ -103,6 +110,41 @@
                 },
                 {
                     "type": "basic",
+                    "from": {"key_code": "left_control", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "7"}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get 7 when press left_control on navigation layer"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "a", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "8"}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get 8 when press a on navigation layer"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "s", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "9"}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get 9 when press s on navigation layer"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "d", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "international1"}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get international1 when press d on navigation layer"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "f", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "quote", "modifiers": ["left_shift"]}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get S(quote) when press f on navigation layer"
+                },
+                {
+                    "type": "basic",
                     "from": {"key_code": "g", "modifiers": {"optional": ["any"]}},
                     "to": [{"key_code": "6", "modifiers": ["left_shift"]}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
@@ -146,9 +188,9 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "left_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "international1"}],
+                    "to": [{"key_code": "0"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get international1 when press left_shift on navigation layer"
+                    "description": "Get 0 when press left_shift on navigation layer"
                 },
                 {
                     "type": "basic",
@@ -348,9 +390,9 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "hyphen", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "grave_accent_and_tilde"}],
+                    "to": [{"key_code": "international3"}],
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get grave_accent_and_tilde when press hyphen"
+                    "description": "Get international3 when press hyphen"
                 },
                 {
                     "type": "basic",
