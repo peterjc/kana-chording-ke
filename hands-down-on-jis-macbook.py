@@ -52,9 +52,20 @@ The KE rules are deliberately defined not to be active in Japanese mode,
 meaning Kana mode should still work, as will Romaji-Qwerty mode (although
 you might want to type romaji using Hands Down?).
 
-This assumes the Karabiner Elements virtual device will be in JIS mode,
-but an English layout like USA or UK should work (the combos for brackets
-assume US/UK shift 9 & 0, rather than Japan etc using shift 8 & 9).
+This was written and tested on the following:
+
+* Apple MacBook Air, 13-inch, M3, 2024 - with Japanese Keyboard
+* Apple macOS Sequoia 15.4.1
+* Apple macOS keyboard layout set to "British - PC" (with Japanese input
+  also setup, but using "ABC" as the romaji layout to match the keycaps).
+* Karabiner Elements 15.3.9, with virtual keyboard type set to JIS (not
+  ANSI or ISO) to reflect the physical keyboard and its keys.
+
+Note compared that on the Japanese layout, brackets "("" and ")" are
+on shift-8 and shift-9, unlike the USA or UK layouts using shift-9 and
+shift-0. There are other signigicant differences in the punctuation,
+including the placement of double quote and the @ sign (different between
+Japanese, USA and UK layouts).
 """
 
 import sys
