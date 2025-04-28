@@ -134,6 +134,7 @@ jis_qwerty = (
 # The 2,2,3 key misc zone between the hands is being used for punctuation.
 # Bottom row is left-shift, left-option, left-command, eisuu, spacebar,
 # kana, right-command, (then globe/fn but cannot remap that, and cursors).
+leave = "🔻"  # do not remap (transparent in Vial layer terminology)
 hands_down = (
     # Number row:
     "1",
@@ -200,7 +201,73 @@ hands_down = (
     "right_shift",
     "spacebar",
 )
-leave = "🔻"  # do not remap (transparent in Vial layer terminology)
+nav_variable = "navigation_layer"
+nav_layer = (
+    # Number row:
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    # Top row:
+    "🔻",  # tab
+    "international3",  # backtick if UK layout, `
+    "S(quote)",  # at-sign if UK layout, @
+    "S(3)",  # hash/pound if UK layout, #
+    "S(4)",  # dollar sign, $
+    "S(5)",  # percent, %
+    "🔻",
+    "🔻",
+    "escape",
+    "home",
+    "up_arrow",
+    "end",
+    "delete_or_backspace",
+    # Home row:
+    "🔻",  # control
+    "🔻",  # home row mods?
+    "🔻",  # home row mods?
+    "🔻",  # home row mods?
+    "🔻",  # home row mods?
+    "S(6)",  # caret, ^
+    "🔻",
+    "🔻",
+    "page_up",
+    "left_arrow",
+    "down_arrow",
+    "right_arrow",
+    "q",
+    # Bottom row:
+    "international1",  # backslash on JIS keyboard set to UK layout, \
+    "S(international1)",  # pipe on JIS keyboard set to UK layout, |
+    "S(backslash)",  # tilde on JIS keyboard set to UK layout, ~
+    "backslash",  # hash/pound on JIS keyboard set to UK layout, #
+    "S(7)",  # ampersand, &
+    "🔻",
+    "🔻",
+    "🔻",
+    "page_down",
+    "A(left_arrow)",
+    "return_or_enter",
+    "A(right_arrow)",
+    "z",
+    # Thumb row:
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+    "🔻",
+)
 combos = {  # defined from JIS qwerty
     ("r", "t"): "S(open_bracket)",  # {
     ("f", "g"): "S(9)",  # (
@@ -217,8 +284,8 @@ combos = {  # defined from JIS qwerty
 }
 
 # Sanity-check layout:
-assert len(jis_qwerty) == len(hands_down) == 4 * 13 + 7, (
-    f"{len(jis_qwerty)} vs {len(hands_down)} vs {4 * 13 + 7}"
+assert len(jis_qwerty) == len(hands_down) == len(nav_layer) == 4 * 13 + 7, (
+    f"{len(jis_qwerty)} vs {len(hands_down)} vs {len(nav_layer)} vs {4 * 13 + 7}"
 )
 before = set(jis_qwerty)
 before.update(["delete_or_backspace", "grave_accent_and_tilde"])  # added
@@ -256,9 +323,51 @@ def make_to_key(key):
         # Just shifted
         key = key[2:-1]
         return f'[{{"key_code": "{key}", "modifiers": ["left_shift"]}}]'
+    elif key.startswith("A(") and key.endswith(")"):
+        # Just alt aka option
+        key = key[2:-1]
+        return f'[{{"key_code": "{key}", "modifiers": ["left_option"]}}]'
     else:
         # No modifiers
         return f'[{{"key_code": "{key}"}}]'
+
+
+def build_layer(layer_map, layer_var):
+    yield f"""\
+        {{
+            "from": {{ "apple_vendor_top_case_key_code": "keyboard_fn" }},
+            "to": [
+                {{
+                    "set_variable": {{
+                        "name": "{nav_variable}",
+                        "value": 1
+                    }}
+                }}
+            ],
+            "to_after_key_up": [
+                {{
+                    "set_variable": {{
+                        "name": "{nav_variable}",
+                        "value": 0
+                    }}
+                }}
+            ],
+            "to_if_alone": [{{ "apple_vendor_top_case_key_code": "keyboard_fn" }}],
+            "type": "basic"
+        }}
+"""
+    for hd_key, jis_key in zip(layer_map, jis_qwerty):
+        if hd_key == leave or hd_key == jis_key:
+            continue
+        yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{jis_key}", "modifiers": {{"optional": ["any"]}}}},
+                    "to": {make_to_key(hd_key)},
+                    "conditions": [{{"name": "{layer_var}", "type": "variable_if", "value": 1}}],
+                    "description": "Get {hd_key} when press {jis_key} on navigation layer"
+                }}
+"""
 
 
 def build_hands_down_to_jis_qwerty_map():
@@ -289,6 +398,7 @@ def build_hands_down_to_jis_qwerty_map():
 """
 
 
+nav_rules = list(build_layer(nav_layer, nav_variable))
 hands_down_rules = list(build_hands_down_to_jis_qwerty_map())
 
 with open(output_name, "w") as handle:
@@ -307,7 +417,18 @@ with open(output_name, "w") as handle:
     "rules": [
 """
     )
-
+    handle.write(
+        f"""\
+        {{
+            "description": "{rules_description} : Navigation layer",
+            "manipulators": [
+"""
+        + ",\n".join(_.rstrip() for _ in nav_rules)
+        + """\n
+            ]
+        },
+"""
+    )
     handle.write(
         f"""\
         {{
@@ -333,4 +454,5 @@ sys.stderr.write(
 )
 sys.stderr.write("Then open 'Karabiner Elements', select 'Complex Modifications',\n")
 sys.stderr.write("click 'Add predefined rule', scroll down to find the new\n")
-sys.stderr.write(f"'{title}' block. Click enable (or enable all).")
+sys.stderr.write(f"'{title}'\n")
+sys.stderr.write("block. Click enable all.")
