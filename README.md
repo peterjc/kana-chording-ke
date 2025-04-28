@@ -7,7 +7,7 @@ equally be done with a programmable keyboard.
 
 # Projects
 
-Currently there are two main sub-projects:
+Currently there are three main sub-projects:
 
 * [Flick-input like Japanese keyboard chording using cursor
   keys](cursor-chording-flick-input.md) where for example the `k` or `か`
@@ -22,6 +22,11 @@ Currently there are two main sub-projects:
   numberpad; small kana are typed using shift), while New Stickney is more
   ergonomic using only three rows (small kana are typed using the `゛`
   post-modifier).
+
+* [Hands Down Promethium layout on Apple Japanese
+  keyboard](hands-down-on-jis-macbook.md) (for typing in English) using
+  the short spacebar and Japanese language keys either side of it as
+  thumb keys.
 
 # Japanese character entry
 
