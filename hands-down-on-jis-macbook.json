@@ -388,7 +388,7 @@
                     },
                     "to": [{"key_code": "escape"}],
                     "parameters": {
-                        "basic.simultaneous_threshold_milliseconds": 500
+                        "basic.simultaneous_threshold_milliseconds": 100
                     },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get escape when press combo s, d, f"
@@ -400,7 +400,7 @@
                     },
                     "to": [{"key_code": "tab"}],
                     "parameters": {
-                        "basic.simultaneous_threshold_milliseconds": 500
+                        "basic.simultaneous_threshold_milliseconds": 100
                     },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get tab when press combo z, x, c"
@@ -412,7 +412,7 @@
                     },
                     "to": [{"key_code": "delete_or_backspace"}],
                     "parameters": {
-                        "basic.simultaneous_threshold_milliseconds": 500
+                        "basic.simultaneous_threshold_milliseconds": 100
                     },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get delete_or_backspace when press combo l, semicolon, quote"
@@ -424,7 +424,7 @@
                     },
                     "to": [{"key_code": "return_or_enter"}],
                     "parameters": {
-                        "basic.simultaneous_threshold_milliseconds": 500
+                        "basic.simultaneous_threshold_milliseconds": 100
                     },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get return_or_enter when press combo period, slash, international1"
