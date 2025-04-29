@@ -267,6 +267,9 @@
                         "simultaneous": [{"key_code": "r"}, {"key_code": "t"}]
                     },
                     "to": [{"key_code": "open_bracket", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get S(open_bracket) when press combo r, t"
                 },
@@ -276,6 +279,9 @@
                         "simultaneous": [{"key_code": "f"}, {"key_code": "g"}]
                     },
                     "to": [{"key_code": "9", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get S(9) when press combo f, g"
                 },
@@ -285,6 +291,9 @@
                         "simultaneous": [{"key_code": "v"}, {"key_code": "b"}]
                     },
                     "to": [{"key_code": "open_bracket"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get open_bracket when press combo v, b"
                 },
@@ -294,6 +303,9 @@
                         "simultaneous": [{"key_code": "i"}, {"key_code": "o"}]
                     },
                     "to": [{"key_code": "close_bracket", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get S(close_bracket) when press combo i, o"
                 },
@@ -303,6 +315,9 @@
                         "simultaneous": [{"key_code": "k"}, {"key_code": "l"}]
                     },
                     "to": [{"key_code": "0", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get S(0) when press combo k, l"
                 },
@@ -312,6 +327,9 @@
                         "simultaneous": [{"key_code": "comma"}, {"key_code": "period"}]
                     },
                     "to": [{"key_code": "close_bracket"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get close_bracket when press combo comma, period"
                 },
@@ -321,6 +339,9 @@
                         "simultaneous": [{"key_code": "l"}, {"key_code": "period"}]
                     },
                     "to": [{"key_code": "1", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get S(1) when press combo l, period"
                 },
@@ -330,6 +351,9 @@
                         "simultaneous": [{"key_code": "l"}, {"key_code": "o"}]
                     },
                     "to": [{"key_code": "slash", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get S(slash) when press combo l, o"
                 },
@@ -339,6 +363,9 @@
                         "simultaneous": [{"key_code": "backslash"}, {"key_code": "right_shift"}]
                     },
                     "to": [{"key_code": "q"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get q when press combo backslash, right_shift"
                 },
@@ -348,6 +375,9 @@
                         "simultaneous": [{"key_code": "quote"}, {"key_code": "international1"}]
                     },
                     "to": [{"key_code": "z"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get z when press combo quote, international1"
                 },
@@ -357,6 +387,9 @@
                         "simultaneous": [{"key_code": "s"}, {"key_code": "d"}, {"key_code": "f"}]
                     },
                     "to": [{"key_code": "escape"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 500
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get escape when press combo s, d, f"
                 },
@@ -366,6 +399,9 @@
                         "simultaneous": [{"key_code": "z"}, {"key_code": "x"}, {"key_code": "c"}]
                     },
                     "to": [{"key_code": "tab"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 500
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get tab when press combo z, x, c"
                 },
@@ -375,6 +411,9 @@
                         "simultaneous": [{"key_code": "l"}, {"key_code": "semicolon"}, {"key_code": "quote"}]
                     },
                     "to": [{"key_code": "delete_or_backspace"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 500
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get delete_or_backspace when press combo l, semicolon, quote"
                 },
@@ -384,6 +423,9 @@
                         "simultaneous": [{"key_code": "period"}, {"key_code": "slash"}, {"key_code": "international1"}]
                     },
                     "to": [{"key_code": "return_or_enter"}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 500
+                    },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get return_or_enter when press combo period, slash, international1"
                 },

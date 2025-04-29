@@ -393,6 +393,9 @@ def build_hands_down_to_jis_qwerty_map():
                         "simultaneous": [{combo}]
                     }},
                     "to": {make_to_key(key)},
+                    "parameters": {{
+                        "basic.simultaneous_threshold_milliseconds": {50 if len(combo_keys) < 3 else 500}
+                    }},
                     {input_source_condition},
                     "description": "Get {key} when press combo {", ".join(combo_keys)}"
                 }}
