@@ -89,7 +89,32 @@ Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;+ | :* | ]}  | ↵
 ⇧    | zZ | xX | cC | vV | bB | nN | mM | ,< | .> | /? | _  | ⇧   | ⇧
 Caps | ⌥  | ⌘  | 英数  |  |    |   | かな | ⌘  | 🌐 | ← | ↑ | ↓ | →
 
+Strangley switching to USA or Canadian does not give the expected
+punctuation which remains in the Japanese layout. Australian, Irish,
+or British work - but I use British PC:
 
+1!   | 2" | 3£ | 4$ | 5% | 6^ | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
+-----|----|----|----|----|----|----|----|----|----|----|-----|-----|--
+Tab  | qQ | wW | eE | rR | tT | yY | uU | iI | oO | pP | [{  | ]}  | ↵ 
+Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;: | '@  | #~  | ↵ 
+⇧    | zZ | xX | cC | vV | bB | nN | mM | ,< | .> | /? | \\| | ⇧   | ⇧
+Caps | ⌥  | ⌘  | 英数  |  |    |   | かな | ⌘  | 🌐 | ← | ↑ | ↓ | →
+
+This is quite familar to me, except the "ISO key" between left-shift
+and Z is now bottom right between slash and right-right, and the grave
+is top right instead of top left (moving all the numbers slightly left).
+
+With my Hands Down Promethium "pico mod" rules active this becomes:
+
+1!   | 2" | 3£ | 4$ | 5% | 6^   | 7&  | 8* | 9( | 0) | `¬ | zZ | qQ | ⌫
+-----|----|----|----|----|------|-----|----|----|----|----|----|----|--
+Tab  | vV | pP | gG | mM | xX   | [{  | uU | /? | .> | '@ | -_ | =+ | ↵ 
+Cntr | sV | nN | tT | hH | kK   | '@  | jJ | ,< | aA | eE | iI | cC | ↵ 
+bB   | fF | dD | lL | jJ | Caps | \\| | `¬ | ;: | uU | oO | yY | wW | ⇧
+⇧    | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫   | ⇧  |    | 🌐 | ← | ↑ | ↓ | →
+
+Left-shift is a quite wide key, and becomes the letter B, comfortable
+for the pinkie finger.
 
 ## Chording Combos
 
