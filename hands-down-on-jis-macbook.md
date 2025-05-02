@@ -71,6 +71,26 @@ B/F back/forward (and have A/E goto start/end of line).
 
 The punctuation changes are inspired by [https://github.com/sunaku/enthium](Enthium).
 
+## Full layout
+
+Apple Japanese layout as a table, one cell per key except for these three
+large keys shown using multiple cells:
+
+* The bottom right shift (⇧) is roughly two keys wide.
+* Enter or return (↵) on the right is two keys tall (like ISO keyboards).
+* The spacebar is just over three letter keys wide.
+
+The cursor keys are not literally a row of four.
+
+1!   | 2" | 3# | 4$ | 5% | 6& | 7' | 8( | 9) | 0  | -= | ^~ | ¥\| | ⌫
+-----|----|----|----|----|----|----|----|----|----|----|----|-----|--
+Tab  | qQ | wW | eE | rE | tT | yY | uU | iI | oO | pP | @` | [{  | ↵ 
+Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;+ | :* | ]}  | ↵ 
+⇧    | zZ | xX | cC | vV | bB | nN | mM | ,< | .> | /? | _  | ⇧   | ⇧
+Caps | ⌥  | ⌘  | 英数  |  |    |   | かな | ⌘  | 🌐 | ← | ↑ | ↓ | →
+
+
+
 ## Chording Combos
 
 Pressing two horizontally adjacent keys together by moving the hand inwards
