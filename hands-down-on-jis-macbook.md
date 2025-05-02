@@ -116,6 +116,10 @@ bB   | fF | dD | lL | jJ | Caps | \\| | `¬ | ;: | uU | oO | yY | wW | ⇧
 Left-shift is a quite wide key, and becomes the letter B, comfortable
 for the pinkie finger.
 
+Note rather than using these middle punctuation keys, I intend to use
+layers and chording combinations (see below).
+The Q and Z are easily available for shortcuts (like quit and undo).
+
 ## Navigation Layer
 
 When the globe key is held down (with a tucked right thumb), the layout
@@ -128,8 +132,9 @@ becomes the following (only showing shift for the number row):
 0  | \| | \~ | \# | \& | Caps | \\ | \` | PgDn | ⌥← | ↵ | ⌥→ | zZ | zZ
 ⇧  | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫  | ⇧  |   | 🌐 | ← | ↑ | ↓ | →
 
-This is still in flux. Is the inverted number pad useful
+This is still in flux. Is the inverted number pad useful?
 Should the left thumb become control (original taken by 7)?
+Are other layer keys practical using Karabiner Elements?
 
 ## Chording Combos
 
