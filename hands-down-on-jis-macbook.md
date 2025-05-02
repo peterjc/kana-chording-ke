@@ -108,8 +108,8 @@ With my Hands Down Promethium "pico mod" rules active this becomes:
 
 1!   | 2" | 3£ | 4$ | 5% | 6^   | 7&  | 8* | 9( | 0) | `¬ | zZ | qQ | ⌫
 -----|----|----|----|----|------|-----|----|----|----|----|----|----|--
-Tab  | vV | pP | gG | mM | xX   | [{  | uU | /? | .> | '@ | -_ | =+ | ↵ 
-Cntr | sV | nN | tT | hH | kK   | '@  | jJ | ,< | aA | eE | iI | cC | ↵ 
+Tab  | vV | pP | gG | mM | xX   | [{  | ]} | /? | .> | '@ | -_ | =+ | ↵ 
+Cntr | sV | nN | tT | hH | kK   | '@  | #~ | ,< | aA | eE | iI | cC | ↵ 
 bB   | fF | dD | lL | jJ | Caps | \\| | `¬ | ;: | uU | oO | yY | wW | ⇧
 ⇧    | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫   | ⇧  |    | 🌐 | ← | ↑ | ↓ | →
 
