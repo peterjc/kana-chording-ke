@@ -111,10 +111,25 @@ With my Hands Down Promethium "pico mod" rules active this becomes:
 Tab  | vV | pP | gG | mM | xX   | [{  | ]} | /? | .> | '@ | -_ | =+ | ↵ 
 Cntr | sV | nN | tT | hH | kK   | '@  | #~ | ,< | aA | eE | iI | cC | ↵ 
 bB   | fF | dD | lL | jJ | Caps | \\| | `¬ | ;: | uU | oO | yY | wW | ⇧
-⇧    | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫   | ⇧  |    | 🌐 | ← | ↑ | ↓ | →
+⇧    | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫   | ⇧  |    | 🌐 | C | ↑ | ↓ | →
 
 Left-shift is a quite wide key, and becomes the letter B, comfortable
 for the pinkie finger.
+
+## Navigation Layer
+
+When the globe key is held down (with a tucked right thumb), the layout
+becomes the following (only showing shift for the number row):
+
+1! | 2" | 3£ | 4$ | 5% | 6^   | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
+---|----|----|----|----|------|----|----|----|----|----|-----|-----|--
+4  | 5  | 6  | £  | $  | %    | [  | ]  | Esc | Home | ↑ | End | ⌫  | ↵ 
+7  | 8  | 9  | \\ | @  | ^    | '  | #  | PgUp | ← | ↓ | → | qQ  | ↵ 
+0  | \| | \~ | \# | \& | Caps | \\ | \` | PgDn | ⌥← | ↵ | ⌥→ | zZ | zZ
+⇧  | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫  | ⇧  |   | 🌐 | ← | ↑ | ↓ | →
+
+This is still in flux. Is the inverted number pad useful
+Should the left thumb become control (original taken by 7)?
 
 ## Chording Combos
 
