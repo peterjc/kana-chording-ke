@@ -69,7 +69,7 @@ inverted HDP layout) and vi/vim friendly navigation block (H/J left/right,
 K/J up/down), plus readline friendly control shortcuts P/N previous/next,
 B/F back/forward (and have A/E goto start/end of line).
 
-The punctuation changes are inspired by [https://github.com/sunaku/enthium](Enthium).
+The punctuation changes are inspired by [Enthium](https://github.com/sunaku/enthium).
 
 ## Full layout
 
