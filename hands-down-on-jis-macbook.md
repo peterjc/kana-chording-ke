@@ -15,16 +15,17 @@ over three keys wide, underneath the Qwerty VBN keys), flanked on the by
 the "eisuu" (switch to qwerty) and "kana" (switch to Japanese mode) keys.
 
 This lets us remap the Japanese MacBook keyboard into three rows of five
-per hand with two keys per thumb:
+per hand, with two keys per thumb:
 
 * The left hand still uses the conventional home-keys (Qwerty ASDF), with
   "eisuu" and space-bar as thumb keys. We apply a "wide mod" to the bottom
   row, but with JIS and ANSI keyboards lacking the ISO key between
   left-shift and Z, we map left-shift to a letter instead.
-* In order to have thumb-keys the right hand we must use a "wide mod" and
-  move the home position *two* columns further right (starting at Qwerty L),
-  with "kana" and right-command for the right thumb keys, and right-shift
-  mapped to a letter. Enter becomes an easy horizontal pinkie move.
+* In order to have non-overlapping thumb-keys for the right hand we must use
+  a "wide mod" and move the home position *two* columns further right (now
+  starting at Qwerty L), with "kana" and right-command as the right thumb
+  keys, and right-shift mapped to a letter. Enter becomes an easy horizontal
+  pinkie move.
 
 ![Photo of my Japanese MacBook keyboard with 34 stickers added for my 'Pico mod' variant of the inverted Hands Down Promethium layout](hands-down-on-jis-macbook.jpeg)
 
