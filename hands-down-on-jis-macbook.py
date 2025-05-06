@@ -437,6 +437,19 @@ def build_hands_down_to_jis_qwerty_map():
     for hd_key, jis_key in zip(hands_down, jis_qwerty):
         if hd_key == leave or hd_key == jis_key:
             continue
+        if hd_key == "quote" and jis_key == "p":
+            # Extra rule so shift+quote gives double-quote as in USA
+            # layout (Hands Down Promethium expectation) rather than
+            # @ as per the British layout I have macOS set to.
+            yield f"""\
+                {{
+                    "type": "basic",
+                    "from": {{"key_code": "{jis_key}", "modifiers": {{"mandatory": ["shift"], "optional": ["any"]}}}},
+                    "to": [{{"key_code": "2", "modifiers": ["left_shift"]}}],
+                    {input_source_condition},
+                    "description": "Get shift+2 for double-quote on British layout when press shift+{jis_key}"
+                }}
+"""
         if jis_key in ("left_shift", "right_shift"):
             yield make_tap_hold(jis_key, hd_key)
         else:
