@@ -399,7 +399,8 @@ def build_layer(layer_map, layer_var):
                 }}
             ],
             "to_if_alone": [{{ "apple_vendor_top_case_key_code": "keyboard_fn" }}],
-            "type": "basic"
+            "type": "basic",
+             "description": "Hold globe/fn key for navigation layer"
         }}
 """
     for hd_key, jis_key in zip(layer_map, jis_qwerty):

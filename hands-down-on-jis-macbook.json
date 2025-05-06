@@ -29,7 +29,8 @@
                 }
             ],
             "to_if_alone": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }],
-            "type": "basic"
+            "type": "basic",
+             "description": "Hold globe/fn key for navigation layer"
         },
                 {
                     "type": "basic",
