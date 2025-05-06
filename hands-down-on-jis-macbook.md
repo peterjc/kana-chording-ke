@@ -26,6 +26,8 @@ per hand with two keys per thumb:
   with "kana" and right-command for the right thumb keys, and right-shift
   mapped to a letter. Enter becomes an easy horizontal pinkie move.
 
+![Photo of my Japanese MacBook keyboard with 34 stickers added for my 'Pico mod' variant of the inverted Hands Down Promethium layout](hands-down-on-jis-macbook.jpeg)
+
 The canonical Hands Down Promethium layout places Q and Z far right in a
 sixth column - but the Hands Down layouts are often used on ergonomic
 split keyboards with only five columns for each hand, with Q and Z via
