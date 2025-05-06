@@ -23,9 +23,9 @@ per hand, with two keys per thumb:
   left-shift and Z, we map left-shift to a letter instead.
 * In order to have non-overlapping thumb-keys for the right hand we must use
   a "wide mod" and move the home position *two* columns further right (now
-  starting at Qwerty L), with "kana" and right-command as the right thumb
-  keys, and right-shift mapped to a letter. Enter becomes an easy horizontal
-  pinkie move.
+  starting at Qwerty L), with "kana" and right-command (and globe which I am
+  using as a layer key) as the right thumb keys, and right-shift mapped to a
+  letter. Enter becomes an easy horizontal pinkie move.
 
 ![Photo of my Japanese MacBook keyboard with 34 stickers added for my 'Pico mod' variant of the inverted Hands Down Promethium layout](hands-down-on-jis-macbook.jpeg)
 
@@ -70,7 +70,7 @@ between the zero and backspace.
 My modifications preserve the highest frequency letters (the heart of the
 inverted HDP layout) and vi/vim friendly navigation block (H/J left/right,
 K/J up/down), plus readline friendly control shortcuts P/N previous/next,
-B/F back/forward (and have A/E goto start/end of line).
+but adds neighbouring B/F back/forward (and have A/E goto start/end of line).
 
 The punctuation changes are inspired by [Enthium](https://github.com/sunaku/enthium).
 
@@ -93,7 +93,7 @@ Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;+ | :* | ]}  | ↵
 Caps | ⌥  | ⌘  | 英数  |  |    |   | かな | ⌘  | 🌐 | ← | ↑ | ↓ | →
 
 Strangley switching to USA or Canadian does not give the expected
-punctuation which remains in the Japanese layout. Australian, Irish,
+punctuation which remains as in the Japanese layout. Australian, Irish,
 or British work - but I use British PC:
 
 1!   | 2" | 3£ | 4$ | 5% | 6^ | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
@@ -141,9 +141,10 @@ Are other layer keys practical using Karabiner Elements?
 
 ## Chording Combos
 
-Pressing two horizontally adjacent keys together by moving the hand inwards
-(since these keys are normally pressed by the index finger), left hand for
-open brackets/braces:
+I have the three kinds of brackets as chording combinations pressing
+two horizontally adjacent keys together by moving the hand inwards
+(since these keys are normally pressed by the index finger), left hand
+for open brackets/braces:
 
 * `M` + `X` for `{` (Qwerty `R` and `T`)
 * `H` + `K` for `(`
@@ -155,4 +156,4 @@ Matching right hand combos for closing brackets/braces:
 * `,` + `A` for `(`
 * `;` + `U` for `[`
 
-etc...
+There are more combos defined in the script.
