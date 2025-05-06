@@ -282,7 +282,7 @@ nav_layer = (
 combos = {  # defined from JIS qwerty
     ("r", "t"): "S(open_bracket)",  # {
     ("f", "g"): "S(9)",  # (
-    ("v", "b"): "open_bracket",  # [
+    ("c", "v"): "open_bracket",  # [
     ("i", "o"): "S(close_bracket)",  # }
     ("k", "l"): "S(0)",  # )
     ("comma", "period"): "close_bracket",  # ]

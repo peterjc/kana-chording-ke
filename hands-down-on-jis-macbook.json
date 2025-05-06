@@ -288,14 +288,14 @@
                 {
                     "type": "basic",
                     "from": {
-                        "simultaneous": [{"key_code": "v"}, {"key_code": "b"}]
+                        "simultaneous": [{"key_code": "c"}, {"key_code": "v"}]
                     },
                     "to": [{"key_code": "open_bracket"}],
                     "parameters": {
                         "basic.simultaneous_threshold_milliseconds": 50
                     },
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get open_bracket when press combo v, b"
+                    "description": "Get open_bracket when press combo c, v"
                 },
                 {
                     "type": "basic",
