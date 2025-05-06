@@ -70,7 +70,7 @@ Japanese, USA and UK layouts).
 
 import sys
 
-script_version = "0.2"
+script_version = "0.3"
 layout_name = "Hands Down Promethium (2025 pico mod)"
 
 # These are the keys are reported by Karabiner Elements (not JIS layout)
@@ -345,6 +345,39 @@ def make_to_key(key):
         return f'[{{"key_code": "{key}"}}]'
 
 
+def make_tap_hold(mod, key):
+    """Rule to make a modifier act as a letter when tapped.
+
+    Based on https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/to-if-held-down/#more-advanced-example
+
+    Intended to be used with left and right shift which are mapped to
+    letter keys, but I keep finding my fingers using left shift. Also
+    my current corne split keyboard layout has the bottom left and
+    right keys as shift when held.
+    """
+    return f"""\
+        {{
+            "from": {{
+                "key_code": "{mod}",
+                "modifiers": {{ "optional": ["any"] }}
+            }},
+            "parameters": {{
+                "basic.to_delayed_action_delay_milliseconds": 150,
+                "basic.to_if_held_down_threshold_milliseconds": 150
+            }},
+            "to_delayed_action": {{ "to_if_canceled": [{{ "key_code": "{key}" }}] }},
+            "to_if_alone": [
+                {{
+                    "halt": true,
+                    "key_code": "{key}"
+                }}
+            ],
+            "to_if_held_down": [{{ "key_code": "{mod}" }}],
+            "type": "basic",
+            "description": "Get {key} when tap {mod}, remains {mod} if held"
+        }}"""
+
+
 def build_layer(layer_map, layer_var):
     yield f"""\
         {{
@@ -403,7 +436,10 @@ def build_hands_down_to_jis_qwerty_map():
     for hd_key, jis_key in zip(hands_down, jis_qwerty):
         if hd_key == leave or hd_key == jis_key:
             continue
-        yield f"""\
+        if jis_key in ("left_shift", "right_shift"):
+            yield make_tap_hold(jis_key, hd_key)
+        else:
+            yield f"""\
                 {{
                     "type": "basic",
                     "from": {{"key_code": "{jis_key}", "modifiers": {{"optional": ["any"]}}}},

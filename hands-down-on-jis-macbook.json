@@ -1,5 +1,5 @@
 {
-    "title": "Hands Down Promethium (2025 pico mod) on Japanese MacBook (KE script version 0.2)",
+    "title": "Hands Down Promethium (2025 pico mod) on Japanese MacBook (KE script version 0.3)",
     "maintainers": [
         "peterjc"
     ],
@@ -618,13 +618,26 @@
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get c when press backslash"
                 },
+        {
+            "from": {
+                "key_code": "left_shift",
+                "modifiers": { "optional": ["any"] }
+            },
+            "parameters": {
+                "basic.to_delayed_action_delay_milliseconds": 150,
+                "basic.to_if_held_down_threshold_milliseconds": 150
+            },
+            "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
+            "to_if_alone": [
                 {
-                    "type": "basic",
-                    "from": {"key_code": "left_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "b"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get b when press left_shift"
-                },
+                    "halt": true,
+                    "key_code": "b"
+                }
+            ],
+            "to_if_held_down": [{ "key_code": "left_shift" }],
+            "type": "basic",
+            "description": "Get b when tap left_shift, remains left_shift if held"
+        },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": {"optional": ["any"]}},
@@ -702,13 +715,26 @@
                     "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
                     "description": "Get y when press international1"
                 },
+        {
+            "from": {
+                "key_code": "right_shift",
+                "modifiers": { "optional": ["any"] }
+            },
+            "parameters": {
+                "basic.to_delayed_action_delay_milliseconds": 150,
+                "basic.to_if_held_down_threshold_milliseconds": 150
+            },
+            "to_delayed_action": { "to_if_canceled": [{ "key_code": "w" }] },
+            "to_if_alone": [
                 {
-                    "type": "basic",
-                    "from": {"key_code": "right_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "w"}],
-                    "conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}],
-                    "description": "Get w when press right_shift"
-                },
+                    "halt": true,
+                    "key_code": "w"
+                }
+            ],
+            "to_if_held_down": [{ "key_code": "right_shift" }],
+            "type": "basic",
+            "description": "Get w when tap right_shift, remains right_shift if held"
+        },
                 {
                     "type": "basic",
                     "from": {"key_code": "caps_lock", "modifiers": {"optional": ["any"]}},
