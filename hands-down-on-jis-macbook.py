@@ -319,6 +319,8 @@ output_name = "hands-down-on-jis-macbook.json"
 title = f"{layout_name} on Japanese MacBook (KE script version {script_version})"
 rules_description = f"{layout_name} on JIS layout in non-Japanese input mode"
 
+# Only active on Laptop's built-in keyboard (via is_built_in_keyboard).
+#
 # Want to exclude "input_source_id": "com.apple.inputmethod.Kotoeri.KanaTyping.Japanese"
 # and "input_source_id": "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese", but
 # allow "input_source_id": "com.apple.keylayout.ABC", "com.apple.keylayout.British-PC",
@@ -328,7 +330,11 @@ rules_description = f"{layout_name} on JIS layout in non-Japanese input mode"
 # physical keyboard), this allows the user to run any keyboard layout in non-Japanese
 # mode (and macOS lets you set the romaji layout separately so that can still follow
 # the JIS punctuation layout and keycaps).
-input_source_condition = '"conditions": [{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}, {"keyboard_types": ["jis"], "type": "keyboard_type_if"}]'
+input_source_condition = """"conditions": [
+                        {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
+                        {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
+                        {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
+                    ]"""
 
 
 def make_to_key(key):
@@ -400,7 +406,7 @@ def build_layer(layer_map, layer_var):
             ],
             "to_if_alone": [{{ "apple_vendor_top_case_key_code": "keyboard_fn" }}],
             "type": "basic",
-             "description": "Hold globe/fn key for navigation layer"
+            "description": "Hold globe/fn key for navigation layer"
         }}
 """
     for hd_key, jis_key in zip(layer_map, jis_qwerty):
