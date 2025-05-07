@@ -132,16 +132,15 @@ The Q and Z are easily available for shortcuts (like quit and undo).
 When the globe key is held down (with a tucked right thumb), the layout
 becomes the following (only showing shift for the number row):
 
-1! | 2" | 3£ | 4$ | 5% | 6^   | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
----|----|----|----|----|------|----|----|----|----|----|-----|-----|--
-4  | 5  | 6  | £  | $  | %    | [  | ]  | Esc | Home | ↑ | End | ⌫  | ↵
-7  | 8  | 9  | \\ | @  | ^    | '  | #  | PgUp | ← | ↓ | → | qQ  | ↵
-0  | \| | \~ | \# | \& | Caps | \\ | \` | PgDn | ⌥← | ↵ | ⌥→ | zZ | zZ
-⇧  | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫  | ⇧  |   | 🌐 | ← | ↑ | ↓ | →
+1!   | 2" | 3£ | 4$ | 5% | 6^   | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
+-----|----|----|----|----|------|----|----|----|----|----|-----|-----|--
+Tab  | /  | 1  | 2  | 3  | =    | [  | ]  | Esc | Home | ↑ | End | ⌫  | ↵
+Ctrl | *  | 4  | 5  | 6  | +    | '  | #  | PgUp | ← | ↓ | → | qQ  | ↵
+.    | 7  | 8  | 9  | -  | Caps | \\ | \` | PgDn | ⌥← | ↵ | ⌥→ | zZ | zZ
+⇧    | ⌥  | ⌘  | 0  | ⌫  | ⌫    | ⌫  | ⇧  |   | 🌐 | ← | ↑ | ↓ | →
 
-This is still in flux. Is the inverted number pad useful?
-Should the left thumb become control (original taken by 7)?
-Are other layer keys practical using Karabiner Elements?
+This is still in flux. Is the *inverted* number pad useful?
+Are any other layer keys practical using Karabiner Elements?
 
 ## Chording Combos
 
@@ -160,4 +159,4 @@ Matching right hand combos for closing brackets/braces:
 * `,` + `A` for `(`
 * `;` + `U` for `[`
 
-There are more combos defined in the script.
+There are 2-key vertical combos defined in the script for symbols.
