@@ -794,26 +794,31 @@
                     ],
                     "description": "Get c when press backslash"
                 },
-        {
-            "from": {
-                "key_code": "left_shift",
-                "modifiers": { "optional": ["any"] }
-            },
-            "parameters": {
-                "basic.to_delayed_action_delay_milliseconds": 150,
-                "basic.to_if_held_down_threshold_milliseconds": 150
-            },
-            "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
-            "to_if_alone": [
                 {
-                    "halt": true,
-                    "key_code": "b"
-                }
-            ],
-            "to_if_held_down": [{ "key_code": "left_shift" }],
-            "type": "basic",
-            "description": "Get b when tap left_shift, remains left_shift if held"
-        },
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": { "optional": ["any"] }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 150,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
+                    "to_if_alone": [
+                        {
+                            "halt": true,
+                            "key_code": "b"
+                        }
+                    ],
+                    "to_if_held_down": [{ "key_code": "left_shift" }],
+                    "conditions": [
+                        {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
+                        {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
+                        {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
+                    ],
+                    "type": "basic",
+                    "description": "Get b when tap left_shift, remains left_shift if held"
+                },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": {"optional": ["any"]}},
@@ -935,26 +940,31 @@
                     ],
                     "description": "Get y when press international1"
                 },
-        {
-            "from": {
-                "key_code": "right_shift",
-                "modifiers": { "optional": ["any"] }
-            },
-            "parameters": {
-                "basic.to_delayed_action_delay_milliseconds": 150,
-                "basic.to_if_held_down_threshold_milliseconds": 150
-            },
-            "to_delayed_action": { "to_if_canceled": [{ "key_code": "w" }] },
-            "to_if_alone": [
                 {
-                    "halt": true,
-                    "key_code": "w"
-                }
-            ],
-            "to_if_held_down": [{ "key_code": "right_shift" }],
-            "type": "basic",
-            "description": "Get w when tap right_shift, remains right_shift if held"
-        },
+                    "from": {
+                        "key_code": "right_shift",
+                        "modifiers": { "optional": ["any"] }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 150,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to_delayed_action": { "to_if_canceled": [{ "key_code": "w" }] },
+                    "to_if_alone": [
+                        {
+                            "halt": true,
+                            "key_code": "w"
+                        }
+                    ],
+                    "to_if_held_down": [{ "key_code": "right_shift" }],
+                    "conditions": [
+                        {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
+                        {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
+                        {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
+                    ],
+                    "type": "basic",
+                    "description": "Get w when tap right_shift, remains right_shift if held"
+                },
                 {
                     "type": "basic",
                     "from": {"key_code": "caps_lock", "modifiers": {"optional": ["any"]}},

@@ -362,26 +362,29 @@ def make_tap_hold(mod, key):
     right keys as shift when held.
     """
     return f"""\
-        {{
-            "from": {{
-                "key_code": "{mod}",
-                "modifiers": {{ "optional": ["any"] }}
-            }},
-            "parameters": {{
-                "basic.to_delayed_action_delay_milliseconds": 150,
-                "basic.to_if_held_down_threshold_milliseconds": 150
-            }},
-            "to_delayed_action": {{ "to_if_canceled": [{{ "key_code": "{key}" }}] }},
-            "to_if_alone": [
                 {{
-                    "halt": true,
-                    "key_code": "{key}"
-                }}
-            ],
-            "to_if_held_down": [{{ "key_code": "{mod}" }}],
-            "type": "basic",
-            "description": "Get {key} when tap {mod}, remains {mod} if held"
-        }}"""
+                    "from": {{
+                        "key_code": "{mod}",
+                        "modifiers": {{ "optional": ["any"] }}
+                    }},
+                    "parameters": {{
+                        "basic.to_delayed_action_delay_milliseconds": 150,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    }},
+                    "to_delayed_action": {{ "to_if_canceled": [{{ "key_code": "{key}" }}] }},
+                    "to_if_alone": [
+                        {{
+                            "halt": true,
+                            "key_code": "{key}"
+                        }}
+                    ],
+                    "to_if_held_down": [{{ "key_code": "{mod}" }}],
+                    "conditions": [
+                        {",\n                        ".join(input_source_conditions)}
+                    ],
+                    "type": "basic",
+                    "description": "Get {key} when tap {mod}, remains {mod} if held"
+                }}"""
 
 
 def build_layer(layer_map, layer_var):
