@@ -458,6 +458,7 @@ def build_hands_down_to_jis_qwerty_map():
                     "from": {{"key_code": "{jis_key}", "modifiers": {{"mandatory": ["shift"], "optional": ["any"]}}}},
                     "to": [{{"key_code": "2", "modifiers": ["left_shift"]}}],
                     "conditions": [
+                        {{"input_sources": [{{ "input_source_id": "com.apple.keylayout.British" }}], "type": "input_source_if"}},
                         {",\n                        ".join(input_source_conditions)}
                     ],
                     "description": "Get shift+2 for double-quote on British layout when press shift+{jis_key}"

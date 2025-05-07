@@ -623,6 +623,7 @@
                     "from": {"key_code": "p", "modifiers": {"mandatory": ["shift"], "optional": ["any"]}},
                     "to": [{"key_code": "2", "modifiers": ["left_shift"]}],
                     "conditions": [
+                        {"input_sources": [{ "input_source_id": "com.apple.keylayout.British" }], "type": "input_source_if"},
                         {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
                         {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
                         {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
