@@ -330,11 +330,11 @@ rules_description = f"{layout_name} on JIS layout in non-Japanese input mode"
 # physical keyboard), this allows the user to run any keyboard layout in non-Japanese
 # mode (and macOS lets you set the romaji layout separately so that can still follow
 # the JIS punctuation layout and keycaps).
-input_source_condition = """"conditions": [
-                        {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
-                        {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
-                        {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
-                    ]"""
+input_source_conditions = [
+    '{"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"}',
+    '{"input_sources": [{ "language": "ja" }], "type": "input_source_unless"}',
+    '{"keyboard_types": ["jis"], "type": "keyboard_type_if"}',
+]
 
 
 def make_to_key(key):
@@ -436,7 +436,9 @@ def build_hands_down_to_jis_qwerty_map():
                     "parameters": {{
                         "basic.simultaneous_threshold_milliseconds": {50 if len(combo_keys) < 3 else 100}
                     }},
-                    {input_source_condition},
+                    "conditions": [
+                        {",\n                        ".join(input_source_conditions)}
+                    ],
                     "description": "Get {key} when press combo {", ".join(combo_keys)}"
                 }}
 """
@@ -452,7 +454,9 @@ def build_hands_down_to_jis_qwerty_map():
                     "type": "basic",
                     "from": {{"key_code": "{jis_key}", "modifiers": {{"mandatory": ["shift"], "optional": ["any"]}}}},
                     "to": [{{"key_code": "2", "modifiers": ["left_shift"]}}],
-                    {input_source_condition},
+                    "conditions": [
+                        {",\n                        ".join(input_source_conditions)}
+                    ],
                     "description": "Get shift+2 for double-quote on British layout when press shift+{jis_key}"
                 }}
 """
@@ -464,7 +468,9 @@ def build_hands_down_to_jis_qwerty_map():
                     "type": "basic",
                     "from": {{"key_code": "{jis_key}", "modifiers": {{"optional": ["any"]}}}},
                     "to": [{{"key_code": "{hd_key}"}}],
-                    {input_source_condition},
+                    "conditions": [
+                        {",\n                        ".join(input_source_conditions)}
+                    ],
                     "description": "Get {hd_key} when press {jis_key}"
                 }}
 """
