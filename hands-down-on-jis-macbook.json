@@ -466,6 +466,38 @@
                 {
                     "type": "basic",
                     "from": {
+                        "simultaneous": [{"key_code": "japanese_eisuu"}, {"key_code": "c"}]
+                    },
+                    "to": [{"key_code": "international1", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
+                    "conditions": [
+                        {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
+                        {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
+                        {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
+                    ],
+                    "description": "Get S(international1) when press combo japanese_eisuu, c"
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [{"key_code": "right_command"}, {"key_code": "comma"}]
+                    },
+                    "to": [{"key_code": "semicolon", "modifiers": ["left_shift"]}],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 50
+                    },
+                    "conditions": [
+                        {"identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if"},
+                        {"input_sources": [{ "language": "ja" }], "type": "input_source_unless"},
+                        {"keyboard_types": ["jis"], "type": "keyboard_type_if"}
+                    ],
+                    "description": "Get S(semicolon) when press combo right_command, comma"
+                },
+                {
+                    "type": "basic",
+                    "from": {
                         "simultaneous": [{"key_code": "k"}, {"key_code": "comma"}]
                     },
                     "to": [{"key_code": "1", "modifiers": ["left_shift"]}],

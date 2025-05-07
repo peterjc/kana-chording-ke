@@ -297,6 +297,8 @@ combos = {  # defined from JIS qwerty key names
     ("period", "slash", "international1"): "return_or_enter",
     # Vertical 2-key combos (left-side near Qwerty location):
     ("g", "v"): "S(international1)",  # pipe
+    ("japanese_eisuu", "c"): "S(international1)",  # pipe using thumb
+    ("right_command", "comma"): "S(semicolon)",  # colon (like adj. thumb-shift)
     ("k", "comma"): "S(1)",  # exclamation-mark
     ("q", "a"): "international3",  # backtick (not exclamation-mark)
     ("w", "s"): "S(quote)",  # @-sign (often shift-2) in British layout)
