@@ -279,21 +279,35 @@ nav_layer = (
     "🔻",
     "🔻",
 )
-combos = {  # defined from JIS qwerty
+combos = {  # defined from JIS qwerty key names
+    # Horizontal 2-key combos for brackets (open on left, close on right):
     ("r", "t"): "S(open_bracket)",  # {
     ("f", "g"): "S(9)",  # (
     ("c", "v"): "open_bracket",  # [
     ("i", "o"): "S(close_bracket)",  # }
     ("k", "l"): "S(0)",  # )
     ("comma", "period"): "close_bracket",  # ]
-    ("l", "period"): "S(1)",  # !
-    ("l", "o"): "S(slash)",  # ?
+    # Vertical 2-key combos for Q & Z (outside base core):
     ("backslash", "right_shift"): "q",
     ("quote", "international1"): "z",
+    # Horizontal 3-key combos:
     ("s", "d", "f"): "escape",
     ("z", "x", "c"): "tab",
     ("l", "semicolon", "quote"): "delete_or_backspace",
     ("period", "slash", "international1"): "return_or_enter",
+    # Vertical 2-key combos (left-side near Qwerty location):
+    ("g", "v"): "S(international1)",  # pipe
+    ("k", "comma"): "S(1)",  # exclamation-mark
+    ("q", "a"): "international3",  # backtick (not exclamation-mark)
+    ("w", "s"): "S(quote)",  # @-sign (often shift-2) in British layout)
+    ("e", "d"): "S(3)",  # £-sign in British layout
+    ("r", "f"): "S(4)",  # $-sign
+    ("t", "g"): "S(5)",  # %-sign
+    ("i", "k"): "S(6)",  # ^-sign
+    ("o", "l"): "S(7)",  # &-sign
+    ("p", "semicolon"): "non_us_pound",  # #-sign (often shift-3, mirrored from left)
+    ("open_bracket", "quote"): "international1",  # backslash
+    ("close_bracket", "backslash"): "S(backslash)",  # tilde
 }
 
 # Sanity-check layout:
