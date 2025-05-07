@@ -12,7 +12,8 @@ keyboards with the letter R and space on thumb keys.
 
 The Apple MacBook sold in Japan has a keyboard with a short spacebar (just
 over three keys wide, underneath the Qwerty VBN keys), flanked on the by
-the "eisuu" (switch to qwerty) and "kana" (switch to Japanese mode) keys.
+the "eisuu" (英数, switch to alphanumeric mode) and "kana" (かな, switch to
+Japanese kana mode) keys.
 
 This lets us remap the Japanese MacBook keyboard into three rows of five
 per hand, with two keys per thumb:
