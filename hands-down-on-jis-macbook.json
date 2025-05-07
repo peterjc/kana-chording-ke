@@ -241,6 +241,13 @@
                     "to": [{"key_code": "z"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
                     "description": "Get z when press right_shift on navigation layer"
+                },
+                {
+                    "type": "basic",
+                    "from": {"key_code": "japanese_eisuu", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "0"}],
+                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
+                    "description": "Get 0 when press japanese_eisuu on navigation layer"
                 }
 
             ]
