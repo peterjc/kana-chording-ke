@@ -72,7 +72,8 @@ inverted HDP layout) and vi/vim friendly navigation block (H/J left/right,
 K/J up/down), plus readline friendly control shortcuts P/N previous/next,
 but adds neighbouring B/F back/forward (and have A/E goto start/end of line).
 
-The punctuation changes are inspired by [Enthium](https://github.com/sunaku/enthium).
+The punctuation changes are inspired by [Enthium](https://github.com/sunaku/enthium)
+(with adjustments as that also mirrors the two halves of the keyboard).
 
 ## Full layout
 
@@ -116,8 +117,10 @@ Cntr | sV | nN | tT | hH | kK   | '@  | #~ | ,< | aA | eE | iI | cC | ↵
 bB   | fF | dD | lL | jJ | Caps | \\| | `¬ | ;: | uU | oO | yY | wW | ⇧
 ⇧    | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫   | ⇧  |    | 🌐 | C | ↑ | ↓ | →
 
-Left-shift is a quite wide key, and becomes the letter B, comfortable
-for the pinkie finger.
+Left-shift is quite a wide key, and becomes the letter B when tapped
+(comfortable for the pinkie finger), but still acts as shift when held.
+Likewise right-shift is also a wide key, and becomes W when tapped, but
+still acts as shift when held.
 
 Note rather than using these middle punctuation keys, I intend to use
 layers and chording combinations (see below).
