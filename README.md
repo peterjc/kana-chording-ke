@@ -1,3 +1,6 @@
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/peterjc/kana-chording-ke/main.svg)](https://results.pre-commit.ci/latest/github/peterjc/kana-chording-ke/main)
+[![Code Style](https://img.shields.io/badge/Code%20style-black-000000.svg)](https://github.com/python/black)
+
 This repository is a holding point for assorted keyboard layout experiments
 focused on Japanese text entry, and in particular the possibilities offered
 by keyboard chording. Currently this is focused on in-software keyboard
