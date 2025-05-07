@@ -229,12 +229,12 @@ nav_layer = (
     "🔻",  # originally caret/tilde in JIS
     "🔻",  # originally yen/pipe in JIS
     # Top row:
-    "4",  # was tab; phone-orientation number pad under JIS 123
-    "5",
-    "6",
-    "S(3)",  # hash/pound if UK layout, #
-    "S(4)",  # dollar sign, $
-    "S(5)",  # percent, %
+    "🔻",  # tab
+    "slash",
+    "1",
+    "2",
+    "3",
+    "equal_sign",
     "🔻",
     "🔻",
     "escape",
@@ -243,12 +243,12 @@ nav_layer = (
     "end",
     "delete_or_backspace",
     # Home row:
-    "7",  # was control
-    "8",
-    "9",
-    "international1",  # backslash on JIS keyboard set to British PC
-    "S(quote)",  # at-sign @ with British PC layout
-    "S(6)",  # caret, ^
+    "🔻",  # control
+    "S(8)",  # *
+    "4",
+    "5",
+    "6",
+    "S(equal_sign)",
     "🔻",
     "🔻",
     "page_up",
@@ -257,11 +257,11 @@ nav_layer = (
     "right_arrow",
     "q",
     # Bottom row:
-    "0",  # was shift on JIS
-    "S(international1)",  # pipe on JIS keyboard set to UK layout, |
-    "S(backslash)",  # tilde on JIS keyboard set to UK layout, ~
-    "backslash",  # hash/pound on JIS keyboard set to UK layout, #
-    "S(7)",  # ampersand, &
+    "period",  # was shift on JIS
+    "7",
+    "8",
+    "9",
+    "hyphen",
     "🔻",
     "🔻",
     "🔻",

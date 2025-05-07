@@ -34,45 +34,38 @@
         },
                 {
                     "type": "basic",
-                    "from": {"key_code": "tab", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "4"}],
-                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 4 when press tab on navigation layer"
-                },
-                {
-                    "type": "basic",
                     "from": {"key_code": "q", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "5"}],
+                    "to": [{"key_code": "slash"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 5 when press q on navigation layer"
+                    "description": "Get slash when press q on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "w", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "6"}],
+                    "to": [{"key_code": "1"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 6 when press w on navigation layer"
+                    "description": "Get 1 when press w on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "e", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "3", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "2"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(3) when press e on navigation layer"
+                    "description": "Get 2 when press e on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "r", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "4", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "3"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(4) when press r on navigation layer"
+                    "description": "Get 3 when press r on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "t", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "5", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "equal_sign"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(5) when press t on navigation layer"
+                    "description": "Get equal_sign when press t on navigation layer"
                 },
                 {
                     "type": "basic",
@@ -111,45 +104,38 @@
                 },
                 {
                     "type": "basic",
-                    "from": {"key_code": "left_control", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "7"}],
-                    "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 7 when press left_control on navigation layer"
-                },
-                {
-                    "type": "basic",
                     "from": {"key_code": "a", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "8"}],
+                    "to": [{"key_code": "8", "modifiers": ["left_shift"]}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 8 when press a on navigation layer"
+                    "description": "Get S(8) when press a on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "s", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "9"}],
+                    "to": [{"key_code": "4"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 9 when press s on navigation layer"
+                    "description": "Get 4 when press s on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "d", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "international1"}],
+                    "to": [{"key_code": "5"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get international1 when press d on navigation layer"
+                    "description": "Get 5 when press d on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "f", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "quote", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "6"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(quote) when press f on navigation layer"
+                    "description": "Get 6 when press f on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "g", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "6", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "equal_sign", "modifiers": ["left_shift"]}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(6) when press g on navigation layer"
+                    "description": "Get S(equal_sign) when press g on navigation layer"
                 },
                 {
                     "type": "basic",
@@ -189,37 +175,37 @@
                 {
                     "type": "basic",
                     "from": {"key_code": "left_shift", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "0"}],
+                    "to": [{"key_code": "period"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get 0 when press left_shift on navigation layer"
+                    "description": "Get period when press left_shift on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "z", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "international1", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "7"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(international1) when press z on navigation layer"
+                    "description": "Get 7 when press z on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "x", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "backslash", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "8"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(backslash) when press x on navigation layer"
+                    "description": "Get 8 when press x on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "c", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "backslash"}],
+                    "to": [{"key_code": "9"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get backslash when press c on navigation layer"
+                    "description": "Get 9 when press c on navigation layer"
                 },
                 {
                     "type": "basic",
                     "from": {"key_code": "v", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "7", "modifiers": ["left_shift"]}],
+                    "to": [{"key_code": "hyphen"}],
                     "conditions": [{"name": "navigation_layer", "type": "variable_if", "value": 1}],
-                    "description": "Get S(7) when press v on navigation layer"
+                    "description": "Get hyphen when press v on navigation layer"
                 },
                 {
                     "type": "basic",
