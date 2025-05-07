@@ -60,7 +60,7 @@ Right 5 (or 6) columns, thumbs are shift and spacebar:
 
 1 | 2 | 3 | 4 | 5 | 6
 --|---|---|---|---|--
-/ | . | ' | - | = | 
+/ | . | ' | - | = |
 , | A | E | I | C | Q
 ; | U | O | Y | W | Z
 
@@ -87,8 +87,8 @@ The cursor keys are not literally a row of four.
 
 1!   | 2" | 3# | 4$ | 5% | 6& | 7' | 8( | 9) | 0  | -= | ^~ | ¥\| | ⌫
 -----|----|----|----|----|----|----|----|----|----|----|----|-----|--
-Tab  | qQ | wW | eE | rE | tT | yY | uU | iI | oO | pP | @` | [{  | ↵ 
-Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;+ | :* | ]}  | ↵ 
+Tab  | qQ | wW | eE | rE | tT | yY | uU | iI | oO | pP | @` | [{  | ↵
+Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;+ | :* | ]}  | ↵
 ⇧    | zZ | xX | cC | vV | bB | nN | mM | ,< | .> | /? | _  | ⇧   | ⇧
 Caps | ⌥  | ⌘  | 英数  |  |    |   | かな | ⌘  | 🌐 | ← | ↑ | ↓ | →
 
@@ -98,8 +98,8 @@ or British work - but I use British PC:
 
 1!   | 2" | 3£ | 4$ | 5% | 6^ | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
 -----|----|----|----|----|----|----|----|----|----|----|-----|-----|--
-Tab  | qQ | wW | eE | rR | tT | yY | uU | iI | oO | pP | [{  | ]}  | ↵ 
-Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;: | '@  | #~  | ↵ 
+Tab  | qQ | wW | eE | rR | tT | yY | uU | iI | oO | pP | [{  | ]}  | ↵
+Cntr | aA | sS | dD | fF | gG | hH | jJ | kK | lL | ;: | '@  | #~  | ↵
 ⇧    | zZ | xX | cC | vV | bB | nN | mM | ,< | .> | /? | \\| | ⇧   | ⇧
 Caps | ⌥  | ⌘  | 英数  |  |    |   | かな | ⌘  | 🌐 | ← | ↑ | ↓ | →
 
@@ -111,8 +111,8 @@ With my Hands Down Promethium "pico mod" rules active this becomes:
 
 1!   | 2" | 3£ | 4$ | 5% | 6^   | 7&  | 8* | 9( | 0) | `¬ | zZ | qQ | ⌫
 -----|----|----|----|----|------|-----|----|----|----|----|----|----|--
-Tab  | vV | pP | gG | mM | xX   | [{  | ]} | /? | .> | '@ | -_ | =+ | ↵ 
-Cntr | sV | nN | tT | hH | kK   | '@  | #~ | ,< | aA | eE | iI | cC | ↵ 
+Tab  | vV | pP | gG | mM | xX   | [{  | ]} | /? | .> | '@ | -_ | =+ | ↵
+Cntr | sV | nN | tT | hH | kK   | '@  | #~ | ,< | aA | eE | iI | cC | ↵
 bB   | fF | dD | lL | jJ | Caps | \\| | `¬ | ;: | uU | oO | yY | wW | ⇧
 ⇧    | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫   | ⇧  |    | 🌐 | C | ↑ | ↓ | →
 
@@ -130,8 +130,8 @@ becomes the following (only showing shift for the number row):
 
 1! | 2" | 3£ | 4$ | 5% | 6^   | 7& | 8* | 9( | 0) | -_ | =+  | \`¬ | ⌫
 ---|----|----|----|----|------|----|----|----|----|----|-----|-----|--
-4  | 5  | 6  | £  | $  | %    | [  | ]  | Esc | Home | ↑ | End | ⌫  | ↵ 
-7  | 8  | 9  | \\ | @  | ^    | '  | #  | PgUp | ← | ↓ | → | qQ  | ↵ 
+4  | 5  | 6  | £  | $  | %    | [  | ]  | Esc | Home | ↑ | End | ⌫  | ↵
+7  | 8  | 9  | \\ | @  | ^    | '  | #  | PgUp | ← | ↓ | → | qQ  | ↵
 0  | \| | \~ | \# | \& | Caps | \\ | \` | PgDn | ⌥← | ↵ | ⌥→ | zZ | zZ
 ⇧  | ⌥  | ⌘  | rR | ⌫  | ⌫    | ⌫  | ⇧  |   | 🌐 | ← | ↑ | ↓ | →
 
