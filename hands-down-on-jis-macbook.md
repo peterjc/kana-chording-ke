@@ -19,7 +19,7 @@ This lets us remap the Japanese MacBook keyboard into three rows of five
 per hand, with two keys per thumb:
 
 * The left hand still uses the conventional home-keys (Qwerty ASDF), with
-  "eisuu" and space-bar as thumb keys. We apply a "wide mod" to the bottom
+  "eisuu" and space-bar as thumb keys. We apply a "angle mod" to the bottom
   row, but with JIS and ANSI keyboards lacking the ISO key between
   left-shift and Z, we map left-shift to a letter instead.
 * In order to have non-overlapping thumb-keys for the right hand we must use
