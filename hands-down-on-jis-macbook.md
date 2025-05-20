@@ -1,4 +1,4 @@
-# Hands Down Promethium on Japanese Apple Keyboard
+# Hands Down Promethium (Pico mod) on Japanese Apple Keyboard
 
 ## Concept
 
@@ -49,7 +49,7 @@ you might want to type romaji using Hands Down?).
 ## Core Layout
 
 This is my personal variant of the top/bottom row inverted Hands Down
-Promethium layout. Left 5 columns, thumbs are R and backspace:
+Promethium layout, the "Pico mod". Left 5 columns, thumbs are R and backspace:
 
 1 | 2 | 3 | 4 | 5
 --|---|---|---|--
