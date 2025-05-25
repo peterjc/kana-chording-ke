@@ -8,6 +8,9 @@ modification on macOS using the free open source software [Karabiner
 Elements](https://karabiner-elements.pqrs.org/), but many of the ideas could
 equally be done with a programmable keyboard.
 
+As of 25 May 2025, I moved the to https://codeberg.org/peterjc/kana-chording-ke
+and have archived the GitHub copy.
+
 # Projects
 
 Currently there are three main sub-projects:
